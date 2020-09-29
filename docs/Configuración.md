@@ -2,7 +2,7 @@
 
 ## Conectando nuestro PC y GitHub
 
-### Creación de las claves
+### Creación de par de claves pública/privada
 
 En primer lugar, y para trabajar más cómodamente configuraremos desde la terminal un par de claves pública/privada para no tener que escribir repetitivamente nuestras credenciales al trabajar entre nuestro equipo y nuestro servicio remoto. Para ello usamos el comando ssh-keygen, generándose ambas claves.
 
