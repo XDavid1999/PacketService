@@ -1,6 +1,6 @@
 # PacketService
 
-![](images/box.png)
+![](/docs/images/box.png)
 
 
 ## Descripción:
