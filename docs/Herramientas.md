@@ -2,7 +2,7 @@
 
 ## Tools
 
-- [x] Lenguaje: Utilizaremos **Node.js: [Node](https://nodejs.org/)** como lenguaje para la realización de nuestro proyecto.
+- [x] Lenguaje: Utilizaremos **[Node.js](https://nodejs.org/)** como lenguaje para la realización de nuestro proyecto.
 - [x] Framework: Se hará uso de **express** para la gestión y organización del proyecto, por ser bastante conocido y estar bien documentado.
 - [x] BD: Para la gestión de la información utilizaremos **mysql** por haberlo usado en otras asignaturas y ser bastante versátil y fácil de usar.
 
