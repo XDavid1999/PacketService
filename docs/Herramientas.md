@@ -4,7 +4,7 @@
 
 - [x] **Lenguaje:** Utilizaremos [Node.js](https://nodejs.org/) como lenguaje para la realización de nuestro proyecto.
 - [x] **Framework:** Se hará uso de [Express](https://expressjs.com/) para la gestión y organización del proyecto, por ser bastante conocido y estar bien documentado.
-- [x] **BD:** Para la gestión de la información utilizaremos [mysql](https://www.mysql.com/) por haberlo usado en otras asignaturas y ser bastante versátil y fácil de usar.
+- [x] **BD:** Para la gestión de la información utilizaremos [Mysql](https://www.mysql.com/) por haberlo usado en otras asignaturas y ser bastante versátil y fácil de usar.
 
 ## Detalles
 
