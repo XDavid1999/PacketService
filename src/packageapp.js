@@ -8,7 +8,6 @@ class PacketService{
     this.localizacionActual = origen;
   }
 
-
   get descripcion(){
     return this.descripcion;
   }
