@@ -23,5 +23,5 @@ Tras revisar las historias de usuarios que se nos han planteado podemos ver que 
 -  **BD:** Para la gestión de la información utilizaremos [Mysql](https://www.mysql.com/) por haberlo usado en otras asignaturas y ser bastante versátil y fácil de usar.
 
 ## Documentación:
-- [Pulse para ver como se realizó la configuración de git y GitHub](docs/Configuración.md)
-- [Pulse para ver los pasos seguidos para la realización del proyecto](docs/Steps.md)
+- [Pulse para ver como se realizó la configuración de git y GitHub.](docs/Configuración.md)
+- [Pulse para ver los pasos seguidos para la realización del proyecto.](docs/Steps.md)
