@@ -27,9 +27,4 @@ class PacketService{
   get localizacionActual(){
     return this.localizacionActual;
   }
-
-  get idpaquete(){
-    return this.idpaquete;
-  }
-
 }
