@@ -17,6 +17,10 @@ La aplicación que se pretende desarrollar permitirá a los usuarios de la misma
 #### Concreción de rasgos de la aplicación
 Tras revisar las historias de usuarios que se nos han planteado podemos ver que el servicio que se desarrollará será una parte de un sistema mayor y ayudará a un usuario a poder gestionar además de consultar sus envíos. De este modo, con nuestro servicio podrá modificarse información relativa a un paquete, borrarla, crear nuevos paquetes, etc. Nos centramos pues en el paquete en sí como identidad en lugar del usuario.
 
+## Enlaces a ubicaciones del proyecto
+Para acceder al código fuente pulsa [aqui](https://github.com/XDavid1999/PacketService/tree/master/src)
+Para acceder al fichero iv.yaml pulsa [aqui](https://github.com/XDavid1999/PacketService/blob/master/iv.yaml)
+
 ## Herramientas
 -  **Lenguaje:** Utilizaremos [Node.js](https://nodejs.org/) como lenguaje para la realización de nuestro proyecto.
 -  **Framework:** Se hará uso de [Express](https://expressjs.com/) para la gestión y organización del proyecto, por ser bastante conocido y estar bien documentado.
