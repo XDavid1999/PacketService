@@ -77,6 +77,7 @@ class Packet{
   set agencia(agency){
     this.agencia=agency;
   }
+
   /**
    * Método para obtener información de un paquete HU01
    * No se concreta que recibirá este método porque podría localizarse
@@ -88,6 +89,8 @@ class Packet{
 
     /**
    * Método para cancelar el envío de un paquete HU02
+   * No se concreta que recibirá este método porque podría cancelarse
+   * por id, proporcionando datos distintivos ...
    */
   cancelShipping() {
     
