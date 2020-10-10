@@ -15,7 +15,7 @@ Hoy en día el transporte y la logística están entre las actividades comercial
 La aplicación que se pretende desarrollar permitirá a los usuarios de la misma tener un control de los paquetes que vayan a enviar/recibir en una agencia de transporte. A grandes rasgos podrían saber cual es su punto de partida, su destino, peso, procedencia, etc.
 
 #### Concreción de rasgos de la aplicación
-Tras revisar las historias de usuarios que se nos han planteado podemos ver que el servicio que se desarrollará será una parte de un sistema mayor y ayudará a un usuario a poder gestionar además de consultar sus envíos. De este modo, con nuestro servicio podrá modificarse información relativa a paquetes pertenecientes a un usuario, borrarla, crear nuevos paquetes, etc.
+Tras revisar las historias de usuarios que se nos han planteado podemos ver que el servicio que se desarrollará será una parte de un sistema mayor y ayudará a un usuario a poder gestionar además de consultar sus envíos. De este modo, con nuestro servicio podrá modificarse información relativa a paquetes pertenecientes a un usuario, borrarla, crear nuevos paquetes, etc. También se permitirá a los transportistas actualizar la ubicación de los envíos en curso para que los usuarios puedan saber donde están en todo momento.
 
 ## Desarrollo del Proyecto
 
