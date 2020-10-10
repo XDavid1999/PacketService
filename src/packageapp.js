@@ -1,7 +1,7 @@
 class Packet{
 
   /**
-     * Constructor básico de la clase Jugador.
+     * Constructor básico de la clase Packet.
      * @param {String} descripcion - Breve descripción del paquete
      * @param {Number} peso - Peso del paquete
      * @param {String} destino - Destino al que se enviará del paquete
@@ -16,6 +16,8 @@ class Packet{
     this.destino = destino;
     this.origen = origen;
     this.localizacionActual = origen;
+    this.agencia = agencia;
+
   }
 
   /**
