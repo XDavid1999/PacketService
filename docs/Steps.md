@@ -14,8 +14,9 @@ En este documento se describirán brevemente las pautas para llevar a cabo el pr
 
 - Actualizar el archivo README concretando el funcionamiento de la aplicación y el por qué elegirla además de las herramientas.
 - Añadir el archivo iv.yaml.
-- crear la carpeta /src que contendrá archivos relativos al proyecto, entre ellos un archivo que contendrá aspectos básicos de la clase que se creará.
+- Crear la carpeta /src que contendrá archivos relativos al proyecto, entre ellos un archivo que contendrá aspectos básicos de la clase que se creará.
 - Crear milestones para este hito y los dos siguientes además de los issues correspondientes a este hito.
 - Añadir al hito-1.md la nueva versión del proyecto con pull request.
+- Enlazar la HU, Milestones e Issues a Readme.
 
 ## Hito 2: Testeando el proyecto
