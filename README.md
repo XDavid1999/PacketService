@@ -53,4 +53,4 @@ Breve descripción de algunas de las herramientas de las que se hará uso.
 
 ## Documentación:
 
-- [Pulse para ver como se realizó la configuración de git y GitHub en el Hito 0.](docs/Configuración.md)
+- [Pulse para ver como se realizó la configuración de git y GitHub inicial.](docs/Configuración.md)
