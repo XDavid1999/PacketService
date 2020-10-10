@@ -50,7 +50,37 @@ class Packet{
   }
 
   /**
+   * métodos set de la clase
+   * próximamente se implementarán más métodos bajo demanda
+   */
+
+  set localizacionActual(localizacion){
+    this.localizacionActual=localizacion;
+  }
+
+  set descripcion(description){
+    this.descripcion=description;
+  }
+
+  set peso(weight){
+    this.peso=weight;
+  }
+
+  set destino(destiny){
+    this.destino=destiny;
+  }
+
+  set origen(origin){
+    this.origen=origin;
+  }
+
+  set agencia(agency){
+    this.agencia=agency;
+  }
+  /**
    * Método para obtener información de un paquete HU01
+   * No se concreta que recibirá este método porque podría localizarse
+   * por id, proporcionando datos distintivos ...
    */
   packageInfo() {
     
