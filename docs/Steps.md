@@ -18,4 +18,4 @@ En este documento se describirán brevemente las pautas para llevar a cabo el pr
 - Crear milestones para este hito y los dos siguientes además de los issues correspondientes a este hito.
 - Añadir al hito-1.md la nueva versión del proyecto con pull request.
 
-## Hito 1: Testeando el proyecto
+## Hito 2: Testeando el proyecto
