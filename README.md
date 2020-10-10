@@ -19,7 +19,7 @@ Tras revisar las historias de usuarios que se nos han planteado podemos ver que 
 
 ## Desarrollo del Proyecto
 
-En este apartado se describe como se realizará el desarrollo del proyecto hasta completarlo. Podremos ver que se hará en cada parte del desarrollo. Quedarán reflejados en el fichero [Steps](docs/Steps.md) los pasos para la consecución del objetivo, la app.
+En este apartado se describe como se realizará el progreso del proyecto hasta completarlo. Podremos ver que se hará en cada parte del desarrollo. Quedarán reflejados en el fichero [Steps](docs/Steps.md) los pasos para la consecución del objetivo, la app.
 
 ### Milestones
 
