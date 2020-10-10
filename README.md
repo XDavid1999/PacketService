@@ -24,7 +24,7 @@ En este apartado se describe como se realizará el desarrollo del proyecto hasta
 ### Milestones
 
 - [Milestone 1](https://github.com/XDavid1999/PacketService/milestone/1) 
-    - [Issues Cerrados](https://github.com/XDavid1999/PacketService/milestone/1?closed=0) 
+    - [Issues Abiertos](https://github.com/XDavid1999/PacketService/milestone/1?closed=0) 
 
     - [Issues Cerrados](https://github.com/XDavid1999/PacketService/milestone/1?closed=1) 
 
