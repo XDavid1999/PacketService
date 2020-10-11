@@ -21,22 +21,18 @@ Tras revisar las historias de usuarios que se nos han planteado podemos ver que 
 
 En este apartado se informará del progreso del proyecto hasta completarlo. Podremos ver que se hará en cada parte del desarrollo. Quedarán reflejados en el fichero [Steps](docs/Steps.md) los pasos para la consecución del objetivo, la app.
 
-### Milestones
+- [Milestones](https://github.com/XDavid1999/PacketService/milestones) 
 
-- [Milestone 1](https://github.com/XDavid1999/PacketService/milestone/1) 
-    - [Issues Abiertos](https://github.com/XDavid1999/PacketService/milestone/1?closed=0) 
+- [Issues Abiertos](https://github.com/XDavid1999/PacketService/issues?q=is%3Aopen+is%3Aissue)
 
-    - [Issues Cerrados](https://github.com/XDavid1999/PacketService/milestone/1?closed=1) 
+- [Issues Cerrados](https://github.com/XDavid1999/PacketService/issues?q=is%3Aissue+is%3Aclosed)
 
-- [Milestone 2](https://github.com/XDavid1999/PacketService/milestone/2) 
-- [Milestone 3](https://github.com/XDavid1999/PacketService/milestone/3) 
+- [Historias de Usuario](https://github.com/XDavid1999/PacketService/issues?q=is%3Aissue+label%3Auser-stories)
 
+## Enlaces a ubicaciones del proyecto
 
-### Historias de usuario
-
-- [Historia 1](https://github.com/XDavid1999/PacketService/issues/3) 
-- [Historia 2](https://github.com/XDavid1999/PacketService/issues/4) 
-- [Historia 3](https://github.com/XDavid1999/PacketService/issues/5) 
+- Para acceder al [código](https://github.com/XDavid1999/PacketService/tree/master/src) fuente del proyecto.
+- Para acceder al fichero [iv.yaml](https://github.com/XDavid1999/PacketService/blob/master/iv.yaml).
 
 ## Herramientas
 
@@ -45,11 +41,6 @@ Breve descripción de algunas de las herramientas de las que se hará uso.
 -  **Lenguaje:** Utilizaremos [Node.js](https://nodejs.org/) como lenguaje para la realización de nuestro proyecto.
 -  **Framework:** Se hará uso de [Hapi](https://hapi.dev/) para la gestión y organización del proyecto, por ser bastante conocido y estar bien documentado.
 -  **BD:** Para la gestión de la información utilizaremos [Mysql](https://www.mysql.com/) por haberlo usado en otras asignaturas y ser bastante versátil y fácil de usar.
-
-## Enlaces a ubicaciones del proyecto
-
-- Para acceder al [código](https://github.com/XDavid1999/PacketService/tree/master/src) fuente del proyecto.
-- Para acceder al fichero [iv.yaml](https://github.com/XDavid1999/PacketService/blob/master/iv.yaml).
 
 ## Documentación:
 
