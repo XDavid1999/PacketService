@@ -1,4 +1,4 @@
-export default class Package{
+class Package{
 
   /**
    * Constructor básico de la clase Packet.
