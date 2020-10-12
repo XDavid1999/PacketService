@@ -101,7 +101,7 @@ export default class Package{
    * por id, proporcionando datos distintivos ...
    */
   cancelShipping() {
-    console.log
+
   }
 
   /**
