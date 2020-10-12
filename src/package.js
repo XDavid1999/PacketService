@@ -10,14 +10,13 @@ class Packet{
    * @param {String} agencia - Agencia con la que se envirá el paquete 
    */
 
-  constructor(descripcion, peso, destino, origen, agencia) {
-    this.descripcion = descripcion;
-    this.peso = peso;
-    this.destino = destino;
-    this.origen = origen;
-    this.localizacionActual = origen;
-    this.agencia = agencia;
-
+  constructor(nuevadescripcion, nuevopeso, nuevodestino, nuevoorigen, nuevaagencia) {
+    this._descripcion = nuevadescripcion;
+    this._peso = nuevopeso;
+    this._destino = nuevodestino;
+    this._origen = nuevoorigen;
+    this._localizacionActual = nuevoorigen;
+    this._agencia = nuevaagencia;
   }
 
   /**
@@ -26,27 +25,27 @@ class Packet{
    */
 
   get descripcion(){
-    return this.descripcion;
+    return this._descripcion;
   }
 
   get peso(){
-    return this.peso;
+    return this._peso;
   }
 
   get destino(){
-    return this.destino;
+    return this._destino;
   }
 
   get origen(){
-    return this.origen;
+    return this._origen;
   }
 
   get localizacionActual(){
-    return this.localizacionActual;
+    return this._localizacionActual;
   }
 
   get agencia(){
-    return this.agencia;
+    return this._agencia;
   }
 
   /**
@@ -54,28 +53,29 @@ class Packet{
    * próximamente se implementarán más métodos bajo demanda
    */
 
+   
   set localizacionActual(localizacion){
-    this.localizacionActual=localizacion;
+    this._localizacionActual=localizacion;
   }
 
   set descripcion(nuevadescripcion){
-    this.descripcion=nuevadescripcion;
+    this._descripcion=nuevadescripcion;
   }
 
   set peso(nuevopeso){
-    this.peso=nuevopeso;
+    this._peso=nuevopeso;
   }
 
   set destino(nuevodestino){
-    this.destino=nuevodestino;
+    this._destino=nuevodestino;
   }
 
   set origen(nuevoorigen){
-    this.origen=nuevoorigen;
+    this._origen=nuevoorigen;
   }
 
   set agencia(nuevaagencia){
-    this.agencia=nuevaagencia;
+    this._agencia=nuevaagencia;
   }
 
   /**
@@ -84,7 +84,14 @@ class Packet{
    * por id, proporcionando datos distintivos ...
    */
   packageInfo() {
-    
+    console.log("Se muestran a continuación los datos del paquete",
+    "\n Descripción: ", this._descripcion,
+    "\n Peso: ", this._peso,
+    "\n Origen: ", this._origen,
+    "\n Destino: ", this._destino,
+    "\n Localización Actual: ", this._localizacionActual,
+    "\n Agencia de Transporte: ", this._agencia
+    );
   }
 
     /**
@@ -93,7 +100,7 @@ class Packet{
    * por id, proporcionando datos distintivos ...
    */
   cancelShipping() {
-    
+    console.log
   }
 
   /**
@@ -109,4 +116,10 @@ class Packet{
   sendingDate(){
     
   }
+
 }
+
+
+var paq = new Packet('descripcion', 1, 'destino', 'origen', 'agencia');
+
+console.log(paq.packageInfo());
