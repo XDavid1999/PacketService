@@ -1,4 +1,4 @@
-class Packet{
+export default class Package{
 
   /**
    * Constructor básico de la clase Packet.
@@ -21,7 +21,8 @@ class Packet{
 
   /**
    * métodos get de la clase
-   * próximamente se implementarán más métodos bajo demanda
+   * próximamente se implementarán
+   * más métodos bajo demanda
    */
 
   get descripcion(){
@@ -119,7 +120,10 @@ class Packet{
 
 }
 
+export default Package;
 
+/** 
 var paq = new Packet('descripcion', 1, 'destino', 'origen', 'agencia');
 
 console.log(paq.packageInfo());
+*/

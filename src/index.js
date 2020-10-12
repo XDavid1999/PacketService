@@ -1,7 +1,4 @@
-'use strict';
+import Package from "./package";
 
-var Packet = require('../src/packageapp.js');
-
-var paquete = new Packet();
-
-console.log();
+var us = new Package("a", 1, "b", "c", "d", "e");
+console.log(us.packageInfo());
