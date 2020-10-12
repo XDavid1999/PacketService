@@ -19,7 +19,7 @@ Tras revisar las historias de usuarios que se nos han planteado podemos ver que 
 
 ## Desarrollo del Proyecto
 
-En este apartado se informará del progreso del proyecto hasta completarlo pudiendo ver que se hará en cada parte del desarrollo. Quedarán reflejados en el fichero [Steps](docs/Steps.md) los pasos para la consecución del objetivo, la app. En él se detallan los avances que se hacen hito a hito.
+En este apartado se informará del progreso del proyecto hasta completarlo pudiendo ver que se hará en cada parte del desarrollo. Quedarán reflejados en el fichero [Steps](docs/Steps.md) los pasos para la consecución del objetivo, la app. En él se detallan los avances que se hacen en cada milestone.
 
 - [Milestones](https://github.com/XDavid1999/PacketService/milestones) 
 
