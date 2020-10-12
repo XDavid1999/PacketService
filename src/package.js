@@ -2,6 +2,7 @@ class Package{
 
   /**
    * Constructor básico de la clase Packet.
+   * @param {String} Nickusuario - Nickusuario al que pertenece el del paquete
    * @param {String} descripcion - Breve descripción del paquete
    * @param {Number} peso - Peso del paquete
    * @param {String} destino - Destino al que se enviará del paquete
@@ -10,13 +11,17 @@ class Package{
    * @param {String} agencia - Agencia con la que se envirá el paquete 
    */
 
-  constructor(nuevadescripcion, nuevopeso, nuevodestino, nuevoorigen, nuevaagencia) {
+  constructor(nuevousuario, nuevadescripcion, nuevopeso, nuevodestino, nuevoorigen, nuevaagencia, nuevalocalizacionactual) {
+    this._nickusuario=nuevousuario;
     this._descripcion = nuevadescripcion;
     this._peso = nuevopeso;
     this._destino = nuevodestino;
     this._origen = nuevoorigen;
-    this._localizacionActual = nuevoorigen;
     this._agencia = nuevaagencia;
+    if(typeof nuevalocalizacionactual !== "undefined") 
+      this._localizacionActual=nuevalocalizacionactual;
+    else
+      this._localizacionActual = nuevoorigen;
   }
 
   /**
@@ -25,28 +30,32 @@ class Package{
    * más métodos bajo demanda
    */
 
-  get descripcion(){
-    return this._descripcion;
+  get _nickusuario(){
+    return this.nickusuario;
   }
 
-  get peso(){
-    return this._peso;
+  get _descripcion(){
+    return this.descripcion;
   }
 
-  get destino(){
-    return this._destino;
+  get _peso(){
+    return this.peso;
   }
 
-  get origen(){
-    return this._origen;
+  get _destino(){
+    return this.destino;
   }
 
-  get localizacionActual(){
-    return this._localizacionActual;
+  get _origen(){
+    return this.origen;
   }
 
-  get agencia(){
-    return this._agencia;
+  get _localizacionActual(){
+    return this.localizacionActual;
+  }
+
+  get _agencia(){
+    return this.agencia;
   }
 
   /**
@@ -54,29 +63,32 @@ class Package{
    * próximamente se implementarán más métodos bajo demanda
    */
 
+  set _nickusuario(nuevousuario){
+    this.nickusuario=nuevousuario;
+  }
    
-  set localizacionActual(localizacion){
-    this._localizacionActual=localizacion;
+  set _localizacionActual(localizacion){
+    this.localizacionActual=localizacion;
   }
 
-  set descripcion(nuevadescripcion){
-    this._descripcion=nuevadescripcion;
+  set _descripcion(nuevadescripcion){
+    this.descripcion=nuevadescripcion;
   }
 
-  set peso(nuevopeso){
-    this._peso=nuevopeso;
+  set _peso(nuevopeso){
+    this.peso=nuevopeso;
   }
 
-  set destino(nuevodestino){
-    this._destino=nuevodestino;
+  set _destino(nuevodestino){
+    this.destino=nuevodestino;
   }
 
-  set origen(nuevoorigen){
-    this._origen=nuevoorigen;
+  set _origen(nuevoorigen){
+    this.origen=nuevoorigen;
   }
 
-  set agencia(nuevaagencia){
-    this._agencia=nuevaagencia;
+  set _agencia(nuevaagencia){
+    this.agencia=nuevaagencia;
   }
 
   /**
@@ -86,44 +98,37 @@ class Package{
    */
   packageInfo() {
     console.log("Se muestran a continuación los datos del paquete",
+    "\n Propietario: ", this._nickusuario,
     "\n Descripción: ", this._descripcion,
     "\n Peso: ", this._peso,
     "\n Origen: ", this._origen,
     "\n Destino: ", this._destino,
     "\n Localización Actual: ", this._localizacionActual,
-    "\n Agencia de Transporte: ", this._agencia
-    );
-  }
-
-    /**
-   * Método para cancelar el envío de un paquete HU02
-   * No se concreta que recibirá este método porque podría cancelarse
-   * por id, proporcionando datos distintivos ...
-   */
-  cancelShipping() {
-
+    "\n Agencia de Transporte: ", this._agencia);
   }
 
   /**
-   * Método para enviar un paquete HU03
+   * Método para modificar algunos aspectos de un paquete
+   * 
+   * 
+   * Constructor básico de la clase Packet.
+   * @param {String} nuevadescripcion - Nueva descripción del paquete
+   * @param {Number} nuevopeso - Nuevo peso del paquete
+   * @param {String} nuevodestino - Nuevo destino al que se enviará del paquete
+   * @param {String} nuevaagencia - Nueva agencia con la que se envirá el paquete 
    */
-  sendPackage() {
-    
-  }
-
-  /**
-   * Método para obtener la fecha en la que se envió un paquete
-   */
-  sendingDate(){
-    
+   modificarPaquete(nuevadescripcion, nuevopeso, nuevodestino, nuevaagencia) {
+      if(this.localizacionActual==this.origen){
+        this.descripcion = nuevadescripcion;
+        this.peso = nuevopeso;
+        this.destino = nuevodestino;
+        this.agencia = nuevaagencia;
+        console.log("Paquete modificado correctamente");
+      }
+      else
+        console.log("El paquete no puede modificarse, el envío ya está en curso");
   }
 
 }
 
-export default Package;
-
-/** 
-var paq = new Packet('descripcion', 1, 'destino', 'origen', 'agencia');
-
-console.log(paq.packageInfo());
-*/
+module.exports = Package;
