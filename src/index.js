@@ -3,6 +3,10 @@
 const User = require("./user.js");
 const Package = require("./package.js");
 
+/**SE emulan las tablas de la BD */ 
+var paquetesEnCurso = new Array();
+var usuarios = new Array();
+
 /**
  * Si un usuario tiene dos paquetes con descripciónes, pesos, destino, origen y
  * agencia iguales en proceso de envío se tomará como duplicado y no se realizará
