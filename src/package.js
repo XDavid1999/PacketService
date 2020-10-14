@@ -26,8 +26,6 @@ class Package{
 
   /**
    * métodos get de la clase
-   * próximamente se implementarán
-   * más métodos bajo demanda
    */
 
   get _nickusuario(){
@@ -60,7 +58,6 @@ class Package{
 
   /**
    * métodos set de la clase
-   * próximamente se implementarán más métodos bajo demanda
    */
 
   set _nickusuario(nuevousuario){
@@ -127,11 +124,11 @@ class Package{
         this.peso = nuevopeso;
         this.destino = nuevodestino;
         this.agencia = nuevaagencia;
-        //console.log("Paquete modificado correctamente");
+        /**console.log("Paquete modificado correctamente");*/
       }
       else
-        //console.log("El paquete no puede modificarse, el envío ya está en curso");
         throw new Error ('El paquete no puede modificarse, el envío ya está en curso');
+        /**console.log("El paquete no puede modificarse, el envío ya está en curso");*/
   }
 
 }

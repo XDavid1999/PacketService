@@ -20,8 +20,6 @@ class User{
 
   /**
    * métodos get de la clase
-   * próximamente se implementarán 
-   * más métodos bajo demanda
    */
 
   get _correo(){
@@ -50,7 +48,6 @@ class User{
 
   /**
    * métodos set de la clase
-   * próximamente se implementarán más métodos bajo demanda
    */
 
   set _correo(nuevocorreo){
@@ -111,7 +108,7 @@ class User{
     this.nombre = nuevonombre;
     this.apellidos = nuevosapellidos;
     this.direccion = nuevadireccion;
-    //console.log("Usuario modificado correctamente");
+    /**console.log("Usuario modificado correctamente");*/
   }
 }
 
