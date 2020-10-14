@@ -40,8 +40,9 @@ Breve descripción de algunas de las herramientas de las que se hará uso.
 
 -  **Lenguaje:** Utilizaremos [Node.js](https://nodejs.org/) como lenguaje para la realización de nuestro proyecto.
 -  **Framework:** Se hará uso de [Hapi](https://hapi.dev/) para la gestión y organización del proyecto, por ser bastante conocido y estar bien documentado.
--  **BD:** Para la gestión de la información utilizaremos [Mysql](https://www.mysql.com/) por haberlo usado en otras asignaturas y ser bastante versátil y fácil de usar.
-
+-  **BD:** Para la gestión de la información utilizaremos [Mysql](https://www.mysql.com/) por haberlo usado en otras asignaturas, ser bastante versátil y fácil de usar.
+- **Test Framework** Haremos nuestros tests con [Mocha](https://mochajs.org/). Desconocía de su existencia antes de hacer los test pero documentándome en google he podido ver su potencial y he aprendido a usarlo.
+- **Librería de aserciones** Usaremos como librería de aserciones [Chai](https://mochajs.org/). Desconocía también de esta herrramienta  y tras ver que se usa en distintos casos junto a Mocha decidí usarla.
 ## Documentación:
 
 - [Pulse para ver como se realizó la configuración de git y GitHub inicial.](docs/Configuración.md)

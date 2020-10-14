@@ -36,10 +36,11 @@ describe("Testando métodos de index.js", function() {
             var longArray = moduloIndex.paquetesEnCurso.length;
             expect(longArray).to.equal(5);
         });
-        /**it("Testeando que no se envía un paquete si había ya uno en curso con misma descripción, peso, destino, origen y agencia del mismo usuario", ()=>{
-            var newFallo = new Error('Paquete duplicado');
-            expect(moduloIndex.sendPackage(package2)).to.throw(newFallo);
-        });*/
+        it("Testeando que no se envía un paquete si había ya uno en curso con misma descripción, peso, destino, origen y agencia del mismo usuario", ()=>{      
+            var longArray = moduloIndex.paquetesEnCurso.length;
+            expect(longArray).to.equal(5);      
+            expect(function() { moduloIndex.sendPackage(package2); }).to.throw(Error, /Paquete duplicado/);
+        });
     });
 
     describe("Testando el método adduser", function addUser(usuario) {
@@ -51,10 +52,11 @@ describe("Testando métodos de index.js", function() {
             var longArray = moduloIndex.usuarios.length;
             expect(longArray).to.equal(3);
         });
-        /**it("Testeando que no se añade un usuario si había ya uno con mismo nick o email", ()=>{
-            var newFallo = new Error('Paquete duplicado');
-            moduloIndex.sendPackage(package2).should.throw(Error('Paquete duplicado'));
-        });*/
+        it("Testeando que no se añade un usuario si había ya uno con mismo nick o email", ()=>{
+            var longArray = moduloIndex.usuarios.length;
+            expect(longArray).to.equal(3);
+            expect(function() { moduloIndex.addUser(user1); }).to.throw(Error, /Usuario duplicado/);
+        });
     });
 
     describe("Testando el método dropOutUser", function dropOutUser(usuario) {
@@ -64,10 +66,11 @@ describe("Testando métodos de index.js", function() {
             var longArray = moduloIndex.usuarios.length;
             expect(longArray).to.equal(2);
         });
-        /**it("Testeando que no se borra un usuario si aún tiene envíos en curso", ()=>{
-            var newFallo = new Error('Paquete duplicado');
-            moduloIndex.sendPackage(package2).should.throw(Error('Paquete duplicado'));
-        });*/
+        it("Testeando que no se borra un usuario si aún tiene envíos en curso", ()=>{
+            var longArray = moduloIndex.usuarios.length;
+            expect(longArray).to.equal(2);
+            expect(function() { moduloIndex.dropOutUser(user2); }).to.throw(Error, /No puede darse de baja hasta que se completen los envíos que tiene en curso/);
+        });
     });
 
     describe("Testando el método cancelShipping", function cancelShipping(paquete) {
@@ -77,10 +80,11 @@ describe("Testando métodos de index.js", function() {
             var longArray = moduloIndex.paquetesEnCurso.length;
             expect(longArray).to.equal(4);
         });
-        /**it("Testeando que no se añade un usuario si había ya uno con mismo nick o email", ()=>{
-            var newFallo = new Error('Paquete duplicado');
-            moduloIndex.sendPackage(package2).should.throw(Error('Paquete duplicado'));
-        });*/
+        it("Testeando que no se cancela un envío si está ya en curso", ()=>{
+            var longArray = moduloIndex.paquetesEnCurso.length;
+            expect(longArray).to.equal(4);     
+            expect(function() { moduloIndex.cancelShipping(package4); }).to.throw(Error, /No puede cancelar el envío, ya está en curso/);
+        });
     });    
 });
 
@@ -96,10 +100,9 @@ describe("Testando métodos de package.js", function() {
             expect(package1.destino).to.equal(package6.destino);
             expect(package1.agencia).to.equal(package6.agencia);
         });
-        /**it("Comprobando que no se modifica un paquete si el envío ya está en curso", ()=>{
-            var newFallo = new Error('Paquete duplicado');
-            moduloIndex.sendPackage(package2).should.throw(Error('Paquete duplicado'));
-        });*/
+        it("Comprobando que no se modifica un paquete si el envío ya está en curso", ()=>{
+            expect(function() { package4.modificarPaquete("nuevadescripcion", 1, "nuevodestino", "nuevaagencia"); }).to.throw(Error, /El paquete no puede modificarse, el envío ya está en curso/);
+        });
     });
 
     describe("Testando el método packageInfo", function packageInfo() {

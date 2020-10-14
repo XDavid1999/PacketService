@@ -119,6 +119,7 @@ class Package{
    * @param {String} nuevaagencia - Nueva agencia con la que se envirá el paquete 
    */
    modificarPaquete(nuevadescripcion, nuevopeso, nuevodestino, nuevaagencia) {
+    try{
       if(this.localizacionActual==this.origen){
         this.descripcion = nuevadescripcion;
         this.peso = nuevopeso;
@@ -127,8 +128,12 @@ class Package{
         /**console.log("Paquete modificado correctamente");*/
       }
       else
-        throw new Error ('El paquete no puede modificarse, el envío ya está en curso');
+        throw 'El paquete no puede modificarse, el envío ya está en curso';
         /**console.log("El paquete no puede modificarse, el envío ya está en curso");*/
+
+    }catch(exception){
+      throw new Error(exception);
+    }
   }
 
 }

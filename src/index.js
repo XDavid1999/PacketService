@@ -19,14 +19,18 @@ var usuarios = new Array();
 function sendPackage(paquete){
     var duplicado =false;
 
-    paquetesEnCurso.forEach(element => {
-        if(paquete.nickusuario==element.nickusuario && paquete.descripcion == element.descripcion && paquete.peso == element.peso 
-            && paquete.agencia == element.agencia && paquete.destino == element.destino && paquete.origen == element.origen){
-            duplicado=true;
-            /**console.log("El paquete con descripción ", paquete.descripcion, "está duplicado, si no es así cambie la descripción y proceda a reenviar");*/
-            throw new Error('Paquete duplicado');
-        }
-    });
+    try{
+        paquetesEnCurso.forEach(element => {
+            if(paquete.nickusuario==element.nickusuario && paquete.descripcion == element.descripcion && paquete.peso == element.peso 
+                && paquete.agencia == element.agencia && paquete.destino == element.destino && paquete.origen == element.origen){
+                duplicado=true;
+                /**console.log("El paquete con descripción ", paquete.descripcion, "está duplicado, si no es así cambie la descripción y proceda a reenviar");*/
+                throw 'Paquete duplicado';
+            }
+        });
+    }catch(exception){
+      throw new Error(exception);
+    }
 
     if(duplicado==false){
         paquetesEnCurso.push(paquete);    
@@ -44,14 +48,17 @@ function sendPackage(paquete){
  */
 function addUser(usuario){
     var duplicado =false;
-
-    usuarios.forEach(element => {
-        if(usuario.nick==element.nick || usuario.correo == element.correo){
-            duplicado=true;
-            /**console.log("El usuario con nick: ", usuario.nick, " y correo: ", usuario.correo, "no se añadirá porque ya figura en el sistema");*/
-            throw new Error ('Usuario duplicado');
-        }
-    });
+    try{
+        usuarios.forEach(element => {
+            if(usuario.nick==element.nick || usuario.correo == element.correo){
+                duplicado=true;
+                /**console.log("El usuario con nick: ", usuario.nick, " y correo: ", usuario.correo, "no se añadirá porque ya figura en el sistema");*/
+                throw 'Usuario duplicado';
+            }
+        });
+    }catch(exception){
+        throw new Error(exception);
+    }
 
     if(duplicado==false){
         usuarios.push(usuario);    
@@ -67,20 +74,25 @@ function addUser(usuario){
  * @param {Package} paquete - Paquete a cancelar
  */
 function cancelShipping(paquete){
-    if(paquete.localizacionActual==paquete.origen){
-        let i=0;
 
-        paquetesEnCurso.forEach(element => {
-            if(paquete.nickusuario==element.nickusuario && paquete.descripcion == element.descripcion)
-                paquetesEnCurso.splice(i, 1);
-
-            i++;
-        });
-        /**console.log("Cancelado correctamente");*/
-    }
-    else
-        /**console.log("El paquete ya ha sido enviado, no puede cancelar su envío");*/
-        throw new Error ('No puede cancelar el envío, ya está en curso');
+        try{
+            if(paquete.localizacionActual==paquete.origen){
+                let i=0;
+        
+                paquetesEnCurso.forEach(element => {
+                    if(paquete.nickusuario==element.nickusuario && paquete.descripcion == element.descripcion)
+                        paquetesEnCurso.splice(i, 1);
+        
+                    i++;
+                });
+                /**console.log("Cancelado correctamente");*/
+            }
+            else
+                /**console.log("El paquete ya ha sido enviado, no puede cancelar su envío");*/
+                throw 'No puede cancelar el envío, ya está en curso';
+        }catch(exception){
+            throw new Error(exception);
+        }
 }
 
 /**
@@ -99,20 +111,26 @@ function dropOutUser(user){
             envioEnCurso=true;
     });
 
-    if(envioEnCurso==false){
-        let i=0;
 
-        usuarios.forEach(element => {
-            if(user.nick==element.nick)
-                usuarios.splice(i, 1);
 
-            i++;
-        });
-        /**console.log("Usuario eliminado correctamente");*/
+    try{
+        if(envioEnCurso==false){
+            let i=0;
+
+            usuarios.forEach(element => {
+                if(user.nick==element.nick)
+                    usuarios.splice(i, 1);
+
+                i++;
+            });
+            /**console.log("Usuario eliminado correctamente");*/
+        }
+        else
+            throw 'No puede darse de baja hasta que se completen los envíos que tiene en curso';
+            /**console.log("Tiene envíos en curso, no podrá darse de baja hasta que no sean completados");*/
+    }catch(exception){
+        throw new Error(exception);
     }
-    else
-        throw new Error ('No puede darse de baja hasta que se completen los envíos que tiene en curso');
-        /**console.log("Tiene envíos en curso, no podrá darse de baja hasta que no sean completados");*/
 }
 
 module.exports = {
