@@ -24,8 +24,10 @@ var package5 = new Package("PGonz", "Regalo para Silvia", 0.5, "Tarifa", "Almad�
 /**
  * Si un usuario tiene dos paquetes con descripciónes, pesos, destino, origen y
  * agencia iguales en proceso de envío se tomará como duplicado y no se realizará
- * el envío 
- *
+ * el envío, en caso contrario se ednviará normalmente
+ * 
+ * [HU03]
+ * 
  * @param {Package} paquete - Paquete a enviar
  */
 function sendPackage(paquete){
@@ -47,8 +49,10 @@ function sendPackage(paquete){
 }
 
 /**
- * Si dos usuarios tienen mismo e-mail o mismo nick se tomará como
- * duplicado y no se realizará la adición del usuario 
+ * Si dos usuarios tienen mismo e-mail o mismo nick se tomará como duplicado y no se
+ * realizará la adición del usuario, en caso contrario se añadirá normailmente
+ * 
+ * [HU04]
  * 
  * @param {User} usuario - Usuario que se añadirá 
  */
@@ -70,8 +74,9 @@ function addUser(usuario){
 }
 
 /**
- * Función para cancelar envíos
- * (sólo se podrá si no está ya en curso)
+ * Función para cancelar envíos (sólo se podrá si no está ya en curso)
+ * 
+ * [HU02]
  * 
  * @param {Package} paquete - Paquete a cancelar
  */
@@ -93,8 +98,10 @@ function cancelShipping(paquete){
 }
 
 /**
- * Función para darse de baja del sistema
- * si hay envíos en curso no se podrá
+ * Función para darse de baja del sistema, si hay el usuario tiene envíos en curso no
+ * se podrá
+ *
+ * [HU05]
  * 
  * @param {User} usuario - Usuario que se eliminará 
  */
@@ -130,41 +137,3 @@ module.exports = {
     usuarios,
     paquetesEnCurso
 }
-/**
-sendPackage(package1);
-sendPackage(package2);
-sendPackage(package2);
-console.log("\n",paquetesEnCurso);
-sendPackage(package1);
-*/
-
-
-
-/**
-addUser(user1);
-addUser(user1);
-addUser(user2);
-console.log("\n",usuarios);
-addUser(user2);
-*/
-
-/**
-console.log(package2);
-package2.modificarPaquete("El titi de las nenas", 5, "Allí","Agensia");
-console.log(package2);
- */
-
- /**
- sendPackage(package2);
- cancelShipping(package2);
-  */
-
-  /**
-  paquetesEnCurso.push(package1);
-  paquetesEnCurso.push(package2);
-  paquetesEnCurso.push(package3);
-  paquetesEnCurso.push(package4);
-  paquetesEnCurso.push(package5);
-
-  dropOutUser(user1);
-   */

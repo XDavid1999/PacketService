@@ -79,7 +79,9 @@ class User{
 
 
   /**
-   * Método para obtener información de un paquete HU01
+   * Método para obtener información del usuario
+   * 
+   * [HU08]
    */
   userInfo() {
     var info = "Se muestran a continuación los datos del usuario " + this._nombre +
@@ -99,8 +101,10 @@ class User{
    * @param {String} nuevosapellidos - nuevos apellidos que se asignarán
    * @param {String} nuevadireccion - nueva dirección que se asignará
    * 
-   * Con este método se modificarán distintos aspectos de 
-   * un usuario
+   * Con este método se modificarán distintos aspectos básicos de un usuario
+   * excepto Nick y fecha de nacimiento
+   * 
+   * [HU06] 
    */
   modificarUsuario(nuevocorreo, nuevonombre, nuevosapellidos, nuevadireccion) {
     this.correo = nuevocorreo;

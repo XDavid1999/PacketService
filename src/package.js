@@ -93,9 +93,9 @@ class Package{
 
 
   /**
-   * Método para obtener información de un paquete HU01
-   * No se concreta que recibirá este método porque podría localizarse
-   * por id, proporcionando datos distintivos ...
+   * Método para obtener información de un paquete
+   * 
+   * [HU01]
    */
   packageInfo() {
     var info = ("Se muestran a continuación los datos del paquete" +
@@ -114,8 +114,8 @@ class Package{
   /**
    * Método para modificar algunos aspectos de un paquete
    * 
+   * [HU07]
    * 
-   * Constructor básico de la clase Packet.
    * @param {String} nuevadescripcion - Nueva descripción del paquete
    * @param {Number} nuevopeso - Nuevo peso del paquete
    * @param {String} nuevodestino - Nuevo destino al que se enviará del paquete
