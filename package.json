@@ -1,7 +1,7 @@
 {
   "name": "packetservice",
   "version": "1.0.0",
-  "description": "A simple packet manager API",
+  "description": "A simple API for managing packets",
   "main": "index.js",
   "directories": {
     "doc": "docs"
