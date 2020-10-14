@@ -19,8 +19,6 @@ var package3 = new Package("JuanitoP", "Perritos calientes", 1.0, "Almería", "T
 var package4 = new Package("JuanitoP", "Móvil para arreglar", 0.5, "Almería", "Chillón", "MRW","Madrid");
 var package5 = new Package("PGonz", "Regalo para Silvia", 0.5, "Tarifa", "Almadén", "DHL","Huelva");
 
-
-
 /**
  * Si un usuario tiene dos paquetes con descripciónes, pesos, destino, origen y
  * agencia iguales en proceso de envío se tomará como duplicado y no se realizará
