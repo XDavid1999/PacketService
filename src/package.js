@@ -91,21 +91,25 @@ class Package{
     this.agencia=nuevaagencia;
   }
 
+
   /**
    * Método para obtener información de un paquete HU01
    * No se concreta que recibirá este método porque podría localizarse
    * por id, proporcionando datos distintivos ...
    */
   packageInfo() {
-    console.log("Se muestran a continuación los datos del paquete",
-    "\n Propietario: ", this._nickusuario,
-    "\n Descripción: ", this._descripcion,
-    "\n Peso: ", this._peso,
-    "\n Origen: ", this._origen,
-    "\n Destino: ", this._destino,
-    "\n Localización Actual: ", this._localizacionActual,
-    "\n Agencia de Transporte: ", this._agencia);
+    var info = ("Se muestran a continuación los datos del paquete" +
+    "\n Propietario: " + this._nickusuario +
+    "\n Descripción: " + this._descripcion +
+    "\n Peso: " + this._peso +
+    "\n Origen: " + this._origen +
+    "\n Destino: " + this._destino +
+    "\n Localización Actual: " + this._localizacionActual +
+    "\n Agencia de Transporte: " + this._agencia);
+
+    return info;
   }
+
 
   /**
    * Método para modificar algunos aspectos de un paquete
@@ -123,10 +127,11 @@ class Package{
         this.peso = nuevopeso;
         this.destino = nuevodestino;
         this.agencia = nuevaagencia;
-        console.log("Paquete modificado correctamente");
+        //console.log("Paquete modificado correctamente");
       }
       else
-        console.log("El paquete no puede modificarse, el envío ya está en curso");
+        //console.log("El paquete no puede modificarse, el envío ya está en curso");
+        throw new Error ('El paquete no puede modificarse, el envío ya está en curso');
   }
 
 }

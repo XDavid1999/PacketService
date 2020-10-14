@@ -82,12 +82,14 @@ class User{
    * Método para obtener información de un paquete HU01
    */
   userInfo() {
-    console.log("Se muestran a continuación los datos del usuario ", this._nombre,
-    "\n Apellidos: ", this._apellidos,
-    "\n Direccion: ", this._direccion,
-    "\n Nick: ", this._nick,
-    "\n Fecha de Nacimiento: ", this._fnac,
-    "\n Correo: ", this._correo);
+    var info = "Se muestran a continuación los datos del usuario " + this._nombre +
+    "\n Apellidos: " + this._apellidos +
+    "\n Direccion: " +  this._direccion +
+    "\n Nick: " + this._nick +
+    "\n Fecha de Nacimiento: " + this._fnac +
+    "\n Correo: " + this._correo;
+  
+    return info;
   }
 
   /**
@@ -105,7 +107,7 @@ class User{
     this.nombre = nuevonombre;
     this.apellidos = nuevosapellidos;
     this.direccion = nuevadireccion;
-    console.log("Usuario modificado correctamente");
+    //console.log("Usuario modificado correctamente");
   }
 }
 
