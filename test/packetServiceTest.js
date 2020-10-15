@@ -7,16 +7,16 @@ const User = require("../src/user.js");
 const Package = require("../src/package.js");
 
 
-/**Se emulan las tablas de la BD */
+/**Se emulan las tablas de la BD*/
 var paquetesEnCurso = new Array();
 var usuarios = new Array();
 
-/**Se emulan los usuarios que estarán en la BD */
+/**Se emulan los usuarios que estarán en la BD*/
 var user1 = new User("pepe@correo.es", "Pepe", "Gonzalez", "PGonz", "Calle Almendra", "30/06/1999");
 var user2 = new User("juan@correo.es", "Juan", "Perez", "JuanitoP", "Calle Amor", "20/04/1991");
 var user3 = new User("manolo@correo.es", "Manuel", "Revilla", "Revisha", "Calle Estepa", "01/11/1989");
 
-/**SE emulan los paquetes en la BD */
+/**Se emulan los paquetes en la BD*/
 var package1 = new Package("PGonz", "Regalo para Alba", 0.5, "Álava", "Granada", "MRW");
 var package2 = new Package("PGonz", "Altavoz wallapop Álvaro", 10, "Santiago de Compostela", "Granada", "Seur", "Álava");
 var package3 = new Package("JuanitoP", "Perritos calientes", 1.0, "Almería", "Tarifa", "Nacex", "Valencia");
