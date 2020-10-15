@@ -76,7 +76,7 @@ class User{
 
 
   /**
-   * Método para obtener información del usuario
+   * Método para consultar los datos del usuario
    * 
    * [HU08]
    */
