@@ -1,6 +1,21 @@
 # PacketService
 
 ![](/docs/images/box.png)
+## Uso del proyecto
+
+El proyecto desarrollado cuenta con un task runner, **Gulp**, el cual automatiza algunas de las tareas más frecuentes. Entre ellas se han añadido instalar las dependencias necesarias y probar las funciones con los test unitarios desarrollados.
+
+#### Ejecución de test
+Orden para ejecutar los tests unitarios.
+`gulp test`
+
+#### Instalación de dependencias
+Orden para instalar las dependencias.
+`gulp install`
+
+#### Default
+Si ejecutamos gulp sin parámetros se nos mostrarán en la consola las tareas disponibles.
+`gulp`
 
 ## Motivación
 
@@ -16,22 +31,6 @@ La aplicación que se pretende desarrollar permitirá a los usuarios de la misma
 
 #### Concreción de rasgos de la aplicación
 Tras revisar las historias de usuarios que se nos han planteado podemos ver que el servicio que se desarrollará será una parte de un sistema mayor y ayudará a un usuario a poder gestionar además de consultar sus envíos. De este modo, con nuestro servicio podrá modificarse información relativa a paquetes pertenecientes a un usuario, borrarla, crear nuevos paquetes, etc. También se permitirá a los transportistas actualizar la ubicación de los envíos en curso para que los usuarios puedan saber donde están en todo momento.
-
-## Uso del proyecto
-
-El proyecto desarrollado cuenta con un task runner, **Gulp**, el cual automatiza algunas de las tareas más frecuentes. Entre ellas se han añadido instalar las dependencias necesarias y probar las funciones con los test unitarios desarrollados.
-
-#### Ejecución de test
-
-`gulp test`
-
-#### Instalación de dependencias
-
-`gulp install`
-
-#### Default
-
-Si ejecutamos la orden `gulp` sin parámetros se nos mostrarán en la consola las tareas disponibles.
 
 ## Desarrollo del Proyecto
 
