@@ -28,15 +28,20 @@ describe("Testando métodos de index.js", function() {
     describe("Testando el método sendPackage", function sendPackage(paquete) {
   
         it("Comprobando que se añaden paquetes correctamente", ()=>{
+            /**Añadimos paquetes*/
             moduloIndex.sendPackage(package1);
             moduloIndex.sendPackage(package2);
             moduloIndex.sendPackage(package3);
             moduloIndex.sendPackage(package4);
             moduloIndex.sendPackage(package5);
+            /** Comprobamos que el cuarto, por ejemplo, se ha introducido correctamente*/
+            expect(moduloIndex.paquetesEnCurso[4].agencia).to.equal('DHL');
+            /**Comprobamos que todos se han introducido*/
             var longArray = moduloIndex.paquetesEnCurso.length;
             expect(longArray).to.equal(5);
         });
         it("Testeando que no se envía un paquete si había ya uno en curso con misma descripción, peso, destino, origen y agencia del mismo usuario", ()=>{      
+            /**Comprobamos que no se ha introducido ningún paquete*/
             var longArray = moduloIndex.paquetesEnCurso.length;
             expect(longArray).to.equal(5);      
             expect(function() { moduloIndex.sendPackage(package2); }).to.throw(Error, /Paquete duplicado/);
@@ -46,13 +51,18 @@ describe("Testando métodos de index.js", function() {
     describe("Testando el método adduser", function addUser(usuario) {
     
         it("Comprobando que se añade un usuario correctamente", ()=>{
+            /**Añadimos usuarios*/
             moduloIndex.addUser(user1);
             moduloIndex.addUser(user2);
             moduloIndex.addUser(user3);
+            /**Comprobamos que, por ejemplo, el tercero se ha introducido correctamente*/
+            expect(moduloIndex.usuarios[3].nombre).to.equal('Manuel');
+            /**Comprobamos que todos se han introducido*/
             var longArray = moduloIndex.usuarios.length;
             expect(longArray).to.equal(3);
         });
         it("Testeando que no se añade un usuario si había ya uno con mismo nick o email", ()=>{
+            /** Comprobamos que no se ha introducido ningún usuario*/
             var longArray = moduloIndex.usuarios.length;
             expect(longArray).to.equal(3);
             expect(function() { moduloIndex.addUser(user1); }).to.throw(Error, /Usuario duplicado/);
