@@ -41,8 +41,10 @@ Breve descripción de algunas de las herramientas de las que se hará uso.
 -  **Lenguaje:** Utilizaremos [Node.js](https://nodejs.org/) como lenguaje para la realización de nuestro proyecto.
 -  **Framework:** Se hará uso de [Hapi](https://hapi.dev/) para la gestión y organización del proyecto, por ser bastante conocido y estar bien documentado.
 -  **BD:** Para la gestión de la información utilizaremos [Mysql](https://www.mysql.com/) por haberlo usado en otras asignaturas, ser bastante versátil y fácil de usar.
-- **Test Framework** Haremos nuestros tests con [Mocha](https://mochajs.org/). Desconocía de su existencia antes de hacer los test pero documentándome en google he podido ver su potencial y he aprendido a usarlo.
-- **Librería de aserciones** Usaremos como librería de aserciones [Chai](https://mochajs.org/). Desconocía también de esta herrramienta  y tras ver que se usa en distintos casos junto a Mocha decidí usarla.
+- **Test Framework:** Haremos nuestros tests con [Mocha](https://mochajs.org/). Desconocía de su existencia antes de hacer los test pero documentándome en google he podido ver su potencial y he aprendido a usarlo.
+- **Librería de aserciones:** Usaremos como librería de aserciones [Chai](https://mochajs.org/). Desconocía también de esta herrramienta  y tras ver que se usa en distintos casos junto a Mocha decidí usarla.
+- **Herramienta de construcción:** Elegimos [Gulp](https://gulpjs.com/) por su flexibilidad en JavaScript para automatizar flujos de trabajo lentos y repetitivos y componerlos en procesos de construcción eficientes. En principio se trató de usar Grunt pero tras buscar arduamente como integrarlo con Mocha sin éxito decidimos cambiar. Además su sintaxis a priori parece más sencilla ya que Grunt usa archivos de configuración de datos que son similares a JSON , mientras que Gulp usa JavaScript. El código Gulp suele ser mucho más corto que el código Grunt, según he podido encontrar documentándome. Parte de esto se debe a que debe declarar los archivos de origen y destino para cada tarea en Grunt.
+
 ## Documentación:
 
 - [Pulse para ver como se realizó la configuración de git y GitHub inicial.](docs/Configuración.md)
