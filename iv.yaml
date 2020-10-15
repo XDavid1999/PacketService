@@ -1,1 +1,4 @@
 entidad: src/index.js
+language: node_js
+test: /test/packetServiceTest.js
+taskfile: gulpfile.js
