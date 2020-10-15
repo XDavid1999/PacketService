@@ -93,7 +93,7 @@ class User{
 
   /**
    * 
-   * @param {String} nuevocorreo - nuevo correo que se asignará
+   * @param {String} nuevocorreo - nuevo e-mail que se asignará
    * @param {String} nuevonombre - nuevo nombre que se asignará
    * @param {String} nuevosapellidos - nuevos apellidos que se asignarán
    * @param {String} nuevadireccion - nueva dirección que se asignará
