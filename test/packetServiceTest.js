@@ -56,7 +56,7 @@ describe("Testando métodos de index.js", function() {
             moduloIndex.addUser(user2);
             moduloIndex.addUser(user3);
             /**Comprobamos que, por ejemplo, el tercero se ha introducido correctamente*/
-            expect(moduloIndex.usuarios[3].nombre).to.equal('Manuel');
+            expect(moduloIndex.usuarios[2].nombre).to.equal('Manuel');
             /**Comprobamos que todos se han introducido*/
             var longArray = moduloIndex.usuarios.length;
             expect(longArray).to.equal(3);
@@ -72,11 +72,13 @@ describe("Testando métodos de index.js", function() {
     describe("Testando el método dropOutUser", function dropOutUser(usuario) {
     
         it("Comprobando que se añade elimina un usuario correctamente", ()=>{
+            /**Comprobando que se ha eliminado efectivamente un usuario*/
             moduloIndex.dropOutUser(user3);
             var longArray = moduloIndex.usuarios.length;
             expect(longArray).to.equal(2);
         });
         it("Testeando que no se borra un usuario si aún tiene envíos en curso", ()=>{
+            /**Comprobando que no se borra el usuario*/
             var longArray = moduloIndex.usuarios.length;
             expect(longArray).to.equal(2);
             expect(function() { moduloIndex.dropOutUser(user2); }).to.throw(Error, /No puede darse de baja hasta que se completen los envíos que tiene en curso/);
@@ -86,11 +88,13 @@ describe("Testando métodos de index.js", function() {
     describe("Testando el método cancelShipping", function cancelShipping(paquete) {
     
         it("Comprobando que se cancela un envío correctamente", ()=>{
+            /**Comprobando que se cancela, ya que el envío no está aún en curso*/
             moduloIndex.cancelShipping(package1);
             var longArray = moduloIndex.paquetesEnCurso.length;
             expect(longArray).to.equal(4);
         });
         it("Testeando que no se cancela un envío si está ya en curso", ()=>{
+            /**Comprobando que no se cancela el envío, ya que está en curso*/
             var longArray = moduloIndex.paquetesEnCurso.length;
             expect(longArray).to.equal(4);     
             expect(function() { moduloIndex.cancelShipping(package4); }).to.throw(Error, /No puede cancelar el envío, ya está en curso/);
@@ -105,12 +109,14 @@ describe("Testando métodos de package.js", function() {
         it("Comprobando que se modifican paquetes correctamente", ()=>{
             package1.modificarPaquete("nuevadescripcion", 1, "nuevodestino", "nuevaagencia");
             var package6 = new Package("PGonz", "nuevadescripcion", 1, "nuevodestino", "Granada", "nuevaagencia");
+            /**Comprobando que efectivamente se modifican los atributos que la modificación alude*/
             expect(package1.descripcion).to.equal(package6.descripcion);
             expect(package1.peso).to.equal(package6.peso);
             expect(package1.destino).to.equal(package6.destino);
             expect(package1.agencia).to.equal(package6.agencia);
         });
         it("Comprobando que no se modifica un paquete si el envío ya está en curso", ()=>{
+            /**Comprobando que se ha lanzado el error correspondiente*/
             expect(function() { package4.modificarPaquete("nuevadescripcion", 1, "nuevodestino", "nuevaagencia"); }).to.throw(Error, /El paquete no puede modificarse, el envío ya está en curso/);
         });
     });
@@ -118,7 +124,7 @@ describe("Testando métodos de package.js", function() {
     describe("Testando el método packageInfo", function packageInfo() {
   
         it("Comprobando que se muestrala información de paquetes correctamente", ()=>{
-            
+            /**Salida que se espera*/
             var infopaquete3 = ("Se muestran a continuación los datos del paquete" +
             "\n Propietario: " + "JuanitoP" +
             "\n Descripción: " + "Perritos calientes" +
@@ -127,7 +133,7 @@ describe("Testando métodos de package.js", function() {
             "\n Destino: " + "Almería" +
             "\n Localización Actual: " + "Valencia" +
             "\n Agencia de Transporte: " + "Nacex");
-            
+            /**Comprobando que la salida que se produce es la esperada*/
             expect(package3.packageInfo()).to.equal(infopaquete3);
         });
     });
@@ -141,6 +147,7 @@ describe("Testando métodos de user.js", function() {
         it("Comprobando que se modifican usuarios correctamente", ()=>{
             user1.modificarUsuario("nuevocorreo", "nuevonombre", "nuevosapellidos", "nuevadireccion");
             var user4 = new User("nuevocorreo", "nuevonombre", "nuevosapellidos", "PGonz", "nuevadireccion", "30/06/1999");
+            /**Comprobando que efectivamente se modifican los atributos que la modificación alude*/
             expect(user1.correo).to.eq(user4.correo);
             expect(user1.nombre).to.eq(user4.nombre);
             expect(user1.apellidos).to.eq(user4.apellidos);
@@ -151,14 +158,14 @@ describe("Testando métodos de user.js", function() {
     describe("Testando el método userInfo", function userInfo() {
   
         it("Comprobando que se muestrala información de un usuario correctamente", ()=>{
-            
+            /**Salida que se espera*/
             var infouser3 = "Se muestran a continuación los datos del usuario " + "Manuel" +
             "\n Apellidos: " + "Revilla" +
             "\n Direccion: " + "Calle Estepa" +
             "\n Nick: " + "Revisha" +
             "\n Fecha de Nacimiento: " + "01/11/1989" +
             "\n Correo: " + "manolo@correo.es";
-
+            /**Comprobando que la salida que se produce es la esperada*/
             expect(user3.userInfo()).to.equal(infouser3);
         });
     });
