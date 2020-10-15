@@ -20,3 +20,13 @@ En este documento se describirán brevemente las pautas para llevar a cabo el pr
 - Enlazar la HU, Milestones e Issues a Readme.
 
 ## Hito 2: Testeando el proyecto
+
+- Crear el archivo package.json que describe el proyecto y contiene las dependencias necesarias.
+- Crear una nueva clase en el proyecto, index.js.
+- Incluir el archivo package-lock.json en el proyecto.
+- Instalar Mocha y Chai para realizar los test.
+- Crear carpeta y archivo en el que se escribirán los test.
+- Modificar y mejorar las clases en desarrollo.
+- Actualizar el readme incluyendo las nuevas herramientas que se usan.
+- Cerrar los issues correspondientes a las historias de usuario que ya se han implementado y testado.
+- Creados los test unitarios.
