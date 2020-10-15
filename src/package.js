@@ -90,7 +90,7 @@ class Package{
 
 
   /**
-   * Método para obtener información de un paquete
+   * Método para obtener información a cerca de un paquete
    * 
    * [HU01]
    */
