@@ -7,14 +7,17 @@ El proyecto desarrollado cuenta con un task runner, **Gulp**, el cual automatiza
 
 #### Ejecución de test
 Orden para ejecutar los tests unitarios.
+
 `gulp test`
 
 #### Instalación de dependencias
 Orden para instalar las dependencias.
+
 `gulp install`
 
 #### Default
 Si ejecutamos gulp sin parámetros se nos mostrarán en la consola las tareas disponibles.
+
 `gulp`
 
 ## Motivación
