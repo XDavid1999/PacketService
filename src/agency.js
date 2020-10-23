@@ -1,6 +1,6 @@
 class Agency{
     /**
-     * Constructor básico de la clase Packet.
+     * Constructor básico de la clase Agency.
      * @param {String} nombre - Nombre de la agencia
      * @param {String} correo_contacto - Correo de contacto de la agencia
      * @param {String} telefono - Teléfono de contacto de la agencia
