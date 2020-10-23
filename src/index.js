@@ -2,15 +2,21 @@
 
 const User = require("./user.js");
 const Package = require("./package.js");
+const Agency = require("./agency.js");
+const Agency = require("./agency.js");
+const Agency = require("./agency.js");
 
-/**SE emulan las tablas de la BD */ 
+
+/**Se emulan las tablas de la BD */ 
 var paquetesEnCurso = new Array();
 var usuarios = new Array();
+var agencias = new Array();
+
 
 /**
  * Si un usuario tiene dos paquetes con descripciónes, pesos, destino, origen y
  * agencia iguales en proceso de envío se tomará como duplicado y no se realizará
- * el envío, en caso contrario se ednviará normalmente
+ * el envío, en caso contrario se enviará normalmente
  * 
  * [HU03]
  * 
@@ -32,6 +38,31 @@ function sendPackage(paquete){
     if(duplicado==false){
         paquetesEnCurso.push(paquete);    
         /**console.log("Envío tramitado correctamente");*/
+    }
+}
+/**
+ * Si una agencia tiene mismo teléfono de contacto, correo o nombre
+ * se tomará cmo ya existente en el sistema y no se añadirá, en caso
+ * contrario se añadirá normalmente
+ * 
+ * [HU09]
+ * 
+ * @param {Agency} agencia - Paquete a enviar
+ */
+function addAgency(agencia){
+    var duplicado =false;
+
+    agencias.forEach(element => {
+        if(agencia.nombre==element.nombre || agencia.telefono == element.telefono || agencia.correo_contacto == element.correo){
+            duplicado=true;
+            throw new Error ('Agencia ya existente');
+        }
+    });
+
+
+    if(duplicado==false){
+        agencias.push(agencia);    
+        /**console.log("Agencia añadida correctamente");*/
     }
 }
 
@@ -88,6 +119,37 @@ function cancelShipping(paquete){
 }
 
 /**
+ * Función para eliminar una agencia del sistema
+ * 
+ * [HU12]
+ * 
+ * @param {Agency} agencia - Agencia a eliminar
+ */
+function dropOutAgency(agencia){
+    var envioEnCurso=false;
+
+    paquetesEnCurso.forEach(element => {
+        if(element.agencia==agencia.nombre)
+            envioEnCurso=true;
+    });
+
+    if(envioEnCurso==false){
+        let i=0;
+
+        agencias.forEach(element => {
+            if(agencia.telefono==element.telefono)
+                agencias.splice(i, 1);
+
+            i++;
+        });
+        /**console.log("Agencia eliminada correctamente");*/
+    }
+    else
+        throw new Error('No puede dar de baja esta agencia hasta que se completen los envíos que tiene en curso');
+        /**console.log("No puede dar de baja esta agencia hasta que se completen los envíos que tiene en curso");*/
+}
+
+/**
  * Función para darse de baja del sistema, si hay el usuario tiene envíos en curso no
  * se podrá
  *
@@ -102,8 +164,6 @@ function dropOutUser(user){
         if(element.nickusuario==user.nick)
             envioEnCurso=true;
     });
-
-
 
     if(envioEnCurso==false){
         let i=0;
@@ -123,6 +183,8 @@ function dropOutUser(user){
 }
 
 module.exports = {
+    addAgency,
+    dropOutAgency,
     addUser,
     dropOutUser,
     cancelShipping,

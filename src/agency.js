@@ -1,4 +1,4 @@
-class Agencia{
+class Agency{
     /**
      * Constructor básico de la clase Packet.
      * @param {String} nombre - Nombre de la agencia
@@ -114,10 +114,12 @@ class Agencia{
 
   /**
    * 
-   * @param {String} nuevocorreo - nuevo e-mail que se asignará
-   * @param {String} nuevonombre - nuevo nombre que se asignará
-   * @param {String} nuevotelefono - nuevos apellidos que se asignarán
-   * @param {String} nuevosvehiculos - nueva dirección que se asignará
+   * @param {String} nuevonombre - Nuevo nombre de la agencia
+   * @param {String} nuevocorreo - Nuevo correo de contacto de la agencia
+   * @param {String} nuevotelefono - Nuevo teléfono de contacto de la agencia
+   * @param {Number} nuevasoficinas - Nuevo número de oficinas de reparto disponibles
+   * @param {Number} nuevosvehiculos - Nuevo número de vehiculos de reparto disponibles
+   * @param {String} nuevadescripcion - Nueva descripción de la agencia
    * 
    * Con este método se modificarán distintos aspectos básicos de la agencia
    * excepto la fecha en la que se añadió y su valoración
@@ -125,12 +127,14 @@ class Agencia{
    * [HU10] 
    */
   modificarAgencia(nuevonombre, nuevocorreo, nuevotelefono, nuevasoficinas, nuevosvehiculos, nuevadescripcion) {
-    if(nuevonombre!="") this._nombre = nuevonombre;
-    if(nuevocorreo!="") this._correo_contacto = nuevocorreo;
-    if(nuevotelefono!="") this._telefono = nuevotelefono;
-    if(nuevasoficinas!="") this._oficinas = nuevasoficinas;
-    if(nuevosvehiculos!="") this._vehiculos = nuevosvehiculos;
-    if(nuevadescripcion!="") this._descripcion = nuevadescripcion;
+    this._nombre = nuevonombre;
+    this._correo_contacto = nuevocorreo;
+    this._telefono = nuevotelefono;
+    this._oficinas = nuevasoficinas;
+    this._vehiculos = nuevosvehiculos;
+    this._descripcion = nuevadescripcion;
     /**console.log("Usuario modificado correctamente");*/
   }
 }
+
+module.exports = Agency;
