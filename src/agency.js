@@ -19,7 +19,6 @@ class Agency{
       this._vehiculos = nuevosvehiculos;
       this._fecha_alta = nuevafecha;
       this._descripcion = nuevadescripcion;
-      this._valoracion = 0;
     }
 
       /**
@@ -27,35 +26,35 @@ class Agency{
    */
 
   get _nombre(){
-    return this.correo;
-  }
-
-  get _correo_contacto(){
     return this.nombre;
   }
 
+  get _correo_contacto(){
+    return this.correo_contacto;
+  }
+
   get _fecha_alta(){
-    return this.apellidos;
+    return this.fecha_alta;
   }
 
   get _telefono(){
-    return this.nick;
+    return this.telefono;
   }
 
   get _oficinas(){
-    return this.direccion;
+    return this.oficinas;
   }
 
   get _vehiculos(){
-    return this.fnac;
+    return this.vehiculos;
   }
 
-  get nuevadescripcion(){
-    return this.direccion;
+  get _descripcion(){
+    return this.descripcion;
   }
 
-  get nuevavaloracion(){
-    return this.fnac;
+  get _valoracion(){
+    return this.valoracion;
   }
   /**
    * métodos set de la clase

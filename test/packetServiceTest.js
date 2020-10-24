@@ -5,11 +5,13 @@ var expect = require("chai").expect;
 const moduloIndex = require('../src/index.js');
 const User = require("../src/user.js");
 const Package = require("../src/package.js");
+const Agency = require("../src/agency.js");
 
 
 /**Se emulan las tablas de la BD*/
 var paquetesEnCurso = new Array();
 var usuarios = new Array();
+var agencias = new Array();
 
 /**Se emulan los usuarios que estarán en la BD*/
 var user1 = new User("pepe@correo.es", "Pepe", "Gonzalez", "PGonz", "Calle Almendra", "30/06/1999");
@@ -22,6 +24,11 @@ var package2 = new Package("PGonz", "Altavoz wallapop Álvaro", 10, "Santiago de
 var package3 = new Package("JuanitoP", "Perritos calientes", 1.0, "Almería", "Tarifa", "Nacex", "Valencia");
 var package4 = new Package("JuanitoP", "Móvil para arreglar", 0.5, "Almería", "Chillón", "MRW","Madrid");
 var package5 = new Package("PGonz", "Regalo para Silvia", 0.5, "Tarifa", "Almadén", "DHL","Huelva");
+
+/**Se emulan las agencias en la BD*/
+var agencia1 = new Agency("MRW", "mrw@mrw.mrw", "674 345 432", 15, 100, "11/10/2011", "Las maletas, tu bicicleta, los palos de golf, tu mascota o un simple paquete. Para tus envíos particulares, recogemos y entregamos donde tú nos digas en menos de 24 horas. Descubre todo lo que podemos hacer por ti...");
+var agencia2 = new Agency("HuanitoCorp", "huan@kipsta.victoria", "654 343 232", 100, 500, "18/01/2015", "Llevamos lo que necesites, donde lo necesites, cuando lo necesites. Con mucho cariño.");
+
 
 describe("Testando métodos de index.js", function() {
 
@@ -71,7 +78,7 @@ describe("Testando métodos de index.js", function() {
 
     describe("Testando el método dropOutUser", function dropOutUser(usuario) {
     
-        it("Comprobando que se añade elimina un usuario correctamente", ()=>{
+        it("Comprobando que se elimina un usuario correctamente", ()=>{
             /**Comprobando que se ha eliminado efectivamente un usuario*/
             moduloIndex.dropOutUser(user3);
             var longArray = moduloIndex.usuarios.length;
@@ -99,7 +106,44 @@ describe("Testando métodos de index.js", function() {
             expect(longArray).to.equal(4);     
             expect(function() { moduloIndex.cancelShipping(package4); }).to.throw(Error, /No puede cancelar el envío, ya está en curso/);
         });
-    });    
+    });
+    
+    describe("Testando el método addAgency", function addAgency(agencia) {
+    
+        it("Comprobando que se añaden las agencias correctamente", ()=>{
+            /**Añadimos agencias*/
+            moduloIndex.addAgency(agencia1);
+            moduloIndex.addAgency(agencia2);
+
+            /**Comprobamos que, por ejemplo, la primera se ha introducido correctamente*/
+            expect(moduloIndex.agencias[0].nombre).to.equal('MRW');
+            /**Comprobamos que todas se han introducido*/
+            var longArray = moduloIndex.agencias.length;
+            expect(longArray).to.equal(2);
+        });
+        it("Testeando que no se añade una agencia si ya había una en el sistema con mismo teléfono de contacto o email", ()=>{
+            /** Comprobamos que no se ha introducido ningún usuario*/
+            var longArray = moduloIndex.agencias.length;
+            expect(longArray).to.equal(2);
+            expect(function() { moduloIndex.addAgency(agencia1); }).to.throw(Error, /Agencia ya existente/);
+        });
+    });
+
+    describe("Testando el método dropOutAgency", function dropOutAgency(agencia) {
+    
+        it("Comprobando que se elimina una agencia correctamente", ()=>{
+            /**Comprobando que se ha eliminado efectivamente una agencia*/
+            moduloIndex.dropOutAgency(agencia2);
+            var longArray = moduloIndex.agencias.length;
+            expect(longArray).to.equal(1);
+        });
+        it("Testeando que no se borra una agencia si aún están en curso envíos con la misma", ()=>{
+            /**Comprobando que no se borra la agencia*/
+            var longArray = moduloIndex.usuarios.length;
+            expect(longArray).to.equal(2);
+            expect(function() { moduloIndex.dropOutAgency(agencia1); }).to.throw(Error, /No puede dar de baja esta agencia hasta que se completen los envíos que tiene en curso/);
+        });
+    });
 });
 
 describe("Testando métodos de package.js", function() {
@@ -157,7 +201,7 @@ describe("Testando métodos de user.js", function() {
 
     describe("Testando el método userInfo", function userInfo() {
   
-        it("Comprobando que se muestrala información de un usuario correctamente", ()=>{
+        it("Comprobando que se muestra la información de un usuario correctamente", ()=>{
             /**Salida que se espera*/
             var infouser3 = "Se muestran a continuación los datos del usuario " + "Manuel" +
             "\n Apellidos: " + "Revilla" +
@@ -170,3 +214,40 @@ describe("Testando métodos de user.js", function() {
         });
     });
 });
+
+describe("Testando métodos de agency.js", function() {
+
+    describe("Testando el método modificaAgencia", function modificarAgencia(agencia) {
+  
+        it("Comprobando que se modifican los datos de la agencia correctamente", ()=>{
+            agencia2.modificarAgencia("nuevonombre", "nuevocorreo", "nuevotelefono", 4, 12, "nuevadescripcion");
+            var agencia3 = new Agency("nuevonombre", "nuevocorreo", "nuevotelefono", 4, 12, "18/01/2015", "nuevadescripcion");
+            /**Comprobando que efectivamente se modifican los atributos que la modificación alude*/
+            expect(agencia2.nombre).to.eq(agencia3.nombre);
+            expect(agencia2.correo_contacto).to.eq(agencia3.correo_contacto);
+            expect(agencia2.descripcion).to.eq(agencia3.descripcion);
+            expect(agencia2.telefono).to.eq(agencia3.telefono);
+            expect(agencia2.oficinas).to.eq(agencia3.oficinas);
+            expect(agencia2.vehiculos).to.eq(agencia3.vehiculos);
+        });
+    });
+
+    describe("Testando el método agencyInfo", function agencyInfo() {
+  
+        it("Comprobando que se muestra la información de la agencia correctamente", ()=>{
+            /**Salida que se espera*/
+            var info = "Se muestran a continuación los datos de la agencia"
+            "\n Nombre: " + "MRW" +
+            "\n Correo de contacto: " + "mrw@mrw.mrw" +
+            "\n Teléfono de contacto: " +  "674 345 432" +
+            "\n Oficinas disponibles: " + "10" +
+            "\n Vehículos disponibles: " + "100" +
+            "\n Descripción: " + "Las maletas, tu bicicleta, los palos de golf, tu mascota o un simple paquete. Para tus envíos particulares, recogemos y entregamos donde tú nos digas en menos de 24 horas. Descubre todo lo que podemos hacer por ti..." +
+            "\n Valoración de los clientes: " + "0" +
+            "\n Fecha de alta en el sistema: " + "11/10/2011";
+            /**Comprobando que la salida que se produce es la esperada*/
+            expect(agencia1.agencyInfo()).to.equal(info);
+        });
+    });
+});
+

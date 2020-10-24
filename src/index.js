@@ -3,8 +3,7 @@
 const User = require("./user.js");
 const Package = require("./package.js");
 const Agency = require("./agency.js");
-const Agency = require("./agency.js");
-const Agency = require("./agency.js");
+
 
 
 /**Se emulan las tablas de la BD */ 
@@ -50,7 +49,7 @@ function sendPackage(paquete){
  * @param {Agency} agencia - Paquete a enviar
  */
 function addAgency(agencia){
-    var duplicado =false;
+    var duplicado=false;
 
     agencias.forEach(element => {
         if(agencia.nombre==element.nombre || agencia.telefono == element.telefono || agencia.correo_contacto == element.correo){
@@ -62,7 +61,7 @@ function addAgency(agencia){
 
     if(duplicado==false){
         agencias.push(agencia);    
-        /**console.log("Agencia añadida correctamente");*/
+        /*console.log("Agencia añadida correctamente");*/
     }
 }
 
@@ -142,7 +141,7 @@ function dropOutAgency(agencia){
 
             i++;
         });
-        /**console.log("Agencia eliminada correctamente");*/
+        /*console.log("Agencia eliminada correctamente");*/
     }
     else
         throw new Error('No puede dar de baja esta agencia hasta que se completen los envíos que tiene en curso');
@@ -190,5 +189,6 @@ module.exports = {
     cancelShipping,
     sendPackage,
     usuarios,
+    agencias,
     paquetesEnCurso
 }
