@@ -191,7 +191,7 @@ describe("Testando métodos de user.js", function() {
         it("Comprobando que se modifican usuarios correctamente", ()=>{
             user1.modificarUsuario("nuevocorreo", "nuevonombre", "nuevosapellidos", "nuevadireccion");
             var user4 = new User("nuevocorreo", "nuevonombre", "nuevosapellidos", "PGonz", "nuevadireccion", "30/06/1999");
-            /**Comprobando que efectivamente se modifican los atributos que la modificación alude*/
+            /**Comprobando que efectivamente se modifican los atributos que se aluden*/
             expect(user1.correo).to.eq(user4.correo);
             expect(user1.nombre).to.eq(user4.nombre);
             expect(user1.apellidos).to.eq(user4.apellidos);
