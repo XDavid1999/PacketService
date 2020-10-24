@@ -19,6 +19,7 @@ class Agency{
       this._vehiculos = nuevosvehiculos;
       this._fecha_alta = nuevafecha;
       this._descripcion = nuevadescripcion;
+      this._valoracion = 0;
     }
 
       /**
