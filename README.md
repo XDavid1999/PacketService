@@ -1,6 +1,5 @@
 # PacketService
 
-![](/docs/images/box.png)
 ## Uso del proyecto
 
 El proyecto desarrollado cuenta con un task runner, **Gulp**, el cual automatiza algunas de las tareas más frecuentes. Entre ellas se han añadido instalar las dependencias necesarias y probar las funciones con los test unitarios desarrollados.
