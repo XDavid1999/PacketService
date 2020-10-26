@@ -30,3 +30,6 @@ En este documento se describirán brevemente las pautas para llevar a cabo el pr
 - Actualizar el readme incluyendo las nuevas herramientas que se usan.
 - Cerrar los issues correspondientes a las historias de usuario que ya se han implementado y testado.
 - Creados los test unitarios.
+
+## Hito 3: Configurando Docker
+- 
