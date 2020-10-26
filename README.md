@@ -46,7 +46,7 @@ Además de esto, con el fin de que los usuarios puedan tener un amplio abanico d
 
 ## Desarrollo del Proyecto
 
-En este apartado se informará del progreso del proyecto hasta completarlo pudiendo ver que se hará en cada parte del desarrollo. Quedarán reflejados en el fichero [Steps](docs/Steps.md) los pasos para la consecución del objetivo, la app. En él se detallan los avances que se hacen en cada milestone.
+En este apartado se informará del progreso del proyecto hasta completarlo pudiendo ver que se hará en cada parte del desarrollo. Quedarán reflejados en el fichero [Steps](https://github.com/XDavid1999/PacketService/blob/master/docs/Steps.md) los pasos para la consecución del objetivo, la app. En él se detallan los avances que se hacen en cada milestone.
 
 - [Milestones](https://github.com/XDavid1999/PacketService/milestones) 
 
@@ -69,7 +69,7 @@ En este apartado se informará del progreso del proyecto hasta completarlo pudie
 Breve descripción de algunas de las herramientas de las que se hará uso en la realización del proyecto.
 
 - **Gestor de Contenedores:** El principal propósito de los contenedores es poder desarrollar aplicaciones más portables. El único requisito para poder ejecutar en cualquier máquina las aplicaciones es tener instalado el software que los crea, independientemente del sistema operativo que la máquina que funcione como host, facilitando así también los despliegues. Como contenedor base haremos uso de [Docker](https://www.docker.com/). Una de las grandes ventajas que podemos destacar es que es posible encapsular todo el entorno de trabajo, de manera que los desarrolladores pueden estar trabajando en su servidor local con la seguridad de que, al llegar el momento de poner la aplicación en producción, se va a ejecutar con la misma configuración sobre la que se han hecho todas las pruebas. Lo elegimos además por que su uso es muy común para el despliegue de servicios y por tanto su documentación y su comunidad son muy extensas.
-- **Imagen Base del Contenedor:** La imagen que utilizaremos será node-15-alpine3.10. Las decisiones que hemos tomado se basan en la explicación en el [archivo](/docs/comparacion-imagenes.md) en el que comparamos algunas imágenes base de entre las posibles. Además de explicar por qué elegimos el contenedor con alpine realizamos algunas comparaciones de velocidad de ejecución de los test.
+- **Imagen Base del Contenedor:** La imagen que utilizaremos será node-15-alpine3.10. Las decisiones que hemos tomado se basan en la explicación en el [archivo](https://github.com/XDavid1999/PacketService/blob/master/docs/comparacion-imagenes.md) en el que comparamos algunas imágenes base de entre las posibles. Además de explicar por qué elegimos el contenedor con alpine realizamos algunas comparaciones de velocidad de ejecución de los test.
 -  **Lenguaje:** Utilizaremos [Node.js](https://nodejs.org/) como lenguaje para la realización de nuestro proyecto.
 -  **Framework:** Se hará uso de [Hapi](https://hapi.dev/) para la gestión y organización del proyecto, por ser bastante conocido y estar bien documentado.
 -  **BD:** Para la gestión de la información utilizaremos [Mysql](https://www.mysql.com/) por haberlo usado en otras asignaturas, ser bastante versátil y fácil de usar.
