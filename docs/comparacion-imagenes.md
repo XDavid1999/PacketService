@@ -25,7 +25,7 @@ Nosotros nos interesaremos principalmente en el t real, que se corresponde en nu
 
 ### Tabla con tiempos y espacio
 
-Se muestran en esta tabla los tiempos que la orden time nos devielve y el espacio que cada imagen ocupa. El nombre que las imágenes creadas han recibido es el mismo que la original añadiendo "gulp-test" al final.
+Se muestran en esta tabla los tiempos que la orden time nos devuelve y el espacio que cada imagen ocupa. 
 
 | Nombre | Tiempo Total | User Time | System Time | Size |
 |--------|--------|---------|---------|---------|
