@@ -7,7 +7,7 @@ Dentro de las imágenes base que podemos utilizar es posible escoger, dentro de 
 - La etiqueta *slim* significa que la imagen es una versión reducida de la imagen completa, con sólo lo esencial. Esto es útil cuando tenemos poco espacio.
 - La marca *alpine* quiere decir que la imagen en cuestión está basada en el proyecto [alpine linux](https://alpinelinux.org/) que es un SO específico parausar en contenedores. Esta variante es una  de las más populares también por su tamaño reducido.
 - La imágenes que en su nombre contienen el tag *windowsservercore* es usado cuando la aplicación solo corre sobre Windows o Windows Server.
-También como último consejo no se recomienda usar imágenes con el tag *latest* ya que esto siempre hará pull de la imagen más reciente y las dependencias podrían no ser compatibles con versiones futuras.  
+- También como último consejo no se recomienda usar imágenes con el tag *latest* ya que esto siempre hará pull de la imagen más reciente y las dependencias podrían no ser compatibles con versiones futuras.  
     
  ## Pull y pruebas a las imágenes
 
