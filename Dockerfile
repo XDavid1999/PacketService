@@ -11,13 +11,9 @@ LABEL maintainer="David Heredia Cortés"
 #directorio node_modules
 ENV PATH=/node_modules/.bin:$PATH
 
-#Con el comando ARG podemos crear un valor por defecto, lo que
-#guardaremos será el nombre del directorio /test
-ARG DIRECTORIO_TEST=/test
-
 #Con la orden WORKDIR definiremos y crearemos el que será nuestro directorio
 #de trabajo
-WORKDIR $DIRECTORIO_TEST
+WORKDIR /home/node
 
 #La palabra reservada RUN es utilizado en la construcción del contenedor y,
 #por ello, se instalarán en este caso las dependencias de nuestro proyecto.
@@ -27,6 +23,13 @@ RUN npm install && npm install --global gulp-cli
 #Añadiremos un nuevo usuario, que ejecutará los test
 RUN addgroup -S appgroup && adduser -S david -G appgroup
 #RUN useradd -ms /bin/bash david
+
+#Con el comando ARG podemos crear un valor por defecto, lo que
+#guardaremos será el nombre del directorio /test
+ARG DIRECTORIO_TEST=/test
+
+#Nos cambiamos al directorio de test para realizarlos
+WORKDIR $DIRECTORIO_TEST
 
 #Usaremos el usuario creado
 USER david
