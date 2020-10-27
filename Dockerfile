@@ -1,19 +1,14 @@
 #Con la palabra reservada FROM elegimos cual es la imagen que utilizaremos
 #como base de nuestro contenedor. Por supuesto debemos haber hecho antes
 #docker pull <imagen>
-FROM node:15-alpine3.10
+FROM node:12.19.0-alpine3.10
 
 #La instrucción LABEL agrega metadatos a la imagen que se creará, en este
 #caso mi nombre, como autor
 LABEL maintainer="David Heredia Cortés"
 
-#Establecemos el valor de la variable de entorno para que nos encuentre el
-#directorio node_modules
-ENV PATH=/node_modules/.bin:$PATH
-
-#Con la orden WORKDIR definiremos y crearemos el que será nuestro directorio
-#de trabajo
-WORKDIR /home/node
+#Copiamos los archivos de dependencias
+COPY package.json package-lock.json ./
 
 #La palabra reservada RUN es utilizado en la construcción del contenedor y,
 #por ello, se instalarán en este caso las dependencias de nuestro proyecto.
@@ -23,6 +18,10 @@ RUN npm install && npm install --global gulp-cli
 #Añadiremos un nuevo usuario, que ejecutará los test
 RUN addgroup -S appgroup && adduser -S david -G appgroup
 #RUN useradd -ms /bin/bash david
+
+#Establecemos el valor de la variable de entorno para que nos encuentre el
+#directorio node_modules
+ENV PATH=/node_modules/.bin:$PATH
 
 #Con el comando ARG podemos crear un valor por defecto, lo que
 #guardaremos será el nombre del directorio /test

@@ -31,6 +31,6 @@ Se muestran en esta tabla los tiempos que la orden time nos devuelve y el espaci
 |--------|--------|---------|---------|---------|
 | node-15-stretch-slim | 2:21.80 | 2.73 | 2.29 | 253MB |
 | node-15-buster | 2:22.13 | 2.69 | 2.21 | 922MB |
-| node-15-alpine3.10 | 2:25.07 | 2.66 | 2.30 | 126MB |
+| node-12.19.0-alpine3.10 | 2:25.07 | 2.66 | 2.30 | 126MB |
 
 Después de realizar pruebas vemos que la diferencia entre hacer los test con una imagen u otra es mínima respecto a velocidad. Daremos pues más relevancia al espacio que estas ocupan en disco, considerando entonces que la imagen con *buster* queda descartada por ser demasiado pesada. Finalmente, aunque la imagen con *slim* es la más rápida consideramos que la diferencia no es suficiente ya que ocupa el doble de espacio. Nos quedamos entonces con la imagen con alpine por ser casi tan rápida como las demás y extremadamente liviana y, por tanto, portable.
