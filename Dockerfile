@@ -21,8 +21,8 @@ WORKDIR $DIRECTORIO_TEST
 RUN npm install && npm install --global gulp-cli
 
 #Añadiremos un nuevo usuario, que ejecutará los test
-#RUN addgroup -S appgroup && adduser -S david -G appgroup
-RUN useradd -ms /bin/bash david
+RUN addgroup -S appgroup && adduser -S david -G appgroup
+#RUN useradd -ms /bin/bash david
 
 #Usaremos el usuario creado
 USER david
