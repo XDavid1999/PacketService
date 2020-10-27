@@ -1,0 +1,5 @@
+entidad: src/index.js
+lenguaje: nodejs
+test:
+  - tests/packetServiceTest.js
+taskfile: gulpfile.js
