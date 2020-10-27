@@ -60,6 +60,7 @@ En este apartado se informará del progreso del proyecto hasta completarlo pudie
 
 - Enlace a la configuración del contenedor, [Dockerfile](https://github.com/XDavid1999/PacketService/blob/master/Dockerfile).
 - Enlace al contenedor en [Dockerhub](https://hub.docker.com/r/xdavid1999/packetservice/tags).
+- Enlace para acceder al contenedor en [GitHub Container Registry](https://github.com/users/XDavid1999/packages/container/package/packetservice)
 - Para acceder al [código](https://github.com/XDavid1999/PacketService/tree/master/src) fuente del proyecto.
 - Para acceder al fichero [iv.yaml](https://github.com/XDavid1999/PacketService/blob/master/iv.yaml).
 - Para acceder a los [test](https://github.com/XDavid1999/PacketService/blob/master/test/packetServiceTest.js) del código.
