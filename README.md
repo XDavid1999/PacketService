@@ -48,13 +48,13 @@ Además de esto, con el fin de que los usuarios puedan tener un amplio abanico d
 
 En este apartado se informará del progreso del proyecto hasta completarlo pudiendo ver que se hará en cada parte del desarrollo. Quedarán reflejados en el fichero [Steps](https://github.com/XDavid1999/PacketService/blob/master/docs/Steps.md) los pasos para la consecución del objetivo, la app. En él se detallan los avances que se hacen en cada milestone.
 
-- [Milestones](https://github.com/XDavid1999/PacketService/milestones) 
+- [Milestones](https://github.com/XDavid1999/PacketService/milestones).
 
-- [Issues Abiertos](https://github.com/XDavid1999/PacketService/issues?q=is%3Aopen+is%3Aissue)
+- [Issues Abiertos](https://github.com/XDavid1999/PacketService/issues?q=is%3Aopen+is%3Aissue).
 
-- [Issues Cerrados](https://github.com/XDavid1999/PacketService/issues?q=is%3Aissue+is%3Aclosed)
+- [Issues Cerrados](https://github.com/XDavid1999/PacketService/issues?q=is%3Aissue+is%3Aclosed).
 
-- [Historias de Usuario](https://github.com/XDavid1999/PacketService/issues?q=is%3Aissue+label%3Auser-stories)
+- [Historias de Usuario](https://github.com/XDavid1999/PacketService/issues?q=is%3Aissue+label%3Auser-stories).
 
 ## Enlaces a ubicaciones relevantes para el proyecto
 
