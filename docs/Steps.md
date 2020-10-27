@@ -13,7 +13,8 @@ En este documento se describirán brevemente las pautas para llevar a cabo el pr
 ## Hito 1: Planteamiento y descripción de las bases del proyecto
 
 - Actualizar el archivo README concretando el funcionamiento de la aplicación y el por qué elegirla además de las herramientas.
-- Añadir el archivo iv.yaml.
+- 
+Añadir el archivo iv.yaml.
 - Crear la carpeta /src que contendrá archivos relativos al proyecto, entre ellos un archivo que contendrá aspectos básicos de la clase que se creará.
 - Crear milestones para este hito y los dos siguientes además de los issues correspondientes a este hito.
 - Añadir al hito-1.md la nueva versión del proyecto con pull request.
@@ -32,4 +33,9 @@ En este documento se describirán brevemente las pautas para llevar a cabo el pr
 - Creados los test unitarios.
 
 ## Hito 3: Configurando Docker
-- 
+- Elegir una imagen base para crear el contenedor que ejecutará los test.
+- Comparar entre las distintas posibilidades de contenedores posibles.
+- Subir el contenedor creado a la plataforma de dockerhub.
+- Crear nuevas HU.
+- Avanzar el código.
+- Testear el código creado.
