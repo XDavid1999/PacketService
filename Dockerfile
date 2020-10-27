@@ -1,7 +1,7 @@
 #Con la palabra reservada FROM elegimos cual es la imagen que utilizaremos
 #como base de nuestro contenedor. Por supuesto debemos haber hecho antes
 #docker pull <imagen>
-FROM node:15-stretch-slim
+FROM node:15-alpine3.10
 
 #La instrucción LABEL agrega metadatos a la imagen que se creará, en este
 #caso mi nombre, como autor
