@@ -7,6 +7,10 @@ FROM node:15-alpine3.10
 #caso mi nombre, como autor
 LABEL maintainer="David Heredia Cortés"
 
+#Establecemos el valor de la variable de entorno para que nos encuentre el
+#directorio node_modules
+ENV PATH=/node_modules/.bin:$PATH
+
 #Con el comando ARG podemos crear un valor por defecto, lo que
 #guardaremos será el nombre del directorio /test
 ARG DIRECTORIO_TEST=/test
@@ -23,10 +27,6 @@ RUN npm install && npm install --global gulp-cli
 #Añadiremos un nuevo usuario, que ejecutará los test
 RUN addgroup -S appgroup && adduser -S david -G appgroup
 #RUN useradd -ms /bin/bash david
-
-#Establecemos el valor de la variable de entorno para que nos encuentre el
-#directorio node_modules
-ENV PATH=/node_modules/.bin:$PATH
 
 #Usaremos el usuario creado
 USER david
