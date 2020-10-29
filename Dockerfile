@@ -13,7 +13,8 @@ COPY package*.json ./
 #La palabra reservada RUN es utilizado en la construcción del contenedor y,
 #por ello, se instalarán en este caso las dependencias de nuestro proyecto.
 #Además crea una imagen después de haberse ejecutado.
-RUN npm install && npm install --global gulp-cli
+RUN npm install && \
+ npm install --global gulp-cli
 
 #Borrar archivos innecesarios
 RUN rm ./package*.json
