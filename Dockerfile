@@ -15,6 +15,9 @@ COPY package*.json ./
 #Además crea una imagen después de haberse ejecutado.
 RUN npm install && npm install --global gulp-cli
 
+#Borrar archivos innecesarios
+RUN rm ./package*.json
+
 #Establecemos el valor de la variable de entorno para que nos encuentre el
 #directorio node_modules
 ENV PATH=/node_modules/.bin:$PATH
