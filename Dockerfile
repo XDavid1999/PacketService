@@ -8,16 +8,12 @@ FROM node:12.19.0-alpine3.10
 LABEL maintainer="David Heredia Cortés"
 
 #Copiamos los archivos de dependencias
-COPY package.json package-lock.json ./
+COPY package*.json ./
 
 #La palabra reservada RUN es utilizado en la construcción del contenedor y,
 #por ello, se instalarán en este caso las dependencias de nuestro proyecto.
 #Además crea una imagen después de haberse ejecutado.
 RUN npm install && npm install --global gulp-cli
-
-#Añadiremos un nuevo usuario, que ejecutará los test
-RUN addgroup -S appgroup && adduser -S david -G appgroup
-#RUN useradd -ms /bin/bash david
 
 #Establecemos el valor de la variable de entorno para que nos encuentre el
 #directorio node_modules
@@ -30,8 +26,8 @@ ARG DIRECTORIO_TEST=/test
 #Nos cambiamos al directorio de test para realizarlos
 WORKDIR $DIRECTORIO_TEST
 
-#Usaremos el usuario creado
-USER david
+#Usaremos el usuario no root que las imágenes node traen por defecto, node
+USER node
 
 #El comando CMD se encarga de pasar valores por defecto a un contenedor, 
 #aunque entre los mismos pueden ir ejecutables. Haremos que se ejecuten los

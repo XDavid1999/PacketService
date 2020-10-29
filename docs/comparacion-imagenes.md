@@ -9,9 +9,24 @@ Dentro de las imágenes base que podemos utilizar es posible escoger, dentro de 
 - La imágenes que en su nombre contienen el tag *windowsservercore* es usado cuando la aplicación solo corre sobre Windows o Windows Server.
 - También como último consejo no se recomienda usar imágenes con el tag *latest* ya que esto siempre hará pull de la imagen más reciente y las dependencias podrían no ser compatibles con versiones futuras.  
     
+Elegimos además de las oficiales probar otras dos distribuciones distintas: ubuntu y fedora. 
+
+- Para el primer caso hacemos pull de una [imagen](https://hub.docker.com/r/tbaltrushaitis/ubuntu-nodejs) que se describe como un contenedor basado en ubuntu linux y con el entorno de node.js preinstalado. Elegimos de entre las disponibles la v9.9.0. En este caso no hay cambios en el Dockerfile
+- Para el segundo elegimos la conocida distribución [fedora](https://hub.docker.com/_/fedora). En este caso elegiremos la imagen oficial y dentro de esta la versión 31, que será más estable que las más recientes. Lo único que tendremos que hacer será instalar *npm* y *node* y, para ello simplemente tenemos que añadir al dockerfile que ya teníamos el siguiente comando entre las órdenes *COPY* y *RUN npm install ...*.
+
+~~~
+RUN dnf -y install nodejs npm
+RUN npm -g install npm
+RUN npm -g install n
+RUN n stable
+~~~
+
+El hecho de no concatenar las órdenes podría interpretarse como una mala práctica; pero si lo hacemos al construir docker nos lanza un fallo y, al no ser esta imagen la que realmente usaremos, lo consideramos menos relevante.
+
  ## Pull y pruebas a las imágenes
 
-En este apartado del documento describiremos algunos de los resultados que hemos obtenido testeando las imágenes. Entre las disponibles elegimos tres con diferentes características. Principalmente, tendremos en cuenta para elegir una dos aspectos: velocidad y espacio. Para comparar la velocidad de las imágenes hemos construido un simple script que hace que las distintas imágenes pasen los test 100 veces. Lo que haremos será simplemente medir el tiempo que tarda en ejecutarse el script con la orden [time](https://es.wikipedia.org/wiki/Time_(Unix)).
+En este apartado del documento describiremos algunos de los resultados que hemos obtenido testeando las imágenes. Entre las disponibles elegimos tres con diferentes características de entre las oficiales: slim(node 14), buster(node 15, completa) y la basada en alpine(node 12.19.0). Además de estas utilizaremos las ya descritas en el apartado anterior.
+Principalmente, tendremos en cuenta para elegir una dos aspectos: velocidad y espacio. Para comparar la velocidad de las imágenes hemos construido un simple script que hace que las distintas imágenes pasen los test 100 veces. Lo que haremos será simplemente medir el tiempo que tarda en ejecutarse el script con la orden [time](https://es.wikipedia.org/wiki/Time_(Unix)).
 
 ### Orden time
 El comando Time de Linux es un comando utilizado para determinar el tiempo de ejecución de una operación específica. Gracias a este comando, podemos saber la duración exacta de un proceso en cualquier sistema operativo Linux.
@@ -29,8 +44,12 @@ Se muestran en esta tabla los tiempos que la orden time nos devuelve y el espaci
 
 | Nombre | Tiempo Total | User Time | System Time | Size |
 |--------|--------|---------|---------|---------|
-| node-15-stretch-slim | 2:21.80 | 2.73 | 2.29 | 253MB |
+| node-14-stretch-slim | 2:21.80 | 2.73 | 2.29 | 253MB |
 | node-15-buster | 2:22.13 | 2.69 | 2.21 | 922MB |
-| node-12.19.0-alpine3.10 | 2:25.07 | 2.66 | 2.30 | 89.3MB |
+| node-12.19.0-alpine3.10 | 2:25.07 | 2.66 | 2.30 | 132MB |
+| ubuntu-based | 2:39.01 | 2.66 | 2.44 | 675MB |
+| fedora-31 | 2:17.31 | 2.70 | 2.43 | 795MB |
 
-Después de realizar pruebas vemos que la diferencia entre hacer los test con una imagen u otra es mínima respecto a velocidad. Daremos pues más relevancia al espacio que estas ocupan en disco, considerando entonces que la imagen con *buster* queda descartada por ser demasiado pesada. Finalmente, aunque la imagen con *slim* es la más rápida consideramos que la diferencia no es suficiente ya que ocupa el doble de espacio. Nos quedamos entonces con la imagen con alpine por ser casi tan rápida como las demás y extremadamente liviana y, por tanto, portable.
+
+Después de realizar pruebas vemos que la diferencia entre hacer los test con una imagen u otra es mínima respecto a velocidad. Si consideramos además que los test son ejecutados 100 veces la diferencia es aún menor (del orden de unos pocos milisegundos por test). Daremos pues más relevancia al espacio que estas ocupan en disco, considerando entonces que la imagen con *buster* queda descartada por ser demasiado pesada junto a la imagen de fedora pese a ser la más rápida. Además de las dos anteriores también descartamos la imagen basada en ubuntu por ser considerablemente más lenta y pesada. 
+Finalmente, aunque la imagen con *slim* es la segunda más rápida consideramos que la diferencia no es suficiente ya que ocupa el doble de espacio.Nos quedamos entonces con la imagen con alpine por ser casi tan rápida como las demás y extremadamente liviana y, por tanto, portable.
