@@ -1,5 +1,14 @@
 # PacketService
 
+## Enlaces a ubicaciones relevantes para el proyecto
+
+- Enlace a la configuración del contenedor, [Dockerfile](https://github.com/XDavid1999/PacketService/blob/master/Dockerfile) y [justificación](https://github.com/XDavid1999/PacketService/blob/master/docs/comparacion-imagenes.md) de la imagen base.
+- Enlace al contenedor en [Dockerhub](https://hub.docker.com/r/xdavid1999/packetservice/tags) y [documentación](https://github.com/XDavid1999/PacketService/blob/master/docs/dockerHub-containerRegistry.md) del proceso.
+- Enlace para acceder al contenedor en [GitHub Container Registry](https://github.com/users/XDavid1999/packages/container/package/packetservice). Con la ayuda de la [guía](https://docs.github.com/en/free-pro-team@latest/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images) oficial siguiendo los pasos detallados en el [archivo](https://github.com/XDavid1999/PacketService/blob/master/docs/dockerHub-containerRegistry.md) para conseguirlo.
+- Para acceder a la nueva [clase](https://github.com/XDavid1999/PacketService/blob/master/src/agency.js) creada.
+- Para acceder a los nuevos [métodos](https://github.com/XDavid1999/PacketService/blob/master/src/index.js) creados en la clase principal.
+- Para acceder a los nuevos [test](https://github.com/XDavid1999/PacketService/blob/master/test/packetServiceTest.js) realizados al nuevo código (dentro del mismo fichero que anteriormente).
+
 ## Uso del proyecto
 
 El proyecto desarrollado cuenta con un task runner, **Gulp**, el cual automatiza algunas de las tareas más frecuentes. Entre ellas se han añadido instalar las dependencias necesarias y probar las funciones con los test unitarios desarrollados.
@@ -56,14 +65,6 @@ En este apartado se informará del progreso del proyecto hasta completarlo pudie
 
 - [Historias de Usuario](https://github.com/XDavid1999/PacketService/issues?q=is%3Aissue+label%3Auser-stories).
 
-## Enlaces a ubicaciones relevantes para el proyecto
-
-- Enlace a la configuración del contenedor, [Dockerfile](https://github.com/XDavid1999/PacketService/blob/master/Dockerfile).
-- Enlace al contenedor en [Dockerhub](https://hub.docker.com/r/xdavid1999/packetservice/tags).
-- Enlace para acceder al contenedor en [GitHub Container Registry](https://github.com/users/XDavid1999/packages/container/package/packetservice). Con la ayuda de la [guía](https://docs.github.com/en/free-pro-team@latest/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images) oficial.
-- Para acceder al [código](https://github.com/XDavid1999/PacketService/tree/master/src) fuente del proyecto.
-- Para acceder al fichero [iv.yaml](https://github.com/XDavid1999/PacketService/blob/master/iv.yaml).
-- Para acceder a los [test](https://github.com/XDavid1999/PacketService/blob/master/test/packetServiceTest.js) del código.
 
 ## Herramientas
 
