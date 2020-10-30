@@ -25,7 +25,7 @@ RUN rm ./package*.json && rm -rf /var/lib/apt/lists/*
 ~~~
 También eliminaremos la etiqueta **LABEL** ya que esta añde metadatos a nuestra imagen y no aporta nada en nuestro caso, aunque los metadatos son utilizados a veces por programas externos, por ejemplo nvidia-docker requiere la etiqueta com.nvidia.volumes.needed para funcionar correctamente.
 
-# Usar el archivo .dockerignore
+## Usar el archivo .dockerignore
 
 Se recomienda en algunas [páginas](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/) que documentan buenas prácticas el uso de un archivo [.dockerignore](https://github.com/XDavid1999/PacketService/blob/master/.dockerignore) que se evite que los módulos locales y registros de depuración se copien en la imagen de Docker y posiblemente sobrescriban los módulos instalados dentro de la imagen. Añadiremos pues estas líneas a nuestro archivo:
 ~~~
