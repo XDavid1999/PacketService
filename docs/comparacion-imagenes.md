@@ -46,10 +46,10 @@ Se muestran en esta tabla los tiempos que la orden time nos devuelve y el espaci
 |--------|--------|---------|---------|---------|
 | node-14-stretch-slim | 2:21.80 | 2.73 | 2.29 | 253MB |
 | node-15-buster | 2:22.13 | 2.69 | 2.21 | 922MB |
-| node-12.19.0-alpine3.10 | 2:25.07 | 2.66 | 2.30 | 132MB |
+| node-12.19.0-alpine3.10 | 2:59.12 | 3.49 | 2.59 | 132MB |
 | ubuntu-based | 2:39.01 | 2.66 | 2.44 | 675MB |
 | fedora-31 | 2:17.31 | 2.70 | 2.43 | 795MB |
 
 
-Después de realizar pruebas vemos que la diferencia entre hacer los test con una imagen u otra es mínima respecto a velocidad. Si consideramos además que los test son ejecutados 100 veces la diferencia es aún menor (del orden de unos pocos milisegundos por test). Daremos pues más relevancia al espacio que estas ocupan en disco, considerando entonces que la imagen con *buster* queda descartada por ser demasiado pesada junto a la imagen de fedora pese a ser la más rápida. Además de las dos anteriores también descartamos la imagen basada en ubuntu por ser considerablemente más lenta y pesada. 
-Finalmente, aunque la imagen con *slim* es la segunda más rápida consideramos que la diferencia no es suficiente ya que ocupa el doble de espacio.Nos quedamos entonces con la imagen con alpine por ser casi tan rápida como las demás y extremadamente liviana y, por tanto, portable.
+Después de realizar pruebas vemos que la diferencia entre hacer los test con una imagen u otra es mínima respecto a velocidad. Si consideramos además que los test son ejecutados 100 veces la diferencia es aún menor (del orden de unos pocos milisegundos por test). Daremos pues más relevancia al espacio que estas ocupan en disco, considerando entonces que la imagen con *buster* queda descartada por ser demasiado pesada junto a la imagen de fedora pese a ser la más rápida. Además de las dos anteriores también descartamos la imagen basada en ubuntu por no ser muy rápida y ser pesada. 
+Finalmente, aunque la imagen con *slim* es la segunda más rápida consideramos que la diferencia no es suficiente ya que ocupa el doble de espacio. Nos quedamos entonces con la imagen basada en alpine ya que, a pesar de ser la más lenta, es extremadamente liviana y, por tanto, portable.
