@@ -12,16 +12,14 @@ Dentro de las imágenes base que podemos utilizar es posible escoger, dentro de 
 Elegimos además de las oficiales probar otras dos distribuciones distintas: ubuntu y fedora. 
 
 - Para el primer caso hacemos pull de una [imagen](https://hub.docker.com/r/tbaltrushaitis/ubuntu-nodejs) que se describe como un contenedor basado en ubuntu linux y con el entorno de node.js preinstalado. Elegimos de entre las disponibles la v9.9.0. En este caso no hay cambios en el Dockerfile
-- Para el segundo elegimos la conocida distribución [fedora](https://hub.docker.com/_/fedora). En este caso elegiremos la imagen oficial y dentro de esta la versión 31, que será más estable que las más recientes. Lo único que tendremos que hacer será instalar *npm* y *node* y, para ello simplemente tenemos que añadir al dockerfile que ya teníamos el siguiente comando entre las órdenes *COPY* y *RUN npm install ...*.
+- Para el segundo elegimos la conocida distribución [fedora](https://hub.docker.com/_/fedora). En este caso elegiremos la imagen oficial y dentro de esta la versión 31, que será más estable que las más recientes. Lo único que tendremos que hacer será instalar *npm* y *node* y, para ello simplemente tenemos que añadir al dockerfile que ya teníamos el siguiente comando entre las órdenes **COPY** y **RUN** npm install ....
 
 ~~~
-RUN dnf -y install nodejs npm
-RUN npm -g install npm
-RUN npm -g install n
-RUN n stable
+dnf -y install nodejs npm
+npm -g install npm
+npm -g install n
+n stable
 ~~~
-
-El hecho de no concatenar las órdenes podría interpretarse como una mala práctica; pero si lo hacemos al construir docker nos lanza un fallo y, al no ser esta imagen la que realmente usaremos, lo consideramos menos relevante.
 
  ## Pull y pruebas a las imágenes
 
