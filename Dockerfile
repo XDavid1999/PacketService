@@ -14,8 +14,8 @@ COPY package*.json ./
 #por ello, se instalarán en este caso las dependencias de nuestro proyecto.
 #Además crea una imagen después de haberse ejecutado.
 RUN npm install && \
-npm install --global gulp-cli
-RUN rm ./package*.json && \
+npm install --global gulp-cli && \
+rm ./package*.json && \
 rm -rf /var/lib/apt/lists/*
 #Borrar archivos innecesarios
 
