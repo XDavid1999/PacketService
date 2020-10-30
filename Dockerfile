@@ -5,7 +5,7 @@ FROM node:12.19.0-alpine3.10
 
 #La instrucción LABEL agrega metadatos a la imagen que se creará, en este
 #caso mi nombre, como autor
-LABEL maintainer="David Heredia Cortés"
+#LABEL maintainer="David Heredia Cortés"
 
 #Copiamos los archivos de dependencias
 COPY package*.json ./
