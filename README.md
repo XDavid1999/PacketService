@@ -8,7 +8,7 @@
 - Para acceder a la nueva [clase](https://github.com/XDavid1999/PacketService/blob/master/src/agency.js) creada.
 - Para acceder a los nuevos [métodos](https://github.com/XDavid1999/PacketService/blob/master/src/index.js) creados en la clase principal.
 - Para acceder a los nuevos [test](https://github.com/XDavid1999/PacketService/blob/master/test/packetServiceTest.js) realizados al nuevo código (dentro del mismo fichero que anteriormente).
-
+- Para acceder al archivo de [documentación](https://github.com/XDavid1999/PacketService/blob/master/docs/optimizacion.md) de la optimización.
 ## Uso del proyecto
 
 El proyecto desarrollado cuenta con un task runner, **Gulp**, el cual automatiza algunas de las tareas más frecuentes. Entre ellas se han añadido instalar las dependencias necesarias y probar las funciones con los test unitarios desarrollados.
