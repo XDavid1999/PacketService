@@ -9,6 +9,7 @@ class Package{
    * @param {String} origen - Fecha de nacimiento
    * @param {String} localizacionActual - Localización actual del paquete
    * @param {Agency} agencia - Agencia con la que se envirá el paquete 
+   * @param {estado} estado - Estado del paquete
    */
 
   constructor(nuevousuario, nuevadescripcion, nuevopeso, nuevodestino, nuevoorigen, nuevaagencia, nuevalocalizacionactual) {
@@ -18,6 +19,7 @@ class Package{
     this._destino = nuevodestino;
     this._origen = nuevoorigen;
     this._agencia = nuevaagencia;
+    this._estado =  "ENVIO CREADO";
     if(typeof nuevalocalizacionactual !== "undefined") 
       this._localizacionActual=nuevalocalizacionactual;
     else
@@ -56,6 +58,10 @@ class Package{
     return this.agencia;
   }
 
+  get _estado(){
+    return this.estado;
+  }
+
   /**
    * métodos set de la clase
    */
@@ -88,6 +94,9 @@ class Package{
     this.agencia=nuevaagencia;
   }
 
+  set _estado(nuevoestado){
+    this.estado=nuevoestado;
+  }
 
   /**
    * Método para obtener información a cerca de un paquete
@@ -102,7 +111,9 @@ class Package{
     "\n Origen: " + this.origen +
     "\n Destino: " + this.destino +
     "\n Localización Actual: " + this.localizacionActual +
-    "\n Agencia de Transporte: " + this.agencia);
+    "\n Agencia de Transporte: " + this.agencia +
+    "\n Estado del envío: " + this.estado);
+  
 
     return info;
   }
