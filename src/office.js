@@ -20,9 +20,9 @@ class Office{
       this._enviosEnCurso = 0;
     }
 
-      /**
-   * métodos get de la clase
-   */
+   /**
+    * métodos get de la clase
+    */
 
   get _correo_contacto(){
     return this.correo_contacto;
@@ -103,12 +103,12 @@ class Office{
 
   /**
    * 
-     * @param {String} nuevocorrep - Nuevo correo de contacto de la oficina
-     * @param {String} nuevotelefono - Nuevo teléfono de contacto de la oficina
-     * @param {Number} nuevosvehiculos - Nuevo número de vehiculos de reparto disponibles en la oficina
-     * @param {String} nuevafecha - Nueva fecha de alta de la oficina en la plataforma
-     * @param {String} nuevadireccion - Nueva dirección de la oficina
-     * @param {Agency} nuevaagencia - Nueva agencia a la que pertenece esta oficina
+   * @param {String} nuevocorrep - Nuevo correo de contacto de la oficina
+   * @param {String} nuevotelefono - Nuevo teléfono de contacto de la oficina
+   * @param {Number} nuevosvehiculos - Nuevo número de vehiculos de reparto disponibles en la oficina
+   * @param {String} nuevafecha - Nueva fecha de alta de la oficina en la plataforma
+   * @param {String} nuevadireccion - Nueva dirección de la oficina
+   * @param {Agency} nuevaagencia - Nueva agencia a la que pertenece esta oficina
    * 
    * Con este método se modificarán distintos aspectos básicos de la agencia
    * excepto la fecha en la que se añadió y su valoración
