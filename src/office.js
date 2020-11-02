@@ -93,9 +93,9 @@ class Office{
     "\n Correo de contacto: " + this.correo_contacto +
     "\n Teléfono de contacto: " +  this.telefono +
     "\n Vehículos disponibles: " + this.vehiculos +
-    "\n Fecha de alta en el sistema: " + this.fecha_alta
+    "\n Fecha de alta en el sistema: " + this.fecha_alta +
     "\n Dirección: " + this.direccion +
-    "\n Agencia a la que pertenece: " + this.agencia
+    "\n Agencia a la que pertenece: " + this.agencia.nombre +
     "\n Envíos en curso en esta oficina: " + this.agencia ;
   
     return info;

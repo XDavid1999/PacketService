@@ -207,7 +207,7 @@ function addOffice(oficina){
 
 
     if(duplicado==false){
-        agencias.push(agencia);    
+        oficinasAgencias.push(oficina);    
     }
 }
 
@@ -230,15 +230,14 @@ function dropOutOffice(oficina){
         let i=0;
 
         oficinasAgencias.forEach(element => {
-            if(user.nick==element.nick)
-                usuarios.splice(i, 1);
+            if(oficina.correo_contacto==element.correo_contacto)
+                oficinasAgencias.splice(i, 1);
 
             i++;
         });
     }
     else
         throw new Error('No puede dar de baja esta oficina hasta que se hayan completado los envíos en curso');
-
 }
 
 /**
