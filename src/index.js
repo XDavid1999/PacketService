@@ -11,7 +11,9 @@ var paquetesEnCurso = new Array();
 var usuarios = new Array();
 var agencias = new Array();
 var oficinasAgencias = new Array();
+var valoraciones = new Map();
 
+const EstadoPaquete = Object.freeze({"EN_REPARTO":1, "EN_OFICINA":2, "ENTREGADO":3, "CANCELADO":4})
 
 /**
  * Si un usuario tiene dos paquetes con descripciónes, pesos, destino, origen y
@@ -105,8 +107,10 @@ function cancelShipping(paquete){
         let i=0;
 
         paquetesEnCurso.forEach(element => {
-            if(paquete.nickusuario==element.nickusuario && paquete.descripcion == element.descripcion)
+            if(paquete.nickusuario==element.nickusuario && paquete.descripcion == element.descripcion){
                 paquetesEnCurso.splice(i, 1);
+                element.estado=EstadoPaquete.CANCELADO;
+            }
 
             i++;
         });
@@ -210,9 +214,9 @@ function addOffice(oficina){
 /**
  * Función para dar una oficina de baja del sistema
  *
- * [HU05]
+ * [HU15]
  * 
- * @param {Office} oficina - Usuario que se eliminará 
+ * @param {Office} oficina - Oficina que se eliminará 
  */
 function dropOutOffice(oficina){
     var envioEnCurso=false;
@@ -237,6 +241,52 @@ function dropOutOffice(oficina){
 
 }
 
+/**
+ * Función para actualizar la localización de un paquete, sea por el repartidor o si el
+ * usuario desea saber la localización de un paquete, en cuyo caso el método se invocará
+ * con el parámetro *localización* vacío
+ * 
+ * [HU17], [HU18]
+ * 
+ * @param {Package} paquete - Paquete al que actualizar la localización
+ * @param {String} localizacion - Nueva localización a la que ha llegado el paquete
+ */
+function updateLocation(paquete, localizacion=""){
+    /**Si el paquete a llegado a una de las oficinas lo añadimos al número de envíos que se están llevando a cabo */
+    oficinasAgencias.forEach(element => {
+        if(element.localizacion==localizacion){
+            element.envioEnCurso++;
+
+            if(paquete.localizacionActual==localizacion)
+                paquete.estado=EstadoPaquete.ENTREGADO;
+            else
+                paquete.estado=EstadoPaquete.EN_OFICINA;
+        }
+        else if(paquete.localizacionActual!=paquete.origen)
+            paquete.estado=EstadoPaquete.EN_REPARTO;
+    });
+
+    if(localizacion!="")
+        paquete.localizacionActual=localizacion;
+    
+}
+
+/**
+ * Esta función servirá para valorar una agencia si uno de tus paquetes te ha sido entregado
+ * y si eres dueño de ese paquete, por ahora las valoraciones se harán de manera anónima
+ * 
+ * [HU19]
+ * 
+ * @param {Number} valoracion 
+ * @param {String} paquete 
+ * @param {String} usuario 
+ */
+function valorarAgencia(valoracion, paquete, usuario){
+    if(paquete.estado==EstadoPaquete.ENTREGADO && paquete.nickusuario==usuario.nickusuario)
+        valoraciones.set(paquete.agencia, valoracion);
+    else
+        throw new Error('No puede valorar esta entrega, el paquete no es suyo o aún no se ha entregado');
+}
 
 module.exports = {
     addAgency,
@@ -247,6 +297,10 @@ module.exports = {
     sendPackage,
     addOffice,
     dropOutOffice,
+    updateLocation,
+    valorarAgencia,
+    valoraciones,
+    EstadoPaquete,
     usuarios,
     agencias,
     paquetesEnCurso,
