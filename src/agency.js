@@ -133,7 +133,6 @@ class Agency{
     this._oficinas = nuevasoficinas;
     this._vehiculos = nuevosvehiculos;
     this._descripcion = nuevadescripcion;
-    /**console.log("Usuario modificado correctamente");*/
   }
 }
 

@@ -8,7 +8,7 @@ class Package{
    * @param {String} destino - Destino al que se enviará del paquete
    * @param {String} origen - Fecha de nacimiento
    * @param {String} localizacionActual - Localización actual del paquete
-   * @param {String} agencia - Agencia con la que se envirá el paquete 
+   * @param {Agency} agencia - Agencia con la que se envirá el paquete 
    */
 
   constructor(nuevousuario, nuevadescripcion, nuevopeso, nuevodestino, nuevoorigen, nuevaagencia, nuevalocalizacionactual) {
