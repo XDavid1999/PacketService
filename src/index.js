@@ -13,7 +13,7 @@ var agencias = new Array();
 var oficinasAgencias = new Array();
 var valoraciones = new Map();
 
-const EstadoPaquete = Object.freeze({"EN_REPARTO":1, "EN_OFICINA":2, "ENTREGADO":3, "CANCELADO":4})
+const EstadoPaquete = Object.freeze({"EN_REPARTO":1, "EN_OFICINA":2, "ENTREGADO":3, "CANCELADO":4, "ESPERANDO_RECOGIDA_PRESENCIAL":5})
 
 /**
  * Si un usuario tiene dos paquetes con descripciónes, pesos, destino, origen y
@@ -252,16 +252,21 @@ function dropOutOffice(oficina){
  */
 function updateLocation(paquete, localizacion=""){
     /**Si el paquete a llegado a una de las oficinas lo añadimos al número de envíos que se están llevando a cabo */
-    oficinasAgencias.forEach(element => {
-        if(element.localizacion==localizacion){
-            element.envioEnCurso++;
+    var oficina="";
 
-            if(paquete.localizacionActual==localizacion)
-                paquete.estado=EstadoPaquete.ENTREGADO;
+    oficinasAgencias.forEach(element => {
+        if(element.direccion==localizacion){
+            oficina=element;
+            oficina.enviosEnCurso++;
+            
+            if(paquete.destino==localizacion)
+                paquete.estado=EstadoPaquete.ESPERANDO_RECOGIDA_PRESENCIAL;
             else
                 paquete.estado=EstadoPaquete.EN_OFICINA;
         }
-        else if(paquete.localizacionActual!=paquete.origen)
+        else if(paquete.destino==localizacion)
+            paquete.estado=EstadoPaquete.ENTREGADO;
+        else if(!element.direccion==localizacion && paquete.localizacionActual!=paquete.origen)
             paquete.estado=EstadoPaquete.EN_REPARTO;
     });
 

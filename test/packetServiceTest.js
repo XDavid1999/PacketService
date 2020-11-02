@@ -188,6 +188,23 @@ describe("Testando métodos de index.js", function() {
             expect(longArray).to.equal(4);
         });
     });
+
+    describe("Testando el método updateLocation", function updateLocation(paquete, localizacion) {
+    
+        it("Comprobando que actualiza la localizacion correctamente", ()=>{
+            /**Actualizamos localización como repartidor, hemos llegado a una oficina*/
+            moduloIndex.updateLocation(package5, "C/Ancha,5 - Churriana");
+            expect(oficina1.enviosEnCurso).to.equal(1);
+            expect(package5.localizacionActual).to.equal("C/Ancha,5 - Churriana");
+            expect(package5.estado).to.equal(moduloIndex.EstadoPaquete.EN_OFICINA);
+           /**Actualizamos localización como usuario, el paquete está entre dos oficinas o de camino al destino a entregar*/
+            moduloIndex.updateLocation(package4);
+            expect(package4.estado).to.equal(moduloIndex.EstadoPaquete.EN_REPARTO);
+            /**Actualizamos localización como repartidor, el paquete ha llegado a su destino*/
+            moduloIndex.updateLocation(package4, "Almería");
+            expect(package4.estado).to.equal(moduloIndex.EstadoPaquete.ENTREGADO);
+        });
+    });
 });
 
 describe("Testando métodos de package.js", function() {
