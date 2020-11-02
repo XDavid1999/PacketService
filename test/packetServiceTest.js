@@ -298,6 +298,18 @@ describe("Testando métodos de agency.js", function() {
 
 
 describe("Testando métodos de office.js", function() {
+    describe("Testando el método modificaOficina", function modificarOficina(oficina) {
+  
+        it("Comprobando que se modifican los datos de una oficina correctamente", ()=>{
+            oficina5.modificarOficina("guille@lupiañez.es", "958 324 425", 32, "Niwelas");
+            var oficina6 = new Office("guille@lupiañez.es", "958 324 425", 32, "12/12/2013", "Niwelas", agencia2);
+
+            expect(oficina5.correo_contacto).to.eq(oficina6.correo_contacto);
+            expect(oficina5.telefono).to.eq (oficina6.telefono);
+            expect(oficina5.vehiculos).to.eq(oficina6.vehiculos);
+            expect(oficina5.direccion).to.eq(oficina6.direccion);
+        });
+    });
 
     describe("Testando el método agencyInfo", function agencyInfo() {
   

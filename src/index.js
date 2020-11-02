@@ -277,12 +277,12 @@ function updateLocation(paquete, localizacion=""){
  * [HU19]
  * 
  * @param {Number} valoracion 
- * @param {String} paquete 
- * @param {String} usuario 
+ * @param {Package} paquete 
+ * @param {User} usuario 
  */
 function valorarAgencia(valoracion, paquete, usuario){
-    if(paquete.estado==EstadoPaquete.ENTREGADO && paquete.nickusuario==usuario.nickusuario)
-        valoraciones.set(paquete.agencia, valoracion);
+    if(paquete.estado==EstadoPaquete.ENTREGADO && paquete.nick==usuario.nickusuario)
+        valoraciones.set(paquete, valoracion);
     else
         throw new Error('No puede valorar esta entrega, el paquete no es suyo o aún no se ha entregado');
 }
