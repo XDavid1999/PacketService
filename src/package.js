@@ -96,13 +96,13 @@ class Package{
    */
   packageInfo() {
     var info = ("Se muestran a continuación los datos del paquete" +
-    "\n Propietario: " + this._nickusuario +
-    "\n Descripción: " + this._descripcion +
-    "\n Peso: " + this._peso +
-    "\n Origen: " + this._origen +
-    "\n Destino: " + this._destino +
-    "\n Localización Actual: " + this._localizacionActual +
-    "\n Agencia de Transporte: " + this._agencia);
+    "\n Propietario: " + this.nickusuario +
+    "\n Descripción: " + this.descripcion +
+    "\n Peso: " + this.peso +
+    "\n Origen: " + this.origen +
+    "\n Destino: " + this.destino +
+    "\n Localización Actual: " + this.localizacionActual +
+    "\n Agencia de Transporte: " + this.agencia);
 
     return info;
   }

@@ -3,13 +3,14 @@
 const User = require("./user.js");
 const Package = require("./package.js");
 const Agency = require("./agency.js");
-
+const Office = require("./office.js");
 
 
 /**Se emulan las tablas de la BD */ 
 var paquetesEnCurso = new Array();
 var usuarios = new Array();
 var agencias = new Array();
+var oficinasAgencias = new Array();
 
 
 /**
@@ -41,7 +42,7 @@ function sendPackage(paquete){
 }
 /**
  * Si una agencia tiene mismo teléfono de contacto, correo o nombre
- * se tomará cmo ya existente en el sistema y no se añadirá, en caso
+ * se tomará como ya existente en el sistema y no se añadirá, en caso
  * contrario se añadirá normalmente
  * 
  * [HU09]
@@ -181,6 +182,62 @@ function dropOutUser(user){
 
 }
 
+/**
+ * Si una oficina tiene mismo teléfono de contacto, correo o direccion
+ * se tomará como ya registrada en el sistema y no se añadirá, en caso
+ * contrario se añadirá normalmente
+ * 
+ * [HU13]
+ * 
+ * @param {Office} oficina - Oficina a añadir
+ */
+function addOffice(oficina){
+    var duplicado=false;
+
+    oficinasAgencias.forEach(element => {
+        if(oficina.direccion==element.direccion || oficina.telefono == element.telefono || oficina.correo_contacto == element.correo){
+            duplicado=true;
+            throw new Error ('Oficina ya registrada en el sistema');
+        }
+    });
+
+
+    if(duplicado==false){
+        agencias.push(agencia);    
+    }
+}
+
+/**
+ * Función para dar una oficina de baja del sistema
+ *
+ * [HU05]
+ * 
+ * @param {Office} oficina - Usuario que se eliminará 
+ */
+function dropOutOffice(oficina){
+    var envioEnCurso=false;
+
+    oficinasAgencias.forEach(element => {
+        if(element.correo_contacto==oficina.correo_contacto && element.enviosEnCurso!=0)
+            envioEnCurso=true;
+    });
+
+    if(envioEnCurso==false){
+        let i=0;
+
+        oficinasAgencias.forEach(element => {
+            if(user.nick==element.nick)
+                usuarios.splice(i, 1);
+
+            i++;
+        });
+    }
+    else
+        throw new Error('No puede dar de baja esta oficina hasta que se hayan completado los envíos en curso');
+
+}
+
+
 module.exports = {
     addAgency,
     dropOutAgency,
@@ -188,7 +245,10 @@ module.exports = {
     dropOutUser,
     cancelShipping,
     sendPackage,
+    addOffice,
+    dropOutOffice,
     usuarios,
     agencias,
-    paquetesEnCurso
+    paquetesEnCurso,
+    oficinasAgencias
 }

@@ -7,6 +7,7 @@ class Office{
      * @param {String} fecha_alta - Fecha de alta de la oficina en la plataforma
      * @param {String} direccion - Nueva dirección de la oficina
      * @param {Agency} agencia - Agencia a la que pertenece esta oficina
+     * @param {Number} enviosEnCurso - Envíos que la agencia está tramitando en este momento, datos para estadísticas
      */
   
     constructor(nuevocorreo, nuevotelefono, nuevosvehiculos, nuevafecha, nuevadireccion, nuevaagencia) {
@@ -16,6 +17,7 @@ class Office{
       this._fecha_alta = nuevafecha;
       this._direccion = nuevadireccion;
       this._agencia = nuevaagencia;
+      this._enviosEnCurso = 0;
     }
 
       /**
@@ -46,6 +48,9 @@ class Office{
     return this.agencia;
   }
 
+  get _enviosEnCurso(){
+      return this.enviosEnCurso;
+  }
   /**
    * métodos set de la clase
    */
@@ -74,6 +79,10 @@ class Office{
       this.agencia = nuevaagencia;
   }
 
+  set _enviosEnCurso(nuevosenvios){
+      this.enviosEnCurso = nuevosenvios;
+  }
+
   /**
    * Método para consultar los datos de una oficina
    * 
@@ -86,7 +95,8 @@ class Office{
     "\n Vehículos disponibles: " + this.vehiculos +
     "\n Fecha de alta en el sistema: " + this.fecha_alta
     "\n Dirección: " + this.direccion +
-    "\n Agencia a la que pertenece: " + this.agencia ;
+    "\n Agencia a la que pertenece: " + this.agencia
+    "\n Envíos en curso en esta oficina: " + this.agencia ;
   
     return info;
   }
