@@ -1,3 +1,11 @@
 language: node_js
 node_js:
   - v10.19.0
+
+# Haremos build a nuestro contenedor en travis
+before_install:
+  docker build -t xdavid1999/packetservice .
+
+# Haremos que nuestro contenedor pase los test como en la práctica anterior
+script:
+  docker run -t -v `pwd`:/test xdavid1999/packetservice
