@@ -205,6 +205,23 @@ describe("Testando métodos de index.js", function() {
             expect(package4.estado).to.equal(moduloIndex.EstadoPaquete.ENTREGADO);
         });
     });
+
+    describe("Testando el método valorarAgencia", function valorarAgencia(valoracion, paquete, usuario) {
+    
+        it("Comprobando que se valora correctamente una agencia", ()=>{
+            package1.estado=moduloIndex.EstadoPaquete.ENTREGADO;
+            package2.estado=moduloIndex.EstadoPaquete.ENTREGADO;
+            moduloIndex.valorarAgencia(10, package1, user1);
+            moduloIndex.valorarAgencia(8, package2, user1);
+            
+            expect(moduloIndex.valoraciones.get(package1)).to.equal(10);
+            expect(moduloIndex.valoraciones.get(package2)).to.equal(8);
+        });
+        it("Testeando que no se puede valorar una agencia si no se es propietario del paquete o aún no se ha entregado", ()=>{
+            expect(function() { moduloIndex.valorarAgencia(5, package5, user1); }).to.throw(Error, /No puede valorar esta entrega, el paquete no es suyo o aún no se ha entregado/);
+            expect(function() { moduloIndex.valorarAgencia(5, package3, user2); }).to.throw(Error, /No puede valorar esta entrega, el paquete no es suyo o aún no se ha entregado/);
+        });
+    });
 });
 
 describe("Testando métodos de package.js", function() {
