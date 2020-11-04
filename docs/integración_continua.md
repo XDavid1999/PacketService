@@ -1,6 +1,6 @@
 # Integración continua
 
-La integración continua es una práctica con la que se realizan integraciones automáticas en un proyecto en periodos de timepo cortos para así poder detectar fallos cuanto antes. Entendemos por integración la compilación y el testeo de todo un proyecto.
+La integración continua es una práctica con la que se realizan integraciones automáticas en un proyecto en periodos de tiempo cortos para así poder detectar fallos cuanto antes. Entendemos por integración la compilación y el testeo de todo un proyecto.
 
 El proceso, en nuestro caso, se repite cada vez que realizamos cambios en el proyecto (commits) para ver si todo continúa funcionando correctamente. Lo que en este caso harán nuestros CI será acceder a nuestro repositorio, clonarlo, crear un contenedor según se ha especificado en nuestro Dockerfile y ejecutar los test que se hayan programado para el código desarrollado. Si todo este proceso se desarrolla con normalidad se nos informará de que el proyecto funciona correctamente, en caso contrario se nos notificarán errores.
 
@@ -12,9 +12,9 @@ Para este proceso usaremos Travis y CodeFresh.
 
 Travis es una herramienta para la integración continua muy conocida y utilizada en la realización de proyectos. Una de su claras ventajas es que permite conectar nuestro repositorio de Github y hacer pruebas después de cada push que realicemos. Travis además, soporta una gran cantidad de lenguajes como Clojure, Erlang, Node.js, PHP, Ruby, etc. 
 
-Podemos destacar también es que el entorno de integración continua esta compuesto de multiples runtimes (Node.js, o versiones de PHP, por ejemplo) o data stores. De este modo, podemos hacer pruebas a nuestras librerías o aplicaciones usando distintas configuraciones sin tener que tenerlas instaladas localmente.
+Podemos destacar también que el entorno de integración continua está compuesto de multiples runtimes (Node.js, o versiones de PHP, por ejemplo) o data stores. De este modo, podemos hacer pruebas a nuestras librerías o aplicaciones usando distintas configuraciones sin tener que tenerlas instaladas localmente.
 
-La integración con Github es extremadamente sencilla como veremos más adelante ya que practicamente solo necesitamos darle acceso de lectura a nuestro código y definir los test necesarios. Asimismo, la documentación es clara y detallada para cada proceso, así como las herramientas de terceros y recursos.
+La integración con Github es extremadamente sencilla como veremos más adelante, ya que practicamente solo necesitamos darle acceso de lectura a nuestro código y definir los test necesarios. Asimismo, la documentación es clara y detallada para cada proceso, así como las herramientas de terceros y recursos.
 
 ### Configuración
 
@@ -24,11 +24,9 @@ La parte de la configuración de esta herrammienta está detallada en los ejerci
 
 ### Justificación
 
-En principio [codefresh](https://codefresh.io) se define como la plataforma de automatización de DevOps número uno para aplicaciones de Kubernetes. Elegimos esta herramienta buscando en la web. Dentro de las que se consideraron posibles codefresh, además de no haber sido tan usada por los compañeros, tiene una extensa documentación. 
+En principio [codefresh](https://codefresh.io) se define como la plataforma de automatización de DevOps número uno para aplicaciones de Kubernetes. Elegimos esta herramienta buscando en la web. Dentro de las que se consideraron posibles codefresh, además de no haber sido tan usada por los compañeros, tiene una extensa documentación. En su propia página podemos encontrar ayuda acerca de como realizar flujos de trabajo o como automatizar infinidad de tareas acompañadas de una explicación de por qué se ejecuta practicamente cada linea de código. 
 
-En su propia página podemos encontrar ayuda acerca de como realizar flujos de trabajo o como automatizar infinidad de tareas acompañadas de una explicación de por qué se ejecuta practicamente cada linea de código. 
-
-Además de esto, esta utilidad es extremadamente versátil, ya que se puede integrar con muchas plataformas y los tiempos de espera son bastante cortos. Codefresh también nos proporciona estadísticas e información relevante acerca de la memoria que se está utilizando, logs, etc. Sumado a todo esto el uso de la herramienta no es excesivamente complicado y su interfaz es vistosa e intuitiva.
+Además de esto, esta utilidad es extremadamente versátil, ya que se puede integrar con muchas plataformas y los tiempos de espera son bastante cortos, de hecho, en mi caso es más rapido que travis. Codefresh también nos proporciona estadísticas e información relevante acerca de la memoria que se está utilizando, logs, etc. Sumado a todo esto el uso de la herramienta no es excesivamente complicado y su interfaz es vistosa e intuitiva.
 
 ### Configuración
 
@@ -40,7 +38,7 @@ Además de esto, esta utilidad es extremadamente versátil, ya que se puede inte
 
 ![permisos](images/im2.png)
 
-- Después de esto se nos presentará una pantalla en la que se verificarán los datos de nuestra cuenta. Una vez que Codefresh lea sus datos de nuestro proveedor de identidad, GitHub, nos presentará los datos de nuestra nueva cuenta.
+- A continuación, se nos presentará una pantalla en la que se verificarán los datos de nuestra cuenta. Una vez que Codefresh lea sus datos de nuestro proveedor de identidad, GitHub, nos presentará los datos de nuestra nueva cuenta.
 
 ![configuracion](images/im3.png)
 
