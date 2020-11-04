@@ -1,4 +1,4 @@
-# Integraciíon continua
+# Integración continua
 
 La integración continua es una práctica con la que se realizan integraciones automáticas en un proyecto en periodos de timepo cortos para así poder detectar fallos cuanto antes. Entendemos por integración la compilación y el testeo de todo un proyecto.
 
@@ -10,7 +10,7 @@ Para este proceso usaremos Travis y CodeFresh.
 
 ### Justificación
 
-Travis es una herramienta para la integración continua muy conocida y utilizada en la realización de proyectos. Una de suss claras ventajas es que permite conectar nuestro repositorio de Github y hacer pruebas después de cada push que realicemos. Travis además, soporta una gran cantidad de lenguajes como Clojure, Erlang, Node.js, PHP, Ruby, etc. 
+Travis es una herramienta para la integración continua muy conocida y utilizada en la realización de proyectos. Una de su claras ventajas es que permite conectar nuestro repositorio de Github y hacer pruebas después de cada push que realicemos. Travis además, soporta una gran cantidad de lenguajes como Clojure, Erlang, Node.js, PHP, Ruby, etc. 
 
 Podemos destacar también es que el entorno de integración continua esta compuesto de multiples runtimes (Node.js, o versiones de PHP, por ejemplo) o data stores. De este modo, podemos hacer pruebas a nuestras librerías o aplicaciones usando distintas configuraciones sin tener que tenerlas instaladas localmente.
 
