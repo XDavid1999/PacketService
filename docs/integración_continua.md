@@ -94,3 +94,7 @@ steps:
 ~~~
 
 -  Los disparadores, que son los eventos por los cuales se "ejecutará" esta pipe, pueden ser configurados también aunque no será necesario, ya que por defecto tenemos un trigger cada vez se que se realicen un commits.
+
+- Últimas build funcionando:
+
+![build](images/im6.png)
