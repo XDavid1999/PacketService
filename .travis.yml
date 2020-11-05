@@ -1,7 +1,14 @@
-# Haremos build a nuestro contenedor en travis
-before_install:
-  docker build -t xdavid1999/packetservice .
+language: node_js
+node_js:
+  - 8.17.0
+  - 9
+  - 10.19.0 # Versión en mi PC
+  - 12.19.0 # La de mi contenedor
+  - 14.15.0
 
-# Haremos que nuestro contenedor pase los test como en la práctica anterior
-script:
-  docker run -t -v `pwd`:/test xdavid1999/packetservice
+install:
+  - npm install -g gulp
+
+  script:
+  - gulp install
+  - gulp test
