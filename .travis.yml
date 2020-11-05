@@ -9,7 +9,7 @@ node_js:
 
 install:
   - npm install -g gulp
+  - gulp install
 
 script:
-  - gulp install
   - gulp test
