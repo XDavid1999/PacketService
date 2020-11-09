@@ -18,7 +18,7 @@ La integración con Github es extremadamente sencilla como veremos más adelante
 
 ### Configuración
 
-La parte de la configuración de esta herrammienta está detallada en los ejercicios [9](https://github.com/XDavid1999/Exercises/blob/master/Ejercicios/ejercicio9/ejercicio9.md) y [10](https://github.com/XDavid1999/Exercises/blob/master/Ejercicios/ejercicio10/ejercicio10.md) necesarios para la realización del hito 4. En el primero se explica como hemos conectado Travis y nuestro proyecto en GitHub y en el segundo se describe el fichero .travis.yml y como se ha configurado.
+La parte de la configuración de esta herramienta está detallada en el [ejercicio 9](https://github.com/XDavid1999/Exercises/blob/master/Ejercicios/ejercicio9/ejercicio9.md). En el [ejercicio 10](https://github.com/XDavid1999/Exercises/blob/master/Ejercicios/ejercicio10/ejercicio10.md) se describe el fichero .travis.yml y como se ha configurado. En este caso se muestra sin usar el contenedor y, en caso de configurarlo, como se haría.
 
 ## Code Fresh
 
@@ -54,13 +54,14 @@ Además de esto, esta utilidad es extremadamente versátil, ya que se puede inte
 
 ~~~
 # More examples of Codefresh YAML can be found at# More examples of Codefresh YAML can be found at
+# More examples of Codefresh YAML can be found at
 # https://codefresh.io/docs/docs/yaml-examples/examples/
 
 version: "1.0"
 # Stages can help you organize your steps in stages
 stages:
   - "clone"
-  - "build"
+  - "pull"
   - "test"
 
 steps:
@@ -74,20 +75,18 @@ steps:
     git: "github"
     stage: "clone"
 
-  build:
-    title: "Building Docker image"
-    type: "build"
-    image_name: "XDavid1999/PacketService"
+  pull:
+    title: Pull image
+    type: "freestyle" # Run any command
+    image: xdavid1999/packetservice:latest
     working_directory: "${{clone}}"
-    tag: "${{CF_BRANCH_TAG_NORMALIZED}}"
-    dockerfile: "Dockerfile"
-    stage: "build"
-
+    stage: "pull"
+    
   test:
     title: "Running test"
     type: "freestyle" # Run any command
-    image: "${{build}}" # The image in which command will be executed
-    working_directory: "${{clone}}" # Running command where code cloned
+    image: "xdavid1999/packetservice:latest" # The image in which command will be executed
+    working_directory: "${{clone}}"
     commands:
       - "gulp test"
     stage: "test"
