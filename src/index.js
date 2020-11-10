@@ -3,6 +3,7 @@
 const User = require("./user.js");
 const Package = require("./package.js");
 const Agency = require("./agency.js");
+const Office = require("./office.js");
 
 
 /**Se emulan las tablas de la BD */ 
@@ -183,7 +184,30 @@ function dropOutUser(user){
 
 }
 
+/**
+ * Si una oficina tiene mismo teléfono de contacto, correo o direccion
+ * se tomará como ya registrada en el sistema y no se añadirá, en caso
+ * contrario se añadirá normalmente
+ * 
+ * [HU13]
+ * 
+ * @param {Office} oficina - Oficina a añadir
+ */
+function addOffice(oficina){
+    var duplicado=false;
 
+    oficinasAgencias.forEach(element => {
+        if(oficina.direccion==element.direccion || oficina.telefono == element.telefono || oficina.correo_contacto == element.correo){
+            duplicado=true;
+            throw new Error ('Oficina ya registrada en el sistema');
+        }
+    });
+
+
+    if(duplicado==false){
+        oficinasAgencias.push(oficina);    
+    }
+}
 
 
 
@@ -195,6 +219,7 @@ module.exports = {
     dropOutUser,
     cancelShipping,
     sendPackage,
+    addOffice,
     usuarios,
     agencias,
     paquetesEnCurso,
