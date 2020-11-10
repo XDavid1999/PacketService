@@ -209,7 +209,34 @@ function addOffice(oficina){
     }
 }
 
+/**
+ * Función para dar una oficina de baja del sistema
+ *
+ * [HU15]
+ * 
+ * @param {Office} oficina - Oficina que se eliminará 
+ */
+function dropOutOffice(oficina){
+    var envioEnCurso=false;
 
+    oficinasAgencias.forEach(element => {
+        if(element.correo_contacto==oficina.correo_contacto && element.enviosEnCurso!=0)
+            envioEnCurso=true;
+    });
+
+    if(envioEnCurso==false){
+        let i=0;
+
+        oficinasAgencias.forEach(element => {
+            if(oficina.correo_contacto==element.correo_contacto)
+                oficinasAgencias.splice(i, 1);
+
+            i++;
+        });
+    }
+    else
+        throw new Error('No puede dar de baja esta oficina hasta que se hayan completado los envíos en curso');
+}
 
 
 module.exports = {
@@ -220,6 +247,7 @@ module.exports = {
     cancelShipping,
     sendPackage,
     addOffice,
+    dropOutOffice,
     usuarios,
     agencias,
     paquetesEnCurso,
