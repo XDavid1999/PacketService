@@ -11,6 +11,7 @@ var paquetesEnCurso = new Array();
 var usuarios = new Array();
 var agencias = new Array();
 var oficinasAgencias = new Array();
+const EstadoPaquete = Object.freeze({"EN_REPARTO":1, "EN_OFICINA":2, "ENTREGADO":3, "CANCELADO":4, "ESPERANDO_RECOGIDA_PRESENCIAL":5})
 
 
 /**
@@ -238,6 +239,40 @@ function dropOutOffice(oficina){
         throw new Error('No puede dar de baja esta oficina hasta que se hayan completado los envíos en curso');
 }
 
+/**
+ * Función para actualizar la localización de un paquete, sea por el repartidor o si el
+ * usuario desea saber la localización de un paquete, en cuyo caso el método se invocará
+ * con el parámetro *localización* vacío
+ * 
+ * [HU17], [HU18]
+ * 
+ * @param {Package} paquete - Paquete al que actualizar la localización
+ * @param {String} localizacion - Nueva localización a la que ha llegado el paquete
+ */
+function updateLocation(paquete, localizacion=""){
+    /**Si el paquete a llegado a una de las oficinas lo añadimos al número de envíos que se están llevando a cabo */
+    var oficina="";
+
+    oficinasAgencias.forEach(element => {
+        if(element.direccion==localizacion){
+            oficina=element;
+            oficina.enviosEnCurso++;
+            
+            if(paquete.destino==localizacion)
+                paquete.estado=EstadoPaquete.ESPERANDO_RECOGIDA_PRESENCIAL;
+            else
+                paquete.estado=EstadoPaquete.EN_OFICINA;
+        }
+        else if(paquete.destino==localizacion)
+            paquete.estado=EstadoPaquete.ENTREGADO;
+        else if(!element.direccion==localizacion && paquete.localizacionActual!=paquete.origen)
+            paquete.estado=EstadoPaquete.EN_REPARTO;
+    });
+
+    if(localizacion!="")
+        paquete.localizacionActual=localizacion;
+    
+}
 
 module.exports = {
     addAgency,
@@ -248,6 +283,8 @@ module.exports = {
     sendPackage,
     addOffice,
     dropOutOffice,
+    updateLocation,
+    EstadoPaquete,
     usuarios,
     agencias,
     paquetesEnCurso,
