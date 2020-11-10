@@ -7,21 +7,13 @@ const User = require("../src/user.js");
 const Package = require("../src/package.js");
 const Agency = require("../src/agency.js");
 const Office = require("../src/office.js");
-var oficinasAgencias = new Array();
-var valoraciones = new Map();
-
-/**Emulamos oficinas de las distintas agencias*/
-var oficina1 = new Office("churriana@crm.es", "656 754 234", 5, "10/12/2012", "C/Ancha,5 - Churriana", agencia1);
-var oficina2 = new Office("escuzar@esm.es", "654 754 234", 10, "10/01/2012", "C/Baja,3 - Escúzar",agencia1);
-var oficina3 = new Office("almendralejo@liste.es", "657 754 234", 3, "08/12/2017", "Avda.San Antonio,10 - Almendralejo",agencia2);
-var oficina4 = new Office("baza@roky.es", "656 754 244", 15, "12/12/2013", "C/Padel,21 - Baza",agencia2);
-var oficina5 = new Office("chillon@aaron.es", "650 754 234", 25, "11/02/2016", "C/Ryzen,12 - Almadén",agencia2);
-
 
 /**Se emulan las tablas de la BD*/
 var paquetesEnCurso = new Array();
 var usuarios = new Array();
 var agencias = new Array();
+var oficinasAgencias = new Array();
+var valoraciones = new Map();
 
 /**Se emulan los usuarios que estarán en la BD*/
 var user1 = new User("pepe@correo.es", "Pepe", "Gonzalez", "PGonz", "Calle Almendra", "30/06/1999");
@@ -38,6 +30,14 @@ var package5 = new Package("PGonz", "Regalo para Silvia", 0.5, "Tarifa", "Almad�
 /**Se emulan las agencias en la BD*/
 var agencia1 = new Agency("MRW", "mrw@mrw.mrw", "674 345 432", 15, 100, "11/10/2011", "Las maletas, tu bicicleta, los palos de golf, tu mascota o un simple paquete. Para tus envíos particulares, recogemos y entregamos donde tú nos digas en menos de 24 horas. Descubre todo lo que podemos hacer por ti...");
 var agencia2 = new Agency("HuanitoCorp", "huan@kipsta.victoria", "654 343 232", 100, 500, "18/01/2015", "Llevamos lo que necesites, donde lo necesites, cuando lo necesites. Con mucho cariño.");
+
+/**Emulamos oficinas de las distintas agencias*/
+var oficina1 = new Office("churriana@crm.es", "656 754 234", 5, "10/12/2012", "C/Ancha,5 - Churriana", agencia1);
+var oficina2 = new Office("escuzar@esm.es", "654 754 234", 10, "10/01/2012", "C/Baja,3 - Escúzar",agencia1);
+var oficina3 = new Office("almendralejo@liste.es", "657 754 234", 3, "08/12/2017", "Avda.San Antonio,10 - Almendralejo",agencia2);
+var oficina4 = new Office("baza@roky.es", "656 754 244", 15, "12/12/2013", "C/Padel,21 - Baza",agencia2);
+var oficina5 = new Office("chillon@aaron.es", "650 754 234", 25, "11/02/2016", "C/Ryzen,12 - Almadén",agencia2);
+
 
 
 describe("Testando métodos de index.js", function() {
