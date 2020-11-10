@@ -6,6 +6,16 @@ const moduloIndex = require('../src/index.js');
 const User = require("../src/user.js");
 const Package = require("../src/package.js");
 const Agency = require("../src/agency.js");
+const Office = require("../src/office.js");
+var oficinasAgencias = new Array();
+var valoraciones = new Map();
+
+/**Emulamos oficinas de las distintas agencias*/
+var oficina1 = new Office("churriana@crm.es", "656 754 234", 5, "10/12/2012", "C/Ancha,5 - Churriana", agencia1);
+var oficina2 = new Office("escuzar@esm.es", "654 754 234", 10, "10/01/2012", "C/Baja,3 - Escúzar",agencia1);
+var oficina3 = new Office("almendralejo@liste.es", "657 754 234", 3, "08/12/2017", "Avda.San Antonio,10 - Almendralejo",agencia2);
+var oficina4 = new Office("baza@roky.es", "656 754 244", 15, "12/12/2013", "C/Padel,21 - Baza",agencia2);
+var oficina5 = new Office("chillon@aaron.es", "650 754 234", 25, "11/02/2016", "C/Ryzen,12 - Almadén",agencia2);
 
 
 /**Se emulan las tablas de la BD*/
@@ -273,3 +283,35 @@ describe("Testando métodos de agency.js", function() {
 
 
 
+describe("Testando métodos de office.js", function() {
+    describe("Testando el método modificaOficina", function modificarOficina(oficina) {
+  
+        it("Comprobando que se modifican los datos de una oficina correctamente", ()=>{
+            oficina5.modificarOficina("guille@lupiañez.es", "958 324 425", 32, "Niwelas");
+            var oficina6 = new Office("guille@lupiañez.es", "958 324 425", 32, "12/12/2013", "Niwelas", agencia2);
+
+            expect(oficina5.correo_contacto).to.eq(oficina6.correo_contacto);
+            expect(oficina5.telefono).to.eq (oficina6.telefono);
+            expect(oficina5.vehiculos).to.eq(oficina6.vehiculos);
+            expect(oficina5.direccion).to.eq(oficina6.direccion);
+        });
+    });
+
+    describe("Testando el método agencyInfo", function agencyInfo() {
+  
+        it("Comprobando que se muestra la información de la agencia correctamente", ()=>{
+            /**Salida que se espera*/
+            var info = "Se muestran a continuación los datos de la oficina"
+            "\n Correo de contacto: " + "escuzar@esm.es" +
+            "\n Teléfono de contacto: " + "654 754 234" +
+            "\n Vehículos disponibles: " + 10 +
+            "\n Fecha de alta en el sistema: " + "10/01/2012" +
+            "\n Dirección: " + "C/Baja,3 - Escúzar" + 
+            "\n Agencia a la que pertenece: " + agencia1.nombre +
+            "\n Envíos en curso en esta oficina: " + 0;
+          
+            /**Comprobando que la salida que se produce es la esperada*/
+            expect(oficina2.officeInfo()).to.equal(info);
+        });
+    });
+});
