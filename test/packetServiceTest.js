@@ -155,7 +155,58 @@ describe("Testando métodos de index.js", function() {
         });
     });
 
+    describe("Testando el método addOffice", function addOffice(oficina) {
+    
+        it("Comprobando que se añaden las agencias correctamente", ()=>{
+            /**Añadimos agencias*/
+            moduloIndex.addOffice(oficina1);
+            moduloIndex.addOffice(oficina2);
+            moduloIndex.addOffice(oficina3);
+            moduloIndex.addOffice(oficina4);
+            moduloIndex.addOffice(oficina5);
 
+            expect(moduloIndex.oficinasAgencias[1].agencia.nombre).to.equal('MRW');
+            var longArray = moduloIndex.oficinasAgencias.length;
+            expect(longArray).to.equal(5);
+        });
+        it("Testeando que no se añade una agencia si ya había una en el sistema con mismo teléfono de contacto, correo o direccion", ()=>{
+            expect(function() { moduloIndex.addOffice(oficina1); }).to.throw(Error, /Oficina ya registrada en el sistema/);
+            var longArray = moduloIndex.oficinasAgencias.length;
+            expect(longArray).to.equal(5);
+        });
+    });
+
+    describe("Testando el método dropOutOffice", function dropOutOffice(oficina) {
+    
+        it("Comprobando que se elimina una oficina correctamente", ()=>{
+            moduloIndex.dropOutOffice(oficina4);
+            var longArray = moduloIndex.oficinasAgencias.length;
+            expect(longArray).to.equal(4);
+        });
+        it("Testeando que no se borra una agencia si aún están en curso envíos con la misma", ()=>{
+            oficina3.enviosEnCurso=5;
+            expect(function() { moduloIndex.dropOutOffice(oficina3); }).to.throw(Error, /No puede dar de baja esta oficina hasta que se hayan completado los envíos en curso/);
+            var longArray = moduloIndex.oficinasAgencias.length;
+            expect(longArray).to.equal(4);
+        });
+    });
+
+    describe("Testando el método updateLocation", function updateLocation(paquete, localizacion) {
+    
+        it("Comprobando que actualiza la localizacion correctamente", ()=>{
+            /**Actualizamos localización como repartidor, hemos llegado a una oficina*/
+            moduloIndex.updateLocation(package5, "C/Ancha,5 - Churriana");
+            expect(oficina1.enviosEnCurso).to.equal(1);
+            expect(package5.localizacionActual).to.equal("C/Ancha,5 - Churriana");
+            expect(package5.estado).to.equal(moduloIndex.EstadoPaquete.EN_OFICINA);
+           /**Actualizamos localización como usuario, el paquete está entre dos oficinas o de camino al destino a entregar*/
+            moduloIndex.updateLocation(package4);
+            expect(package4.estado).to.equal(moduloIndex.EstadoPaquete.EN_REPARTO);
+            /**Actualizamos localización como repartidor, el paquete ha llegado a su destino*/
+            moduloIndex.updateLocation(package4, "Almería");
+            expect(package4.estado).to.equal(moduloIndex.EstadoPaquete.ENTREGADO);
+        });
+    });
 
     describe("Testando el método valorarAgencia", function valorarAgencia(valoracion, paquete, usuario) {
     
