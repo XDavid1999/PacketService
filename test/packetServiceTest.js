@@ -281,8 +281,6 @@ describe("Testando métodos de agency.js", function() {
     });
 });
 
-
-
 describe("Testando métodos de office.js", function() {
     describe("Testando el método modificaOficina", function modificarOficina(oficina) {
   
