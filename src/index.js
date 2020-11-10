@@ -12,6 +12,7 @@ var usuarios = new Array();
 var agencias = new Array();
 var oficinasAgencias = new Array();
 const EstadoPaquete = Object.freeze({"EN_REPARTO":1, "EN_OFICINA":2, "ENTREGADO":3, "CANCELADO":4, "ESPERANDO_RECOGIDA_PRESENCIAL":5})
+var valoraciones = new Map();
 
 
 /**
@@ -274,6 +275,24 @@ function updateLocation(paquete, localizacion=""){
     
 }
 
+/**
+ * Esta función servirá para valorar una agencia si uno de tus paquetes te ha sido entregado
+ * y si eres dueño de ese paquete, por ahora las valoraciones se harán de manera anónima
+ * 
+ * [HU19]
+ * 
+ * @param {Number} valoracion 
+ * @param {Package} paquete 
+ * @param {User} usuario 
+ */
+function valorarAgencia(valoracion, paquete, usuario){
+    if(paquete.estado==EstadoPaquete.ENTREGADO && paquete.nick==usuario.nickusuario)
+        valoraciones.set(paquete, valoracion);
+    else
+        throw new Error('No puede valorar esta entrega, el paquete no es suyo o aún no se ha entregado');
+}
+
+
 module.exports = {
     addAgency,
     dropOutAgency,
@@ -284,6 +303,8 @@ module.exports = {
     addOffice,
     dropOutOffice,
     updateLocation,
+    valorarAgencia,
+    valoraciones,
     EstadoPaquete,
     usuarios,
     agencias,
