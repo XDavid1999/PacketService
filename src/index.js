@@ -3,7 +3,6 @@
 const User = require("./user.js");
 const Package = require("./package.js");
 const Agency = require("./agency.js");
-const Office = require("./office.js");
 
 
 /**Se emulan las tablas de la BD */ 
@@ -11,9 +10,7 @@ var paquetesEnCurso = new Array();
 var usuarios = new Array();
 var agencias = new Array();
 var oficinasAgencias = new Array();
-var valoraciones = new Map();
 
-const EstadoPaquete = Object.freeze({"EN_REPARTO":1, "EN_OFICINA":2, "ENTREGADO":3, "CANCELADO":4, "ESPERANDO_RECOGIDA_PRESENCIAL":5})
 
 /**
  * Si un usuario tiene dos paquetes con descripciónes, pesos, destino, origen y
@@ -186,111 +183,10 @@ function dropOutUser(user){
 
 }
 
-/**
- * Si una oficina tiene mismo teléfono de contacto, correo o direccion
- * se tomará como ya registrada en el sistema y no se añadirá, en caso
- * contrario se añadirá normalmente
- * 
- * [HU13]
- * 
- * @param {Office} oficina - Oficina a añadir
- */
-function addOffice(oficina){
-    var duplicado=false;
-
-    oficinasAgencias.forEach(element => {
-        if(oficina.direccion==element.direccion || oficina.telefono == element.telefono || oficina.correo_contacto == element.correo){
-            duplicado=true;
-            throw new Error ('Oficina ya registrada en el sistema');
-        }
-    });
 
 
-    if(duplicado==false){
-        oficinasAgencias.push(oficina);    
-    }
-}
 
-/**
- * Función para dar una oficina de baja del sistema
- *
- * [HU15]
- * 
- * @param {Office} oficina - Oficina que se eliminará 
- */
-function dropOutOffice(oficina){
-    var envioEnCurso=false;
 
-    oficinasAgencias.forEach(element => {
-        if(element.correo_contacto==oficina.correo_contacto && element.enviosEnCurso!=0)
-            envioEnCurso=true;
-    });
-
-    if(envioEnCurso==false){
-        let i=0;
-
-        oficinasAgencias.forEach(element => {
-            if(oficina.correo_contacto==element.correo_contacto)
-                oficinasAgencias.splice(i, 1);
-
-            i++;
-        });
-    }
-    else
-        throw new Error('No puede dar de baja esta oficina hasta que se hayan completado los envíos en curso');
-}
-
-/**
- * Función para actualizar la localización de un paquete, sea por el repartidor o si el
- * usuario desea saber la localización de un paquete, en cuyo caso el método se invocará
- * con el parámetro *localización* vacío
- * 
- * [HU17], [HU18]
- * 
- * @param {Package} paquete - Paquete al que actualizar la localización
- * @param {String} localizacion - Nueva localización a la que ha llegado el paquete
- */
-function updateLocation(paquete, localizacion=""){
-    /**Si el paquete a llegado a una de las oficinas lo añadimos al número de envíos que se están llevando a cabo */
-    var oficina="";
-
-    oficinasAgencias.forEach(element => {
-        if(element.direccion==localizacion){
-            oficina=element;
-            oficina.enviosEnCurso++;
-            
-            if(paquete.destino==localizacion)
-                paquete.estado=EstadoPaquete.ESPERANDO_RECOGIDA_PRESENCIAL;
-            else
-                paquete.estado=EstadoPaquete.EN_OFICINA;
-        }
-        else if(paquete.destino==localizacion)
-            paquete.estado=EstadoPaquete.ENTREGADO;
-        else if(!element.direccion==localizacion && paquete.localizacionActual!=paquete.origen)
-            paquete.estado=EstadoPaquete.EN_REPARTO;
-    });
-
-    if(localizacion!="")
-        paquete.localizacionActual=localizacion;
-    
-}
-
-/**
- * Esta función servirá para valorar una agencia si uno de tus paquetes te ha sido entregado
- * y si eres dueño de ese paquete, por ahora las valoraciones se harán de manera anónima
- * 
- * [HU19]
- * 
- * @param {Number} valoracion 
- * @param {Package} paquete 
- * @param {User} usuario 
- */
-function valorarAgencia(valoracion, paquete, usuario){
-    if(paquete.estado==EstadoPaquete.ENTREGADO && paquete.nick==usuario.nickusuario)
-        valoraciones.set(paquete, valoracion);
-    else
-        throw new Error('No puede valorar esta entrega, el paquete no es suyo o aún no se ha entregado');
-}
 
 module.exports = {
     addAgency,
@@ -299,12 +195,6 @@ module.exports = {
     dropOutUser,
     cancelShipping,
     sendPackage,
-    addOffice,
-    dropOutOffice,
-    updateLocation,
-    valorarAgencia,
-    valoraciones,
-    EstadoPaquete,
     usuarios,
     agencias,
     paquetesEnCurso,

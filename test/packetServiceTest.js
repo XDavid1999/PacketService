@@ -6,9 +6,7 @@ const moduloIndex = require('../src/index.js');
 const User = require("../src/user.js");
 const Package = require("../src/package.js");
 const Agency = require("../src/agency.js");
-const Office = require("../src/office.js");
-var oficinasAgencias = new Array();
-var valoraciones = new Map();
+
 
 /**Se emulan las tablas de la BD*/
 var paquetesEnCurso = new Array();
@@ -31,12 +29,6 @@ var package5 = new Package("PGonz", "Regalo para Silvia", 0.5, "Tarifa", "Almad�
 var agencia1 = new Agency("MRW", "mrw@mrw.mrw", "674 345 432", 15, 100, "11/10/2011", "Las maletas, tu bicicleta, los palos de golf, tu mascota o un simple paquete. Para tus envíos particulares, recogemos y entregamos donde tú nos digas en menos de 24 horas. Descubre todo lo que podemos hacer por ti...");
 var agencia2 = new Agency("HuanitoCorp", "huan@kipsta.victoria", "654 343 232", 100, 500, "18/01/2015", "Llevamos lo que necesites, donde lo necesites, cuando lo necesites. Con mucho cariño.");
 
-/**Emulamos oficinas de las distintas agencias*/
-var oficina1 = new Office("churriana@crm.es", "656 754 234", 5, "10/12/2012", "C/Ancha,5 - Churriana", agencia1);
-var oficina2 = new Office("escuzar@esm.es", "654 754 234", 10, "10/01/2012", "C/Baja,3 - Escúzar",agencia1);
-var oficina3 = new Office("almendralejo@liste.es", "657 754 234", 3, "08/12/2017", "Avda.San Antonio,10 - Almendralejo",agencia2);
-var oficina4 = new Office("baza@roky.es", "656 754 244", 15, "12/12/2013", "C/Padel,21 - Baza",agencia2);
-var oficina5 = new Office("chillon@aaron.es", "650 754 234", 25, "11/02/2016", "C/Ryzen,12 - Almadén",agencia2);
 
 describe("Testando métodos de index.js", function() {
 
@@ -153,58 +145,7 @@ describe("Testando métodos de index.js", function() {
         });
     });
 
-    describe("Testando el método addOffice", function addOffice(oficina) {
-    
-        it("Comprobando que se añaden las agencias correctamente", ()=>{
-            /**Añadimos agencias*/
-            moduloIndex.addOffice(oficina1);
-            moduloIndex.addOffice(oficina2);
-            moduloIndex.addOffice(oficina3);
-            moduloIndex.addOffice(oficina4);
-            moduloIndex.addOffice(oficina5);
 
-            expect(moduloIndex.oficinasAgencias[1].agencia.nombre).to.equal('MRW');
-            var longArray = moduloIndex.oficinasAgencias.length;
-            expect(longArray).to.equal(5);
-        });
-        it("Testeando que no se añade una agencia si ya había una en el sistema con mismo teléfono de contacto, correo o direccion", ()=>{
-            expect(function() { moduloIndex.addOffice(oficina1); }).to.throw(Error, /Oficina ya registrada en el sistema/);
-            var longArray = moduloIndex.oficinasAgencias.length;
-            expect(longArray).to.equal(5);
-        });
-    });
-
-    describe("Testando el método dropOutOffice", function dropOutOffice(oficina) {
-    
-        it("Comprobando que se elimina una oficina correctamente", ()=>{
-            moduloIndex.dropOutOffice(oficina4);
-            var longArray = moduloIndex.oficinasAgencias.length;
-            expect(longArray).to.equal(4);
-        });
-        it("Testeando que no se borra una agencia si aún están en curso envíos con la misma", ()=>{
-            oficina3.enviosEnCurso=5;
-            expect(function() { moduloIndex.dropOutOffice(oficina3); }).to.throw(Error, /No puede dar de baja esta oficina hasta que se hayan completado los envíos en curso/);
-            var longArray = moduloIndex.oficinasAgencias.length;
-            expect(longArray).to.equal(4);
-        });
-    });
-
-    describe("Testando el método updateLocation", function updateLocation(paquete, localizacion) {
-    
-        it("Comprobando que actualiza la localizacion correctamente", ()=>{
-            /**Actualizamos localización como repartidor, hemos llegado a una oficina*/
-            moduloIndex.updateLocation(package5, "C/Ancha,5 - Churriana");
-            expect(oficina1.enviosEnCurso).to.equal(1);
-            expect(package5.localizacionActual).to.equal("C/Ancha,5 - Churriana");
-            expect(package5.estado).to.equal(moduloIndex.EstadoPaquete.EN_OFICINA);
-           /**Actualizamos localización como usuario, el paquete está entre dos oficinas o de camino al destino a entregar*/
-            moduloIndex.updateLocation(package4);
-            expect(package4.estado).to.equal(moduloIndex.EstadoPaquete.EN_REPARTO);
-            /**Actualizamos localización como repartidor, el paquete ha llegado a su destino*/
-            moduloIndex.updateLocation(package4, "Almería");
-            expect(package4.estado).to.equal(moduloIndex.EstadoPaquete.ENTREGADO);
-        });
-    });
 
     describe("Testando el método valorarAgencia", function valorarAgencia(valoracion, paquete, usuario) {
     
@@ -331,35 +272,4 @@ describe("Testando métodos de agency.js", function() {
 });
 
 
-describe("Testando métodos de office.js", function() {
-    describe("Testando el método modificaOficina", function modificarOficina(oficina) {
-  
-        it("Comprobando que se modifican los datos de una oficina correctamente", ()=>{
-            oficina5.modificarOficina("guille@lupiañez.es", "958 324 425", 32, "Niwelas");
-            var oficina6 = new Office("guille@lupiañez.es", "958 324 425", 32, "12/12/2013", "Niwelas", agencia2);
 
-            expect(oficina5.correo_contacto).to.eq(oficina6.correo_contacto);
-            expect(oficina5.telefono).to.eq (oficina6.telefono);
-            expect(oficina5.vehiculos).to.eq(oficina6.vehiculos);
-            expect(oficina5.direccion).to.eq(oficina6.direccion);
-        });
-    });
-
-    describe("Testando el método agencyInfo", function agencyInfo() {
-  
-        it("Comprobando que se muestra la información de la agencia correctamente", ()=>{
-            /**Salida que se espera*/
-            var info = "Se muestran a continuación los datos de la oficina"
-            "\n Correo de contacto: " + "escuzar@esm.es" +
-            "\n Teléfono de contacto: " + "654 754 234" +
-            "\n Vehículos disponibles: " + 10 +
-            "\n Fecha de alta en el sistema: " + "10/01/2012" +
-            "\n Dirección: " + "C/Baja,3 - Escúzar" + 
-            "\n Agencia a la que pertenece: " + agencia1.nombre +
-            "\n Envíos en curso en esta oficina: " + 0;
-          
-            /**Comprobando que la salida que se produce es la esperada*/
-            expect(oficina2.officeInfo()).to.equal(info);
-        });
-    });
-});
