@@ -6,7 +6,7 @@ module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
     const { agencia = 'invalid' } = req.query
-    var agencia = "MRW";
+    // var agencia = "MRW";
     var oficinas = [];
 
     // bot.onText(/^\/start/, function(msg){
