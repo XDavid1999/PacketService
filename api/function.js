@@ -6,6 +6,7 @@ module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
     const { agencia = 'invalid' } = req.query
+    var agencia = "MRW";
     var oficinas = [];
 
     // bot.onText(/^\/start/, function(msg){
@@ -22,8 +23,20 @@ module.exports = (req, res) => {
             if(obj.agencia==agencia)
                 oficinas.push(obj);
         });
-        //oficinas.toString();
-        res.status(200).send("Estas son las oficinas de " + agencia + oficinas)
+
+        oficinas.forEach(function(obj) {
+            mensaje += "Se muestran a continuación los datos de la oficina \n" +
+            "\n Correo de contacto: " + obj.correo_contacto +
+            "\n Teléfono de contacto: " +  obj.telefono +
+            "\n Vehículos disponibles: " + obj.vehiculos +
+            "\n Fecha de alta en el sistema: " + obj.fecha_alta +
+            "\n Dirección: " + obj.direccion +
+            "\n Agencia a la que pertenece: " + obj.agencia.nombre +
+            "\n Envíos en curso en esta oficina: " + obj.agencia + "\n\n";
+        });
+
+        res.status(200).send("Estas son las oficinas de " + agencia + mensaje)
+        // console.log("Estas son las oficinas de " + agencia + mensaje);
 
     //     if(oficinas.length!=0)
     //         mensaje="tiene las siguientes oficinas: " + oficinas.toString;
@@ -37,3 +50,6 @@ module.exports = (req, res) => {
     //     bot.sendMessage(chatId, "La agencia " + msg.message + mensaje);
     // });
 }
+
+
+
