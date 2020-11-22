@@ -22,7 +22,7 @@ module.exports = (req, res) => {
             if(obj.agencia==agencia)
                 oficinas.push(obj);
         });
-        oficinas.toString();
+        //oficinas.toString();
         res.status(200).send("Estas son las oficinas de " + agencia + oficinas)
 
     //     if(oficinas.length!=0)
