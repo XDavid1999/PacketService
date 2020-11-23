@@ -11,6 +11,7 @@ before_script:
 
 install:
  - npm install
+ - npm install eslint
 
 script:  
  - gulp test
