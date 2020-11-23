@@ -80,9 +80,7 @@ exports.handler = functions.https.onRequest(async (req, res) => {
             mensaje = agencyOffices(text);
         break;
     }       
-        
     await sendMessage(chat_id, mensaje);
-
 
     return res.status(200).send("success");
 });
