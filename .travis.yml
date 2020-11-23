@@ -13,6 +13,7 @@ before_script:
 
 install:
  - npm install
+ - cd functions && npm install
 
 script:  
  - gulp test
