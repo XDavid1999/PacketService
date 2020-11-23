@@ -23,3 +23,11 @@ npm install --save next react react-dom
 ~~~
 
 - Más tarde crearemos en la raíz del proyecto la carpeta **pages**, y dentro de ella el archivo **index.js**. Dentro de esta carpeta Next buscará los archivos con extensión *.js* y los procesará renderizando las vistas.
+
+## Despliegue de la función
+
+Después de esto procederemos a desplegar nuestra función, cosa que no hicimos en la otra pequeña configuración.
+- Crearemos la capeta **api**, en la cual tendremos el/los archivos para nuestras funciones. En nuestro caso tendremos la propia [función](https://github.com/XDavid1999/PacketService/blob/master/api/function.js) y un archivo JSON con [datos](https://github.com/XDavid1999/PacketService/blob/master/api/function.js) que serán usados por la función a desplegar. 
+- En este caso implementaremos una historia de usuario con la que los usuarios del sistema podrán ver información acerca de sus paquetes.
+- La función lee de la "BD"(el archivo JSON) los datos de todos los paquetes en el sistema para acto seguido buscar todos los paquetes de un usuario proporcionando su nombre en la URL.
+- Para probar que funciona correctamente puede clicar en [este enlace](https://packet-service.vercel.app/api/function.js?Nickusuario=XDavid), en este caso se muestran los paquetes pertenecientes al usuario XDavid aunque podrian consultarse los de cualquier usuario variando el parámetro Nickusuario en la URL.
