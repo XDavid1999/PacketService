@@ -31,3 +31,4 @@ Después de esto procederemos a desplegar nuestra función, cosa que no hicimos 
 - En este caso implementaremos una historia de usuario con la que los usuarios del sistema podrán ver información acerca de sus paquetes.
 - La función lee de la "BD"(el archivo JSON) los datos de todos los paquetes en el sistema para acto seguido buscar todos los paquetes de un usuario proporcionando su nombre en la URL.
 - Para probar que funciona correctamente puede clicar en [este enlace](https://packet-service.vercel.app/api/function.js?Nickusuario=XDavid), en este caso se muestran los paquetes pertenecientes al usuario XDavid aunque podrian consultarse los de cualquier usuario variando el parámetro Nickusuario en la URL.
+- Respecto al despliegue continuo, gracias a la conexión entre GitHub y Vercel, no hará falta hacer nada especial y con cada push se hará un nuevo despliegue.
