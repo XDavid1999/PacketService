@@ -1,14 +1,18 @@
 language: node_js
 node_js:
-  - 10.19.0 # Versión en mi PC
-  - 12.19.0 # La de mi contenedor
-  - 15.1.0  # Última versión del lenguaje
+  - 12
 
 before_install:
   - npm install -g gulp
+
+before_script:
+  - npm install -g firebase-tools
 
 install:
  - npm install
 
 script:  
  - gulp test
+
+ after_success:
+  - firebase deploy --token $FIREBASE_TOKEN
