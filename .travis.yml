@@ -12,4 +12,3 @@ install:
 
 script:  
  - gulp test
- - gulp firebasedeploy

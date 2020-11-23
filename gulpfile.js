@@ -20,14 +20,6 @@ gulp.task('install', function (cb) {
   });
 })
 
-gulp.task('firebasedeploy', function (cb) {
-  exec('cd functions && firebase deploy', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  });
-})
-
 /**Tarea por defecto, muestra las tareas posibles disponibles*/
 gulp.task('default', function(done) {
   console.log('Available Tasks: [test, install]');
