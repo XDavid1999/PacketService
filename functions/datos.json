@@ -1,0 +1,94 @@
+[
+    
+    {
+        "correo_contacto":"mrw@granada.es",
+        "telefono":"696 69 69 69",
+        "vehiculos":"5",
+        "fecha_alta":"30/06/2013",
+        "direccion":"Gran Vía, 10",
+        "agencia":"MRW",
+        "enviosEnCurso":"30"
+    },
+    {
+        "correo_contacto":"mrw@malaga.es",
+        "telefono":"696 69 69 68",
+        "vehiculos":"10",
+        "fecha_alta":"24/06/2013",
+        "direccion":"C/Larios, s/n",
+        "agencia":"MRW",
+        "enviosEnCurso":"23"
+    },
+    {
+        "correo_contacto":"mrw@jun.es",
+        "telefono":"696 69 69 67",
+        "vehiculos":"2",
+        "fecha_alta":"30/04/2013",
+        "direccion":"C/Fernandes, 33",
+        "agencia":"MRW",
+        "enviosEnCurso":"8"
+    },
+    {
+        "correo_contacto":"tourline@madrid.es",
+        "telefono":"686 86 86 86",
+        "vehiculos":"30/08/2014",
+        "fecha_alta":"72",
+        "direccion":"Civeles, 5",
+        "agencia":"Tourline",
+        "enviosEnCurso":"205"
+    },
+    {
+        "correo_contacto":"tourline@bcn.es",
+        "telefono":"686 86 86 85",
+        "vehiculos":"65",
+        "fecha_alta":"12/06/2016",
+        "direccion":"Avda. San Martin, 206",
+        "agencia":"Tourline",
+        "enviosEnCurso":"189"
+    },
+    {
+        "correo_contacto":"tourline@santiago.es",
+        "telefono":"686 86 86 84",
+        "vehiculos":"28",
+        "fecha_alta":"04/12/2013",
+        "direccion":"C/San Lorenzo, 7",
+        "agencia":"Tourline",
+        "enviosEnCurso":"84"
+    },
+    {
+        "correo_contacto":"huanito@almendralejo.es",
+        "telefono":"694 20 42 04",
+        "vehiculos":"15",
+        "fecha_alta":"13/10/2017",
+        "direccion":"C/Listerine, 12",
+        "agencia":"HuanitoCorp",
+        "enviosEnCurso":"23"
+    },
+    {
+        "correo_contacto":"huanito@niwelas.es",
+        "telefono":"694 20 42 03",
+        "vehiculos":"3",
+        "fecha_alta":"14/11/2017",
+        "direccion":"C/Wilson Lupiañez, 15",
+        "agencia":"HuanitoCorp",
+        "enviosEnCurso":"2"
+    },
+    {
+        "correo_contacto":"huanito@almendralejo.es",
+        "telefono":"694 20 42 02",
+        "vehiculos":"12",
+        "fecha_alta":"30/08/2017",
+        "direccion":"C/Brek, 21",
+        "agencia":"HuanitoCorp",
+        "enviosEnCurso":"123"
+    },
+    {
+        "correo_contacto":"huanito@almendralejo.es",
+        "telefono":"694 20 42 01",
+        "vehiculos":"42",
+        "fecha_alta":"20/01/2017",
+        "direccion":"C/Informatik, 420",
+        "agencia":"HuanitoCorp",
+        "enviosEnCurso":"300"
+    }
+    
+]
