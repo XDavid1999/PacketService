@@ -12,7 +12,7 @@ module.exports = (req, res) => {
     });
 
     if(paquetes.length!==0){
-        mensaje="[";
+        //mensaje="[";
         paquetes.forEach(function(obj) {
             mensaje +="{" + "Propietario: " + obj.Nickusuario + ", " +
             "Descripción: " + obj.descripcion + ", " +
@@ -27,7 +27,7 @@ module.exports = (req, res) => {
                 mensaje += ", "
             i++;
         });
-        mensaje+="]";
+        //mensaje+="]";
     }
     else
         mensaje="Parece que " + Nickusuario + " no tiene paquetes en curso en el sistema";
