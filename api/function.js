@@ -11,28 +11,38 @@ module.exports = (req, res) => {
             paquetes.push(obj);
     });
 
-    if(paquetes.length!==0){
-        mensaje="[";
-        paquetes.forEach(function(obj) {
-            mensaje +="{" + "Propietario: " + obj.Nickusuario + ", " +
-            "Descripción: " + obj.descripcion + ", " +
-            "Peso: " + obj.peso + ", " +
-            "Origen: " + obj.origen + ", " +
-            "Destino: " + obj.destino + ", " +
-            "Localización Actual: " + obj.localizacionActual + ", " +
-            "Agencia de Transporte: " + obj.agencia + ", " +
-            "Estado del envío: " + obj.estado + "}";
+    // if(paquetes.length!==0){
+    //     mensaje="[";
+    //     paquetes.forEach(function(obj) {
+    //         mensaje +="{" + "Propietario: " + obj.Nickusuario + ", " +
+    //         "Descripción: " + obj.descripcion + ", " +
+    //         "Peso: " + obj.peso + ", " +
+    //         "Origen: " + obj.origen + ", " +
+    //         "Destino: " + obj.destino + ", " +
+    //         "Localización Actual: " + obj.localizacionActual + ", " +
+    //         "Agencia de Transporte: " + obj.agencia + ", " +
+    //         "Estado del envío: " + obj.estado + "}";
 
-            if(i<paquetes.length-1)
-                mensaje += ", "
-            i++;
-        });
-        mensaje+="]";
-    }
-    else
-        mensaje="Parece que " + Nickusuario + " no tiene paquetes en curso en el sistema";
+    //         if(i<paquetes.length-1)
+    //             mensaje += ", "
+    //         i++;
+    //     });
+    //     mensaje+="]";
+    // }
+    // else
+    //     mensaje="Parece que " + Nickusuario + " no tiene paquetes en curso en el sistema";
 
-    res.status(200).json(mensaje);
+    res.status(200).json({
+        Propietario: oficinas[0].Nickusuario,
+        Descripción: oficinas[0].descripcion,
+        Peso: oficinas[0].peso,
+        Origen: oficinas[0].origen, 
+        Destino: oficinas[0].destino,
+        Localización_Actual: oficinas[0].localizacionActual,
+        Agencia_de_Transporte: oficinas[0].agencia,
+        Estado_del_envío: oficinas[0].estado
+    });
+    
 }
 
 
