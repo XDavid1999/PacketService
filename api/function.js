@@ -32,7 +32,7 @@ module.exports = (req, res) => {
     else
         mensaje="Parece que " + Nickusuario + " no tiene paquetes en curso en el sistema";
 
-    res.status(200).json(JSON.stringify(mensaje))
+    res.status(200).json(mensaje);
 }
 
 
