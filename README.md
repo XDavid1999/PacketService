@@ -2,10 +2,9 @@
 
 ## Enlaces a ubicaciones relevantes para el proyecto
 
-- Para acceder a la justificación y documentación de la [integración continua](https://github.com/XDavid1999/PacketService/blob/master/docs/integraci%C3%B3n_continua.md).
-- Para acceder a la nueva [clase](https://github.com/XDavid1999/PacketService/blob/master/src/office.js) creada.
-- Para acceder a los nuevos [métodos](https://github.com/XDavid1999/PacketService/blob/master/src/index.js) creados en la clase principal.
-- Para acceder a los nuevos [test](https://github.com/XDavid1999/PacketService/blob/master/test/packetServiceTest.js) realizados al nuevo código (dentro del mismo fichero que anteriormente).
+- [Documentación](https://github.com/XDavid1999/PacketService/blob/master/docs/vercel.md) del despliegue de una función que cubre una HU en vercel y su correcto funcionamiento.
+- [Documentación](https://github.com/XDavid1999/PacketService/blob/master/docs/firebase.md) del despliegue de una función en firebase que cubre otra HU distinta y su correcto funcionamiento con el bot creado.
+
 ## Uso del proyecto
 
 El proyecto desarrollado cuenta con un task runner, **Gulp**, el cual automatiza algunas de las tareas más frecuentes. Entre ellas se han añadido instalar las dependencias necesarias y probar las funciones con los test unitarios desarrollados.
