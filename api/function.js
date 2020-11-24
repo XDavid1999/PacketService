@@ -2,7 +2,7 @@ module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
     const { Nickusuario = 'invalid' } = req.query
-    let mensaje = "Estos son los paquetes de" + Nickusuario;
+    let mensaje = "";
     var paquetes = [];
 
     jsonData.forEach(function(obj) {
@@ -12,8 +12,7 @@ module.exports = (req, res) => {
 
     if(paquetes.length!==0){
         paquetes.forEach(function(obj) {
-            mensaje += "Se muestran a continuación los datos del paquete" +
-            "\n Propietario: " + obj.Nickusuario +
+            mensaje += "\n Propietario: " + obj.Nickusuario +
             "\n Descripción: " + obj.descripcion +
             "\n Peso: " + obj.peso +
             "\n Origen: " + obj.origen +
@@ -26,7 +25,7 @@ module.exports = (req, res) => {
     else
         mensaje="Parece que " + Nickusuario + " no tiene paquetes en curso en el sistema";
 
-    res.status(200).send(mensaje)
+    res.status(200).send(JSON.stringify(mensaje))
 }
 
 
