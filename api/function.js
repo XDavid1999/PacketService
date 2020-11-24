@@ -32,16 +32,7 @@ module.exports = (req, res) => {
     // else
     //     mensaje="Parece que " + Nickusuario + " no tiene paquetes en curso en el sistema";
 
-    res.status(200).json({
-        Propietario: paquetes[0].Nickusuario,
-        Descripción: paquetes[0].descripcion,
-        Peso: paquetes[0].peso,
-        Origen: paquetes[0].origen, 
-        Destino: paquetes[0].destino,
-        Localización_Actual: paquetes[0].localizacionActual,
-        Agencia_de_Transporte: paquetes[0].agencia,
-        Estado_del_envío: paquetes[0].estado
-    });
+    res.status(200).json(paquetes);
     
 }
 
