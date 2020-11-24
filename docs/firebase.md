@@ -4,8 +4,8 @@ Para ver en detalle como se realiza una configuración básica de firebase para 
 
 ## Desplegando una nueva función
 
-- Agregaremos un nuevo proyecto en la consola de firebase y l¡estableceremos un nombre para el mismo.
-- Dremos a continuar a menos que quieramos establecer un ID específico para el proyecto, en cuyo caso lo escribiremos y clickaremos en continuar.+
+- Agregaremos un nuevo proyecto en la consola de firebase y estableceremos un nombre para el mismo.
+- Daremos a continuar, a menos que quieramos establecer un ID específico para el proyecto, en cuyo caso lo escribiremos y clickaremos en continuar.
 - Configuraremos Google Analytics y crearemos el proyecto.
 - Instalaremos firebase y haremos login, como se explicó en [este enlace](https://github.com/XDavid1999/Exercises/blob/master/Ejercicios/ejercicio1-serverless/ejercicio1.md).
 - Estando sobre el directorio del proyecto ejecutaremos **firebase init**, con lo que se nos preguntará que tipo de proyecto queremos realizar, en nuestro caso seleccionaremos función. Se nos preguntará que proyecto usar, usaremos el que hemos creado, que lenguaje usar, en nuestro caso node, y si queremos usar un lint, a lo que responderemos que sí al igual que cuando se nos pregunte instalar las dependencias.
@@ -13,7 +13,7 @@ Para ver en detalle como se realiza una configuración básica de firebase para 
 
 ## Creando un bot en Telegram
 
-En este apartado explicaremos brevemente qué hace nuestra función y como hemos creado nuestro pequeño bot. En este caso, tras consultar distintos tutoriales, conseguimos desplegar un pequeño bot en telegram que es capaz de cubrir la HU20. En esta HU un administrador de una agencia tratará de consultar que oficinas de su agencia figuran en el sistema y sus datos.
+En este apartado explicaremos brevemente qué hace nuestra función y como hemos creado nuestro pequeño bot. En este caso, tras consultar distintos tutoriales, conseguimos desplegar un pequeño bot en telegram que es capaz de cubrir la HU20; en la que un administrador de una agencia tratará de consultar que oficinas de su agencia figuran en el sistema y sus datos.
 
 - En primer lugar creamos el bot de telegram con botfather y establecemos un nick, descripción, etc.
 - Acto seguido crearemos la función que se ejecutará en firebase y que dará vida a nuestro bot. En este caso creamos dentro del fichero index varias funciones:
@@ -24,7 +24,7 @@ En este apartado explicaremos brevemente qué hace nuestra función y como hemos
 - Finalmente, teniendo los dos principales ingredientes de este proyecto: el propio bot y su código, los conectaremos con un *webhook*.
     - El flujo de trabajo será el siguiente: un mensaje se envía por telegram al bot, nuestro webhook lo "redireccionará" a nuestra función en firebase,  esta responderá al usuario en función de lo que dijo y responderemos al servidor (req) con 200 (éxito).
     - Asociar el webhook a nuestro bot es muy sencillo, simplemente tendremos que poner, por ejemplo en nuestro navegador, la url **https://api.telegram.org/bot<token-del-bot>/setwebhook?url=<url-de-nuestra-función-en-firebase>**. Hecho esto se procederá como en el paso anterior se explicó cada vez que se envie un mensaje al bot.
-    - Si queremos comprobar que se ha establecido correctamente simplemente podremos en el navegador: **https://api.telegram.org/bot<token-del-bot>/getwebhookinfo**, con lo que deberíamos ver en la página a la que se nos redirige algo así:
+    - Si queremos comprobar que se ha establecido  nuestro nuevo webhook correctamente simplemente podremos en el navegador: **https://api.telegram.org/bot<token-del-bot>/getwebhookinfo**, con lo que deberíamos ver en la página a la que se nos redirige algo así:
     ~~~
     {
         "ok":true,
@@ -37,7 +37,7 @@ En este apartado explicaremos brevemente qué hace nuestra función y como hemos
         }
     }
     ~~~
-- Para probar el bot puede buscarlo en telegramo como: **PackageManager_Bot**
+- Para probar el bot puede buscarlo en telegram como: **PackageManager_Bot**
 
 ## Despliegue continuo de la función
 
@@ -58,4 +58,4 @@ before_script:
   - npm install -g firebase-tools
 ~~~
 - Después de ello instalaremos las dependencias de nuestra función con **cd functions && npm install**.
-- Por último en la parte de scripts haremos que se ejecute la función de despliegue **firebase deploy --token $FIREBASE_TOKEN**.
+- Por último en la parte de scripts haremos que se ejecute la función que realizará el despliegue **firebase deploy --token $FIREBASE_TOKEN**.
