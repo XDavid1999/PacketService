@@ -24,7 +24,7 @@ npm install --save next react react-dom
 
 - Más tarde crearemos en la raíz del proyecto la carpeta **pages**, y dentro de ella el archivo **index.js**. Dentro de esta carpeta Next buscará los archivos con extensión *.js* y los procesará renderizando las vistas.
 
-## Despliegue de la función
+## Despliegue continuo de la función
 
 Después de esto procederemos a desplegar nuestra función, cosa que no hicimos en la otra pequeña configuración.
 - Crearemos la capeta **api**, en la cual tendremos el/los archivos para nuestras funciones. En nuestro caso tendremos la propia [función](https://github.com/XDavid1999/PacketService/blob/master/api/function.js) y un archivo JSON con [datos](https://github.com/XDavid1999/PacketService/blob/master/api/datos.js) que serán usados por la función a desplegar. 
