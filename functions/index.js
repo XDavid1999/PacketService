@@ -65,7 +65,7 @@ exports.handler = functions.https.onRequest(async (req, res) => {
 
     switch (text) {
         case "/start":
-            mensaje = 'Welcome, tell me an agency name and I will tell you which offices it has. Type /commands to see what can I do.';
+            mensaje = "Welcome " + body.message.from.first_name + " , tell me an agency name and I will tell you which offices it has. Type /commands to see what can I do.";
         break;
         case "/help":
             mensaje = 'Give me a name of one of the agencies in the system and I will provide you the offices it has. Type /offices to see the offices in the system.';
