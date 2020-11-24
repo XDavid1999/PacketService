@@ -12,7 +12,7 @@ module.exports = (req, res) => {
 
     if(paquetes.length!==0){
         paquetes.forEach(function(obj) {
-            mensaje += + "{" + "Propietario: " + obj.Nickusuario +
+            mensaje +="{" + "Propietario: " + obj.Nickusuario +
             "Descripción: " + obj.descripcion +
             "Peso: " + obj.peso +
             "Origen: " + obj.origen +
