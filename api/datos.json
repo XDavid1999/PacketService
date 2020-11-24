@@ -2,17 +2,17 @@
     
     {
         "Nickusuario":"XDavid",
-        "descripcion":"Teléfono móvil - Xiaomi mi 11",
+        "descripcion":"Teléfono_Móvil_Xiaomi_Mi_11",
         "peso":"0.5",
         "destino":"Atarfe",
-        "origen":"Pol.Ind, Bayarcal, Murcia",
+        "origen":"Pol.Ind,Bayarcal,Murcia",
         "localizacionActual":"Jete",
         "agencia":"MRW",
         "estado":"EN_OFICINA"
     },
     {
         "Nickusuario":"XDavid",
-        "descripcion":"Luces led Aliexpress",
+        "descripcion":"Luces_Led_Aliexpress",
         "peso":"0.5",
         "destino":"Atarfe",
         "origen":"China",
@@ -22,7 +22,7 @@
     },
     {
         "Nickusuario":"Guillelpnz",
-        "descripcion":"Proteínas de Vainilla",
+        "descripcion":"Proteínas_de_Vainilla",
         "peso":"5",
         "destino":"Niwe",
         "origen":"Granada",
@@ -32,7 +32,7 @@
     },
     {
         "Nickusuario":"Juan",
-        "descripcion":"Bolso deportivo Kipsta",
+        "descripcion":"Bolso_Deportivo_Kipsta",
         "peso":"2",
         "destino":"Almendra",
         "origen":"Badalona",
@@ -42,7 +42,7 @@
     },
     {
         "Nickusuario":"Aaronxiyon",
-        "descripcion":"Ryzen 9 5950X",
+        "descripcion":"Ryzen_9_5950X",
         "peso":"0.5",
         "destino":"Chillon",
         "origen":"Murcia",
@@ -52,7 +52,7 @@
     },
     {
         "Nickusuario":"Bili",
-        "descripcion":"Fifa 21",
+        "descripcion":"Fifa_21",
         "peso":"0.5",
         "destino":"Zaidin",
         "origen":"North-Korea",
@@ -62,17 +62,17 @@
     },
     {
         "Nickusuario":"Yacine",
-        "descripcion":"Saco de boxeo",
+        "descripcion":"Saco_de_boxeo",
         "peso":"20",
-        "destino":"Pinos Bridge",
+        "destino":"Pinos_Bridge",
         "origen":"Madrid",
-        "localizacionActual":"Ciudad Real",
+        "localizacionActual":"Ciudad_Real",
         "agencia":"Tourline",
         "estado":"EN_OFICINA"
     },
     {
         "Nickusuario":"SrBaza",
-        "descripcion":"Raqueta de padel",
+        "descripcion":"Raqueta_de_padel",
         "peso":"3",
         "destino":"Baza",
         "origen":"Asturias",
