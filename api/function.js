@@ -2,7 +2,7 @@ module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
     const { Nickusuario = 'invalid' } = req.query
-    let mensaje = "{";
+    let mensaje = "";
     var paquetes = [];
     var i=0;
 
@@ -30,9 +30,7 @@ module.exports = (req, res) => {
         mensaje+="]";
     }
     else
-        mensaje+="Parece que " + Nickusuario + " no tiene paquetes en curso en el sistema";
-
-    mensaje += "}";
+        mensaje="Parece que " + Nickusuario + " no tiene paquetes en curso en el sistema";
 
     res.status(200).json(JSON.stringify(mensaje))
 }
