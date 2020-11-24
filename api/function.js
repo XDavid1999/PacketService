@@ -12,14 +12,14 @@ module.exports = (req, res) => {
 
     if(paquetes.length!==0){
         paquetes.forEach(function(obj) {
-            mensaje += "\n Propietario: " + obj.Nickusuario +
-            "\n Descripción: " + obj.descripcion +
-            "\n Peso: " + obj.peso +
-            "\n Origen: " + obj.origen +
-            "\n Destino: " + obj.destino +
-            "\n Localización Actual: " + obj.localizacionActual +
-            "\n Agencia de Transporte: " + obj.agencia +
-            "\n Estado del envío: " + obj.estado;
+            mensaje += "Propietario: " + obj.Nickusuario +
+            "Descripción: " + obj.descripcion +
+            "Peso: " + obj.peso +
+            "Origen: " + obj.origen +
+            "Destino: " + obj.destino +
+            "Localización Actual: " + obj.localizacionActual +
+            "Agencia de Transporte: " + obj.agencia +
+            "Estado del envío: " + obj.estado;
         });
     }
     else
