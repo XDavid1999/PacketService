@@ -2,7 +2,7 @@ module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
     const { Nickusuario = 'invalid' } = req.query
-    let mensaje = "";
+    let mensaje ;
     var paquetes = [];
     var i=0;
 
