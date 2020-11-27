@@ -23,8 +23,8 @@ En este apartado explicaremos brevemente qué hace nuestra función y como hemos
     - Y finalmente la función maestra, que recogerá los datos de las peticiones https que nos lleguen y hará lo deseado dependiendo de los que el usuario responda. En este caso solamente implementamos unos pocos comandos y respuestas con un switch.
 - Finalmente, teniendo los dos principales ingredientes de este proyecto: el propio bot y su código, los conectaremos con un *webhook*.
     - El flujo de trabajo será el siguiente: un mensaje se envía por telegram al bot, nuestro webhook lo "redireccionará" a nuestra función en firebase,  esta responderá al usuario en función de lo que dijo y responderemos al servidor (req) con 200 (éxito).
-    - Asociar el webhook a nuestro bot es muy sencillo, simplemente tendremos que poner, por ejemplo en nuestro navegador, la url **https://api.telegram.org/bot<token-del-bot>/setwebhook?url=<url-de-nuestra-función-en-firebase>**. Hecho esto se procederá como en el paso anterior se explicó cada vez que se envie un mensaje al bot.
-    - Si queremos comprobar que se ha establecido  nuestro nuevo webhook correctamente simplemente podremos en el navegador: **https://api.telegram.org/bot<token-del-bot>/getwebhookinfo**, con lo que deberíamos ver en la página a la que se nos redirige algo así:
+    - Asociar el webhook a nuestro bot es muy sencillo, simplemente tendremos que poner, por ejemplo en nuestro navegador, la url **https://api.telegram.org/bot"token-del-bot"/setwebhook?url="url-de-nuestra-función-en-firebase"**. Hecho esto se procederá como en el paso anterior se explicó cada vez que se envie un mensaje al bot.
+    - Si queremos comprobar que se ha establecido  nuestro nuevo webhook correctamente simplemente podremos en el navegador: **https://api.telegram.org/bot"token-del-bot"/getwebhookinfo**, con lo que deberíamos ver en la página a la que se nos redirige algo así:
     ~~~
     {
         "ok":true,
