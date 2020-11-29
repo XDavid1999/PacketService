@@ -12,9 +12,10 @@ module.exports = (req, res) => {
         });
 
     if(req.query.estado!=undefined && paquetes.length!=0)
-        if(EstadoPaquete.includes(req.query.estado)){
+        estado=req.query.estado;
+        if(EstadoPaquete.includes(estado)){
             for (let i = 0; i < paquetes.length; i++) {
-                if(paquetes[i]['estado']!=req.query.estado)
+                if(paquetes[i]['estado']!=estado)
                     paquetes.splice(i, 1);
             }
 
