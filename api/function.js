@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
-    const { Nickusuario = 'invalid' } = req.query
+    const { Nickusuario = 'invalid' } = req.query['Nickusuario']
     var paquetes = [];
 
     jsonData.forEach(function(obj) {
