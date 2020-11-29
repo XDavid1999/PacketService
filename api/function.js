@@ -40,7 +40,7 @@ module.exports = (req, res) => {
     if(paquetes.length!=0)
         res.status(200).json(paquetes);
     else    
-        res.status(200).json("Parece que no tiene paquetes en curso en el sistema. " + mensaje);
+        res.status(200).json("Parece que no tiene paquetes en curso en el sistema. " + mensaje + (req.query.estado in EstadoPaquete));
 
 }
 
