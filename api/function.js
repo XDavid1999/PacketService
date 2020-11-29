@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
-    const EstadoPaquete = Object.freeze(["EN_REPARTO", "EN_OFICINA", "ENTREGADO", "CANCELADO", "ESPERANDO_RECOGIDA_PRESENCIAL"])
+    const EstadoPaquete = ["EN_REPARTO", "EN_OFICINA", "ENTREGADO", "CANCELADO", "ESPERANDO_RECOGIDA_PRESENCIAL"];
     var paquetes = [];
     var mensaje = "";
 
