@@ -28,7 +28,7 @@ module.exports = (req, res) => {
             paquetes = [];        
         }
 
-    if(estado!=undefined && agencia != 'invalid' && paquetes.length!=0){
+    if(agencia!=undefined && agencia != 'invalid' && paquetes.length!=0){
         paquetes.forEach(function(obj) {
             if(obj.agencia!=agencia)
                 paquetes.pop(obj);
