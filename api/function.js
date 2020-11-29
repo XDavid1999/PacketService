@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
-    const EstadoPaquete = Object.freeze({"EN_REPARTO":1, "EN_OFICINA":2, "ENTREGADO":3, "CANCELADO":4, "ESPERANDO_RECOGIDA_PRESENCIAL":5})
+    const EstadoPaquete = Object.freeze(["EN_REPARTO", "EN_OFICINA", "ENTREGADO", "CANCELADO", "ESPERANDO_RECOGIDA_PRESENCIAL"])
     var paquetes = [];
     var mensaje = "";
 
@@ -12,7 +12,7 @@ module.exports = (req, res) => {
         });
 
     if(req.query.estado!=undefined && paquetes.length!=0)
-        if(req.query.estado in EstadoPaquete.values()){
+        if(req.query.estado in EstadoPaquete){
             paquetes.forEach(function(obj) {
                 if(obj.estado!=req.query.estado)
                     paquetes.pop(obj);
@@ -40,7 +40,7 @@ module.exports = (req, res) => {
     if(paquetes.length!=0)
         res.status(200).json(paquetes);
     else    
-        res.status(200).json("Parece que no tiene paquetes en curso en el sistema " + mensaje);
+        res.status(200).json("Parece que no tiene paquetes en curso en el sistema. " + mensaje);
 
 }
 
