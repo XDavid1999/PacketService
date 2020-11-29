@@ -13,7 +13,7 @@ module.exports = (req, res) => {
             paquetes.push(obj);
     });
 
-    if(estado != 'invalid' && paquetes.length!=0)
+    if(estado!=undefined && estado != 'invalid' && paquetes.length!=0)
         if(estado in EstadoPaquete.keys()){
             paquetes.forEach(function(obj) {
                 if(obj.estado!=estado)
@@ -28,7 +28,7 @@ module.exports = (req, res) => {
             paquetes = [];        
         }
 
-    if(agencia != 'invalid' && paquetes.length!=0){
+    if(estado!=undefined && agencia != 'invalid' && paquetes.length!=0){
         paquetes.forEach(function(obj) {
             if(obj.agencia!=agencia)
                 paquetes.pop(obj);
