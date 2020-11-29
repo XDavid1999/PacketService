@@ -1,7 +1,9 @@
 module.exports = (req, res) => {
 
     let jsonData = require('./datos.json');
-    const { Nickusuario = 'invalid' } = req.query
+    const { Nickusuario = 'invalid' } = req.query.Nickusuario
+    const { estado = 'invalid' } = req.query.estado
+
     var paquetes = [];
 
     jsonData.forEach(function(obj) {
@@ -12,7 +14,7 @@ module.exports = (req, res) => {
     if(paquetes.length!=0)
         res.status(200).json(paquetes);
     else    
-        res.status(200).json("Parece que " + Nickusuario['accion'] + " no tiene paquetes en curso en el sistema");
+        res.status(200).json("Parece que " + Nickusuario + estado + " no tiene paquetes en curso en el sistema");
 
 }
 
