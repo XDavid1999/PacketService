@@ -14,7 +14,7 @@ module.exports = (req, res) => {
     if(req.query.estado!=undefined && paquetes.length!=0)
         if(EstadoPaquete.includes(req.query.estado)){
             for (let i = 0; i < paquetes.length; i++) {
-                if(paquetes[i].estado!=req.query.estado)
+                if(paquetes[i]['estado']!=req.query.estado)
                     paquetes.splice(i, 1);
             }
 
@@ -27,7 +27,7 @@ module.exports = (req, res) => {
         }
 
     if(req.query.agencia!=undefined && paquetes.length!=0){
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < paquetes.length; i++) {
             if(paquetes[i].agencia!=req.query.agencia)
                 paquetes.splice(i, 1);
         }            
