@@ -6,6 +6,8 @@ module.exports = (req, res) => {
     var mensaje = "";
     
     if(req.query.Nickusuario!=undefined)
+        Nickusuario=req.query.Nickusuario;
+
         jsonData.forEach(function(obj) {
             if(obj.Nickusuario==Nickusuario)
                 paquetes.push(obj);
