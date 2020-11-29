@@ -12,7 +12,7 @@ module.exports = (req, res) => {
         });
 
     if(req.query.estado!=undefined && paquetes.length!=0)
-        if(req.query.estado in EstadoPaquete.keys()){
+        if(req.query.estado in EstadoPaquete.values()){
             paquetes.forEach(function(obj) {
                 if(obj.estado!=req.query.estado)
                     paquetes.pop(obj);
