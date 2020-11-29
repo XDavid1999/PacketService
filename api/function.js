@@ -15,7 +15,7 @@ module.exports = (req, res) => {
         if(EstadoPaquete.includes(req.query.estado)){
             for (let i = 0; i < paquetes.length; i++) {
                 if(paquetes[i].estado!=req.query.estado)
-                    paquetes.pop(paquetes[i]);
+                    paquetes.splice(i, 1);
             }
 
             if(paquetes.length==0)
@@ -29,7 +29,7 @@ module.exports = (req, res) => {
     if(req.query.agencia!=undefined && paquetes.length!=0){
         for (let i = 0; i < 5; i++) {
             if(paquetes[i].agencia!=req.query.agencia)
-                paquetes.pop(paquetes[i]);
+                paquetes.splice(i, 1);
         }            
 
         if(paquetes.length==0)
