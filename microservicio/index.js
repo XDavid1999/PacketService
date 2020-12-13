@@ -1,5 +1,5 @@
 var express = require('express');
-const {User} = require("./../src/user.js");
+const User = require("./../src/user.js");
 const {ListDator} = require("./ListDator.js");
 const logger = require('morgan');
 
@@ -15,49 +15,54 @@ var dator = new ListDator(usuarios);
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'; 
 app.set('port', (process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 5000));
 app.use(express.static(__dirname + '/public'));
-app.use(logger('tiny'))
+app.use(logger('tiny'));
 
 app.post('/users/:correo/:nombre/:apellidos/:nick/:direccion/:fnac', function(req, res){
     var newUser = new User(req.params.correo, req.params.nombre, req.params.apellidos, req.params.nick, req.params.direccion, req.params.fnac);
-    
     dator.insertar(newUser);
-    res.status(200).send(newUser)
+
+    res.status(200).send(dator.mostrar(newUser))
 });
 
-app.put('/users/:correo/:nombre/:apellidos/:direccion', function(req, res){
-    var modifyUser = new User(req.params.correo, req.params.nombre, req.params.apellidos, req.params.direccion);
+app.put('/users/:nick/:correo/:nombre/:apellidos/:direccion', function(req, res){
 
-    dator.modificar(modifyUser);
-    res.status(200).send(newUser)
+    if(dator.existe(req.params.nick)!=false){
+        var userModify = dator.modificar(req.params.nick, req.params.correo, req.params.nombre, req.params.apellidos, req.params.direccion);
+        res.status(200).send(dator.mostrar(userModify));
+    }
+    else
+        res.status(404).send("No existe el usuario con Nick: " + req.params.nick);
 });
 
 app.get('/users/:nick', function(req, res){
-    var user = dator.getByNick(req.params.nick)
+    var user = dator.getByNick(req.params.nick);
     
     if(user!=false){
-        var userInfo = user.userInfo(user);
+        var userInfo = dator.mostrar(user);
         res.status(200).send(userInfo)
     }
     else
-        response.status(404).send("No existe el usuario con Nick: " + req.params.nick);
+        res.status(404).send("No existe el usuario con Nick: " + req.params.nick);
     
-
-    res.status(200).send("Borrado " + nick);
 });
 
-app.get('/users/getAll', function(req, res){
-    var info = dator.all();
+app.get('/usersGetAll', function(req, res){
+    var info = [];
+    info = dator.all();
 
-    if(info!="")
-        res.status(200).send(info)
+    if(info.length!=0)
+        res.status(200).send(JSON.stringify(info))
     else
-        response.status(404).send("No hay aún ningún usuario en el sistema");
+        res.status(404).send("No hay aún ningún usuario en el sistema");
 });
 
 app.delete('/users/:nick', function(req, res){
-    dator.borrar(req.params.nick);
- 
-    res.status(200).send("Borrado " + req.params.nick);
+    if(dator.existe(req.params.nick)!=false){
+        dator.borrar(req.params.nick);
+        res.status(200).send("Borrado " + req.params.nick);
+    }
+    else
+        res.status(404).send("No existe el usuario con Nick: " + req.params.nick);
 });
 
 app.listen(app.get('port'), server_ip_address, function() {

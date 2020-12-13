@@ -1,6 +1,5 @@
 const { Dator} = require("./Dator.js");
-const User = require("./../src/user.js");
-const { usuarios } = require("../src/index.js");
+const { use } = require("./index.js");
 
 class ListDator extends Dator {
     constructor(usuarios) {
@@ -11,7 +10,7 @@ class ListDator extends Dator {
       insertar(usuario) {
         var duplicado =false;
 
-        usuarios.forEach(element => {
+        this._usuarios.forEach(element => {
             if(usuario.nick==element.nick || usuario.correo == element.correo){
                 duplicado=true;
                 throw new Error ('Usuario existente en el sistema');
@@ -19,65 +18,83 @@ class ListDator extends Dator {
         });
     
         if(duplicado==false)
-            usuarios.push(usuario); 
+          this._usuarios.push(usuario); 
         
       }
       
       existe(nick) {
-        usuarios.forEach(element => {
+        var existe=false;
+
+        this._usuarios.forEach(element => {
           if(nick==element.nick)
-              return true;
+              existe=true;
           });
 
-          return false;
+        return existe;
       } 
     
-      modificar(user) {
-        usuarios.forEach(element => {
-          if(user.nick==element.nick){
-            element.correo = user.correo;
-            element.nombre = user.nombre;
-            element.apellidos = user.apellidos;
-            element.direccion = user.direccion;
+      modificar(nick, correo, nombre, apellidos, direccion) {
+        var userModify;
+
+        this._usuarios.forEach(element => {
+          if(nick==element.nick){
+            element.correo = correo;
+            element.nombre = nombre;
+            element.apellidos = apellidos;
+            element.direccion = direccion;
+
+            userModify=element;
           }
         });
+
+        return userModify;
       }
       
       borrar(nick) {
-        usuarios.forEach(element => {
+        var i=0;
+
+        this._usuarios.forEach(element => {
             if(nick==element.nick)
-                usuarios.splice(i, 1);
+                this._usuarios.splice(i, 1);
 
             i++;
         });
       }
 
       getByNick(nick){
-        if(this.existe(nick))
-          usuarios.forEach(element => {
+        if(this.existe(nick)){
+          var user;
+
+          this._usuarios.forEach(element => {
             if(nick==element.nick)
-                return element;
+              user=element;
           });
+
+          return user;
+        }
         else      
           return false;
       }
   
       mostrar(user){
-        var info = "Se muestran a continuación los datos del usuario " + user.nombre +
-        "\n Apellidos: " + user._apellidos +
-        "\n Direccion: " +  user.direccion +
-        "\n Nick: " + user.nick +
-        "\n Fecha de Nacimiento: " + user.fnac +
-        "\n Correo: " + user.correo;
+
+        var info = ({
+          "Nombre"               : user.nombre,
+          "Apellidos"            : user.apellidos,
+          "Direccion"            : user.direccion,
+          "Nick"                 : user.nick,
+          "Fecha de Nacimiento"  : user.fnac,
+          "Correo"               : user.correo
+        });
       
-        return info;
+        return JSON.stringify(info);
       }
 
       all(){
-        var info="";
+        var info=[];
 
-        usuarios.forEach(element => {
-          info += element.mostrar + "\n";  
+        this._usuarios.forEach(element => {
+          info.push(this.mostrar(element));  
         });
 
         return info;
