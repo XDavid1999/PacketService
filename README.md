@@ -2,8 +2,10 @@
 
 ## Enlaces a ubicaciones relevantes para el proyecto
 
-- [Documentación](https://github.com/XDavid1999/PacketService/blob/master/docs/vercel.md) del despliegue de una función que cubre HU21 en vercel y su correcto funcionamiento.
-- [Documentación](https://github.com/XDavid1999/PacketService/blob/master/docs/firebase.md) del despliegue de una función en firebase que cubre HU20 y su correcto funcionamiento con el bot creado.
+- [Documentación](https://github.com/XDavid1999/PacketService/blob/master/docs/microservicio.md) de la API.
+
+- [Código](https://github.com/XDavid1999/PacketService/tree/master/microservicio) de la API.
+- [Test](https://github.com/XDavid1999/PacketService/tree/master/test) de la API.
 
 ## Uso del proyecto
 
