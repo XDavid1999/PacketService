@@ -12,7 +12,7 @@ gulp.task('test', function() {
 });
 
 /**Tarea para instalar dependencias del proyecto*/
-gulp.task('install', function (cb) {
+gulp.task('install', async function (cb) {
   // exec('npm install', function (err, stdout, stderr) {
   //   console.log(stdout);
   //   console.log(stderr);
@@ -20,7 +20,7 @@ gulp.task('install', function (cb) {
   // });
 })
 
-gulp.task('build', function (cb) {
+gulp.task('build', async function (cb) {
   // exec('node microservicio/index.js', function (err, stdout, stderr) {
   //   console.log(stdout);
   //   console.log(stderr);
@@ -30,7 +30,7 @@ gulp.task('build', function (cb) {
 
 
 /**Tarea por defecto, muestra las tareas posibles disponibles*/
-gulp.task('default', function(done) {
+gulp.task('default', async function(done) {
   console.log('Available Tasks: [test, install]');
   done();
 });
