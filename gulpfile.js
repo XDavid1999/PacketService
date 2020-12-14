@@ -13,19 +13,19 @@ gulp.task('test', function() {
 
 /**Tarea para instalar dependencias del proyecto*/
 gulp.task('install', function (cb) {
-  exec('npm install', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  });
+  // exec('npm install', function (err, stdout, stderr) {
+  //   console.log(stdout);
+  //   console.log(stderr);
+  //   cb(err);
+  // });
 })
 
 gulp.task('build', function (cb) {
-  exec('node microservicio/index.js', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  });
+  // exec('node microservicio/index.js', function (err, stdout, stderr) {
+  //   console.log(stdout);
+  //   console.log(stderr);
+  //   cb(err);
+  // });
 })
 
 
