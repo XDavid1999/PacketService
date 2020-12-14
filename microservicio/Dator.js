@@ -28,10 +28,6 @@ class Dator {
     getByNick(nick){
       throw new Error("'mostrar(nick)' not implemented yet");
     }
-
-    all(){
-      throw new Error("'all()' not implemented yet");
-    }
   }
   
   module.exports = { Dator };

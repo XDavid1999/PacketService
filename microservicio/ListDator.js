@@ -8,18 +8,7 @@ class ListDator extends Dator {
       }
       
       insertar(usuario) {
-        var duplicado =false;
-
-        this._usuarios.forEach(element => {
-            if(usuario.nick==element.nick || usuario.correo == element.correo){
-                duplicado=true;
-                throw new Error ('Usuario existente en el sistema');
-            }
-        });
-    
-        if(duplicado==false)
-          this._usuarios.push(usuario); 
-        
+        this._usuarios.push(usuario);        
       }
       
       existe(nick) {
@@ -87,17 +76,6 @@ class ListDator extends Dator {
           "Correo"               : user.correo
         });
       
-        return JSON.stringify(info);
-      }
-
-      all(){
-        var info=[];
-
-        this._usuarios.forEach(element => {
-          info.push(this.mostrar(element));  
-        });
-
-        return info;
       }
 }
 

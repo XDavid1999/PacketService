@@ -18,20 +18,25 @@ app.use(express.static(__dirname + '/public'));
 app.use(logger('tiny'));
 
 app.post('/users/:correo/:nombre/:apellidos/:nick/:direccion/:fnac', function(req, res){
-    var newUser = new User(req.params.correo, req.params.nombre, req.params.apellidos, req.params.nick, req.params.direccion, req.params.fnac);
-    dator.insertar(newUser);
+    if(dator.existe(req.params.nick)!=true){
+        var newUser = new User(req.params.correo, req.params.nombre, req.params.apellidos, req.params.nick, req.params.direccion, req.params.fnac);
+        dator.insertar(newUser);
+    
+        res.status(200).json(dator.mostrar(newUser))
+    }
+    else
+        res.status(404).json(JSON.stringify({"error" : "El Nick " + req.params.nick + " ya está en uso"}));
 
-    res.status(200).send(dator.mostrar(newUser))
 });
 
 app.put('/users/:nick/:correo/:nombre/:apellidos/:direccion', function(req, res){
 
     if(dator.existe(req.params.nick)!=false){
         var userModify = dator.modificar(req.params.nick, req.params.correo, req.params.nombre, req.params.apellidos, req.params.direccion);
-        res.status(200).send(dator.mostrar(userModify));
+        res.status(200).json(dator.mostrar(userModify));
     }
     else
-        res.status(404).send("No existe el usuario con Nick: " + req.params.nick);
+        res.status(404).json(JSON.stringify({"error" : "No existe el usuario con Nick " + req.params.nick}));
 });
 
 app.get('/users/:nick', function(req, res){
@@ -39,34 +44,24 @@ app.get('/users/:nick', function(req, res){
     
     if(user!=false){
         var userInfo = dator.mostrar(user);
-        res.status(200).send(userInfo)
+        res.status(200).json(JSON.stringify(userInfo));
     }
     else
-        res.status(404).send("No existe el usuario con Nick: " + req.params.nick);
+        res.status(404).json(JSON.stringify({"error" : "No existe el usuario con Nick " + req.params.nick}));
     
-});
-
-app.get('/usersGetAll', function(req, res){
-    var info = [];
-    info = dator.all();
-
-    if(info.length!=0)
-        res.status(200).send(JSON.stringify(info))
-    else
-        res.status(404).send("No hay aún ningún usuario en el sistema");
 });
 
 app.delete('/users/:nick', function(req, res){
     if(dator.existe(req.params.nick)!=false){
         dator.borrar(req.params.nick);
-        res.status(200).send("Borrado " + req.params.nick);
+        res.status(200).json(JSON.stringify({"Borrado" : req.params.nick}));
     }
     else
-        res.status(404).send("No existe el usuario con Nick: " + req.params.nick);
+        res.status(404).json(JSON.stringify({"error" : "No existe el usuario con Nick " + req.params.nick}));
 });
 
-app.listen(app.get('port'), server_ip_address, function() {
-    console.log("La aplicación corre en el puerto " + server_ip_address + ":" + app.get('port'));
-  });
+// app.listen(app.get('port'), server_ip_address, function() {
+//     console.log("La aplicación corre en el puerto " + server_ip_address + ":" + app.get('port'));
+//   });
 
   module.exports = app;
