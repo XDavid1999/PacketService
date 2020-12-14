@@ -10,11 +10,15 @@ FROM node:12.19.0-alpine3.10
 #Copiamos los archivos de dependencias
 COPY package*.json ./
 
+#Con el comando ARG podemos crear un valor por defecto, lo que
+#guardaremos será el nombre del directorio /test
+ARG DIRECTORIO_TEST=/test
+
 #La palabra reservada RUN es utilizado en la construcción del contenedor y,
 #por ello, se instalarán en este caso las dependencias de nuestro proyecto.
 #Además crea una imagen después de haberse ejecutado.
 RUN npm install && \
-chown -R node /test && \
+chown -R node $DIRECTORIO_TEST && \
 npm install --global gulp-cli && \
 rm ./package*.json && \
 rm -rf /var/lib/apt/lists/*
@@ -23,10 +27,6 @@ rm -rf /var/lib/apt/lists/*
 #Establecemos el valor de la variable de entorno para que nos encuentre el
 #directorio node_modules
 ENV PATH=/node_modules/.bin:$PATH
-
-#Con el comando ARG podemos crear un valor por defecto, lo que
-#guardaremos será el nombre del directorio /test
-ARG DIRECTORIO_TEST=/test
 
 #Nos cambiamos al directorio de test para realizarlos
 WORKDIR $DIRECTORIO_TEST
